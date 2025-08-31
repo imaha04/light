@@ -1,0 +1,568 @@
+Uri: https://fonts.googleapis.com/css2?family=Roboto&display=swap
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css2
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css-1
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v18/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4G1ilXs1Ug.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\nunitosans\v18\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4G1ilXs1Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v18/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GCC5Xs1Ug.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\nunitosans\v18\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GCC5Xs1Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v18/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4Gfy5Xs1Ug.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\nunitosans\v18\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4Gfy5Xs1Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v18/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GMS5Xs1Ug.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\nunitosans\v18\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GMS5Xs1Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v18/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GVi5Xs1Ug.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\nunitosans\v18\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GVi5Xs1Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/oswald/v56/TK3_WkUHHAIjg75cFRf3bXL8LICs169vsUZiYA.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\oswald\v56\TK3_WkUHHAIjg75cFRf3bXL8LICs169vsUZiYA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/oswald/v56/TK3_WkUHHAIjg75cFRf3bXL8LICs18NvsUZiYA.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\oswald\v56\TK3_WkUHHAIjg75cFRf3bXL8LICs18NvsUZiYA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/oswald/v56/TK3_WkUHHAIjg75cFRf3bXL8LICs1xZosUZiYA.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\oswald\v56\TK3_WkUHHAIjg75cFRf3bXL8LICs1xZosUZiYA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/oswald/v56/TK3_WkUHHAIjg75cFRf3bXL8LICs1y9osUZiYA.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\oswald\v56\TK3_WkUHHAIjg75cFRf3bXL8LICs1y9osUZiYA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/oswald/v56/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvsUZiYA.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\oswald\v56\TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvsUZiYA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbWmT.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\s\roboto\v48\KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbWmT.ttf
+Content Type: font/ttf
+
+Uri: https://nuclearphysicssitekz.netlify.app/
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\index.htm
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/bootstrap.min.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/elegant-icons.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\elegant-icons.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/font-awesome.min.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\font-awesome.min.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/magnific-popup.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\magnific-popup.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/nice-select.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\nice-select.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/owl.carousel.min.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\owl.carousel.min.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/slicknav.min.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\slicknav.min.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/css/style.css
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\css (1)\style.css
+Content Type: text/css
+
+Uri: https://nuclearphysicssitekz.netlify.app/esepter
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\esepter.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/ElegantIcons.eot
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\ElegantIcons.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/ElegantIcons.eot?
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\ElegantIcons-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/ElegantIcons.svg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\ElegantIcons.svg
+Content Type: image/svg+xml
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/ElegantIcons.ttf
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\ElegantIcons.ttf
+Content Type: font/ttf
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/ElegantIcons.woff
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\ElegantIcons.woff
+Content Type: application/font-woff
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.eot?
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.eot?v=4.7.0
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.svg?v=4.7.0
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont.svg
+Content Type: image/svg+xml
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.ttf?v=4.7.0
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont.ttf
+Content Type: font/ttf
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.woff2?v=4.7.0
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont.woff2
+Content Type: font/woff2
+
+Uri: https://nuclearphysicssitekz.netlify.app/fonts/fontawesome-webfont.woff?v=4.7.0
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\fonts\fontawesome-webfont.woff
+Content Type: application/font-woff
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Автор/Рисунок177.png
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Автор\Рисунок177.png
+Content Type: image/png
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Автор/11.jpeg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Автор\11.jpeg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Автор/22.jpeg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Автор\22.jpeg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Атом ядросы/Слайд7.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Атом ядросы\Слайд7.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ауыр ядролар/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ауыр ядролар\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ауыр ядролар/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ауыр ядролар\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ауыр ядролар/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ауыр ядролар\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ауыр ядролар/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ауыр ядролар\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Де Бройль толқындары/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Де Бройль толқындары\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Де Бройль толқындары/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Де Бройль толқындары\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Де Бройль толқындары/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Де Бройль толқындары\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Де Бройль толқындары/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Де Бройль толқындары\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/Жауаптар.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\Жауаптар.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/001.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\001.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/002.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\002.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/003.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\003.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/004.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\004.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Есептер/005.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Есептер\005.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарық қысымы/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарық қысымы\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарық қысымы/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарық қысымы\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарық қысымы/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарық қысымы\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарық қысымы/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарық қысымы\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарық қысымы/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарық қысымы\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарықтың қасиеті/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарықтың қасиеті\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарықтың қасиеті/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарықтың қасиеті\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарықтың қасиеті/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарықтың қасиеті\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарықтың қасиеті/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарықтың қасиеті\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Жарықтың қасиеті/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Жарықтың қасиеті\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Радиоактивтілік/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Радиоактивтілік\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Резерфорд тәжірбиесі/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Резерфорд тәжірбиесі\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд7.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд7.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Стефан-Больцман заңы/Слайд8.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Стефан-Больцман заңы\Слайд8.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд7.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд7.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Сәулелену түрлері/Слайд8.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Сәулелену түрлері\Слайд8.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд6.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд6.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд7.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд7.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Фотоэффект/Слайд8.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Фотоэффект\Слайд8.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ядролық реакциялар/Слайд1.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ядролық реакциялар\Слайд1.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ядролық реакциялар/Слайд2.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ядролық реакциялар\Слайд2.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ядролық реакциялар/Слайд3.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ядролық реакциялар\Слайд3.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ядролық реакциялар/Слайд4.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ядролық реакциялар\Слайд4.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/Ядролық реакциялар/Слайд5.JPG
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\Ядролық реакциялар\Слайд5.JPG
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/6464.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\6464.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/9997.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\9997.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/PH/0000.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\PH\0000.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/PH/88.jpg
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\PH\88.jpg
+Content Type: image/jpeg
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Атом құрылысы.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Атом құрылысы.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Радиоактивті элементтер қасиеті.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Радиоактивті элементтер қасиеті.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Радиоактивтілік.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Радиоактивтілік.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Тізбекті реакция.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Тізбекті реакция.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Ыдырау түрлері.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Ыдырау түрлері.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/img/video/Ядро құрылуы.mp4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\img\video\Ядро құрылуы.mp4
+Content Type: video/mp4
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/bootstrap.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\bootstrap.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/jquery-3.3.1.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\jquery-3.3.1.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/jquery.magnific-popup.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\jquery.magnific-popup.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/jquery.nice-select.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\jquery.nice-select.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/jquery.slicknav.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\jquery.slicknav.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/main.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\main.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/masonry.pkgd.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\masonry.pkgd.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/mixitup.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\mixitup.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/js/owl.carousel.min.js
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\js\owl.carousel.min.js
+Content Type: application/javascript
+
+Uri: https://nuclearphysicssitekz.netlify.app/laboratory
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\laboratory.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/test
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\test.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-1
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-1.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-10
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-10.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-11
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-11.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-2
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-2.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-3
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-3.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-4
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-4.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-5
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-5.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-6
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-6.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-7
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-7.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-8
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-8.html
+Content Type: text/html
+
+Uri: https://nuclearphysicssitekz.netlify.app/theory-9
+File Name: C:\Downloaded Web Sites\nuclearphysicssitekz.netlify.app\theory-9.html
+Content Type: text/html
+
