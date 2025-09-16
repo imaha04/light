@@ -1,802 +1,247 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Activitar Template">
-    <meta name="keywords" content="Activitar, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ядролық физика</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жарық құбылыстары – Тест</title>
 
-    <!-- Google Font -->
-    <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+  <!-- твой общий стиль, если нужен -->
+  <link rel="stylesheet" href="cssi/style.css" type="text/css">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/style.css" type="text/css">
+  <header class="header-sectioni">
+    <div class="container-fluid">
+        <div class="logo">
+            <a href="index.html"><h2 style="color:white;">Жарық құбылыстары</h2></a>
+        </div>
+        <div class="container">
+            <div class="nav-menu">
+                <nav class="mainmenu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="index.htm">Басты бет</a></li>
+                        
+                        <!-- Теориялық бөлім с выпадающим списком -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);">Теориялық бөлім</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
+                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
+                                <li><a href="theory-3.html">Линзалар</a></li>
+                                <li><a href="theory-4.html">Интерференция</a></li>
+                                <li><a href="theory-5.html">Дифракция</a></li>
+                                <li><a href="theory-6.html">Поляризация</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
+                        <li><a href="test.html">Тесттер</a></li>                          
+                        <li><a href="esepter.html">Есептер</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+
+  <style>
+    body{
+      background-image:url('img/ph/88.jpg');
+      background-size:cover; background-position:center;
+      background-attachment:fixed;
+      font-family:Arial, sans-serif; color:#fff;
+      padding:150px 20px 80px;
+    }
+    .container{
+      max-width:1000px; margin:auto;
+      background:rgba(0,0,0,.7);
+      padding:30px; border-radius:12px;
+    }
+    h1{
+      text-align:center; font-size:42px; margin:0 0 24px;
+      background:rgba(0,0,0,.45); display:inline-block;
+      padding:10px 30px; border-radius:12px;
+    }
+    h3{ font-size:28px; margin:28px 0 12px; }
+    .styled-question{
+      display:inline-block; padding:10px 20px; margin:14px 0 8px;
+      background:#f25c05; border-radius:50px;
+      font-weight:700; font-size:18px; color:#fff;
+    }
+    label{ display:block; margin-left:20px; line-height:1.5; }
+    button{
+      padding:12px 30px; font-size:18px; cursor:pointer;
+      background:#f25c05; color:#fff; border:0; border-radius:8px; margin-top:24px;
+    }
+    .result-table{
+      width:100%; margin:30px 0 0; border-collapse:collapse; background:#fff; color:#000;
+    }
+    .result-table th,.result-table td{ border:1px solid #ccc; padding:10px; text-align:center; }
+    .correct{ background:#5cb85c; color:#fff; }
+    .wrong{ background:#d9534f; color:#fff; }
+  </style>
 </head>
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+  <div class="container">
+    <h1>Жарық құбылыстары – Тест</h1>
+
+    <div id="startScreen" style="text-align:center;">
+      <button onclick="startTest()">Тестті бастау</button>
     </div>
 
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container-fluid">
-            <div class="logo">
-                <a href='index.htm'>
-                    <img src="" alt="">
-                </a>
-            </div>
-            <div class="top-social">
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-            <div class="container">
-                <div class="nav-menu">
-                    <nav class="mainmenu mobile-menu">
-                        <ul>
-                            <li class="active"><a href='index.htm'>Басты бет</a></li>
-                            <li><a href="javascript:void(0);">Теориялық бөлім</a>
-                                <ul class="dropdown">
-                                    <li><a href='theory-1.html'>Сәулелену түрлері</a></li>
-                                    <li><a href='theory-2.html'>Стефан-Больцман заңы</a></li> 
-                                    <li><a href='theory-3.html'>Фотоэффект</a></li> 
-                                    <li><a href='theory-4.html'>Жарық қысымы</a></li>
-                                    <li><a href='theory-5.html'>Жарықтың қасиеті</a></li>
-                                    <li><a href='theory-6.html'>Резерфорд тәжірибесі</a></li> 
-                                    <li><a href='theory-7.html'>Де Бройль толқындары</a></li> 
-                                    <li><a href='theory-8.html'>Радиоактивтілік</a></li> 
-                                    <li><a href='theory-9.html'>Атом ядросы</a></li>
-                                    <li><a href='theory-10.html'>Ядролық реакциялар</a></li>  
-                                    <li><a href='theory-11.html'>Ауыр ядролар</a></li>                               
-                                </ul>
-                            </li>
-                            <li><a href='laboratory.html'>Зертханалық жұмыстар</a></li>                         
-                            <li><a href='test.html'>Тесттер</a></li>                          
-                            <li><a href='esepter.html'>Есептер</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
+    <form id="quizForm" style="display:none;">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Ядролық физика – Тест</title>
-        <style>
-             body {
-            background-image: url('img/ph/88.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            color: white;
-            padding: 150px 20px 80px 20px;
-        }
-        .center-wrapper {
-            text-align: center;
-        }
-        h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            margin-top: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 12px;
-            color: white;
-        }
-            
-            .container {
-                max-width: 1000px;
-                margin: auto;
-                background-color: rgba(0,0,0,0.7);
-                padding: 30px;
-                border-radius: 12px;
-            }
-            h2 {
-                text-align: center;
-                font-size: 36px;
-                margin-bottom: 30px;
-            }
-            h3 {
-                text-align: center;
-            color: white;
-            font-size: 40px;
-            margin-top: 40px;
-            }
-            p {
-                font-size: 18px;
-                margin: 10px 0 5px;
-            }
-            label {
-                display: block;
-                margin-left: 20px;
-            }
-            button {
-                padding: 12px 30px;
-                font-size: 18px;
-                background-color: #f25c05;
-                border: none;
-                border-radius: 8px;
-                color: white;
-                margin-top: 30px;
-                cursor: pointer;
-            }
-            .result-table th, .result-table td {
-                padding: 10px;
-                text-align: center;
-                border: 1px solid #ccc;
-            }
-            .result-table {
-                margin: 30px auto;
-                border-collapse: collapse;
-                width: 100%;
-                background-color: white;
-                color: black;
-            }
-            .correct {
-                background-color: #5cb85c !important;
-                color: white;
-            }
-            .wrong {
-                background-color: #d9534f !important;
-                color: white;
-            }
-        </style>
+      <!-- 1-нұсқа -->
+      <h3>1-нұсқа</h3>
 
-<style>
-    .styled-question {
-        display: inline-block;
-        padding: 20px 30px;
-        background-color: #f25c05;
-        border-radius: 50px;
-        color: white;
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-</style>
+      <div class="styled-question">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
+      <label><input type="radio" name="q1" value="A"> A) 3·10⁵ м/с</label>
+      <label><input type="radio" name="q1" value="B"> B) 3·10⁶ м/с</label>
+      <label><input type="radio" name="q1" value="C"> C) 3·10⁷ м/с</label>
+      <label><input type="radio" name="q1" value="D"> D) 3·10⁸ м/с</label>
 
-        </head>
-        <body>
-            <div class="center-wrapper" style="text-align: center;">
-                <h2 style="margin-top: 120px; font-size: 48px;">Ядролық физика</h2>
-            </div>
-        </body>
-    
-    <body>
-    <div class="container">
-        <h2></h2>
-        <div id="startScreen" style="text-align: center;">
-            <button onclick="startTest()">Тестті бастау</button>
-        </div>
-        <form id="quizForm" style="display: none;">
-            <h3 style="text-align: left; color: white; font-size: 48px; margin-left: 50px;">№1 Тест</h3>
+      <div class="styled-question">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен шағылған сәуле арасындағы бұрыш –</div>
+      <label><input type="radio" name="q2" value="A"> A) Шағылу бұрышы</label>
+      <label><input type="radio" name="q2" value="B"> B) Түсу бұрышы</label>
+      <label><input type="radio" name="q2" value="C"> C) Сыну бұрышы</label>
+      <label><input type="radio" name="q2" value="D"> D) Шағылудың шектік бұрышы</label>
 
-            <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-                1. Ядроның массалық саны дегеніміз не?
-            </div>
-    <label><input type="radio" name="q1" value="A"> A) Протондар саны</label><br>
-    <label><input type="radio" name="q1" value="B"> B) Нейтрондар саны</label><br>
-    <label><input type="radio" name="q1" value="C"> C) Протондар мен нейтрондар қосындысы</label><br>
-    <label><input type="radio" name="q1" value="D"> D) Электрондар саны</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        2. Атом ядросының зарядтық саны нені көрсетеді?
-    </div>
-    <label><input type="radio" name="q2" value="A"> A) Электрондар санын</label><br>
-    <label><input type="radio" name="q2" value="B"> B) Протондар санын</label><br>
-    <label><input type="radio" name="q2" value="C"> C) Нейтрондар санын</label><br>
-    <label><input type="radio" name="q2" value="D"> D) Нуклондар санын</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        3. Радиоактивті ыдырау дегеніміз не?
-    </div>
-    <label><input type="radio" name="q3" value="A"> A) Электронның ядроға енуі</label><br>
-    <label><input type="radio" name="q3" value="B"> B) Атом ядросының тұрақты бөлшектерге өздігінен ыдырауы</label><br>
-    <label><input type="radio" name="q3" value="C"> C) Электрондардың орбитадан шығуы</label><br>
-    <label><input type="radio" name="q3" value="D"> D) Нейтрондардың бірігуі</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        4. Ядролық реакция кезінде массаның азаю себебі:
-    </div>
-    <label><input type="radio" name="q4" value="A"> A) Уақыттың өзгеруінен</label><br>
-    <label><input type="radio" name="q4" value="B"> B) Энергияның жұтылуы</label><br>
-    <label><input type="radio" name="q4" value="C"> C) Энергияның бөлінуі</label><br>
-    <label><input type="radio" name="q4" value="D"> D) Температураның артуы</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        5. Есеп: Уран-238 ядросында 92 протон бар. Нейтрондар саны қанша?
-    </div>
-    <label><input type="radio" name="q5" value="A"> A) 238</label><br>
-    <label><input type="radio" name="q5" value="B"> B) 92</label><br>
-    <label><input type="radio" name="q5" value="C"> C) 146</label><br>
-    <label><input type="radio" name="q5" value="D"> D) 184</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        6. Альфа-бөлшек құрамында неше протон мен неше нейтрон бар?
-    </div>
-    <label><input type="radio" name="q6" value="A"> A) 1 протон, 1 нейтрон</label><br>
-    <label><input type="radio" name="q6" value="B"> B) 2 протон, 2 нейтрон</label><br>
-    <label><input type="radio" name="q6" value="C"> C) 2 протон, 1 нейтрон</label><br>
-    <label><input type="radio" name="q6" value="D"> D) 3 протон, 2 нейтрон</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        7. Есеп: Егер радий-226 ядросы альфа-бөлшек шығаратын болса, пайда болған ядроның массалық және зарядтық саны қандай?
-    </div>
-    <label><input type="radio" name="q7" value="A"> A) 222, 86</label><br>
-    <label><input type="radio" name="q7" value="B"> B) 228, 88</label><br>
-    <label><input type="radio" name="q7" value="C"> C) 224, 86</label><br>
-    <label><input type="radio" name="q7" value="D"> D) 222, 88</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        8. Бета-ыдырау кезінде не өзгереді?
-    </div>
-    <label><input type="radio" name="q8" value="A"> A) Протон нейтронға айналады</label><br>
-    <label><input type="radio" name="q8" value="B"> B) Нейтрон протонға айналады</label><br>
-    <label><input type="radio" name="q8" value="C"> C) Нейтрон мен протон бірігеді</label><br>
-    <label><input type="radio" name="q8" value="D"> D) Электрон ядроға түседі</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        9. Ядролық реакция кезінде энергияның сақталу заңы қалай орындалады?
-    </div>
-    <label><input type="radio" name="q9" value="A"> A) Тек масса сақталады</label><br>
-    <label><input type="radio" name="q9" value="B"> B) Энергия мен масса бірге сақталады</label><br>
-    <label><input type="radio" name="q9" value="C"> C) Энергия жоғалады</label><br>
-    <label><input type="radio" name="q9" value="D"> D) Тек импульс сақталады</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        10. Жасанды радиоактивтілік алғаш рет кім ашты?
-    </div>
-    <label><input type="radio" name="q10" value="A"> A) Беккерель</label><br>
-    <label><input type="radio" name="q10" value="B"> B) Кюри жұбы</label><br>
-    <label><input type="radio" name="q10" value="C"> C) Резерфорд</label><br>
-    <label><input type="radio" name="q10" value="D"> D) Ирен және Фредерик Жолио-Кюри</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        11. Ядролық синтездің басты шарты:
-    </div>
-    <label><input type="radio" name="q11" value="A"> A) Жоғары температура мен қысым</label><br>
-    <label><input type="radio" name="q11" value="B"> B) Төмен температура</label><br>
-    <label><input type="radio" name="q11" value="C"> C) Уақыттың баяулауы</label><br>
-    <label><input type="radio" name="q11" value="D"> D) Электр өрісінің әсері</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        12. Есеп: 1 г уран-235 толық бөлінгенде шамамен қанша энергия бөлінеді?
-    </div>
-    <label><input type="radio" name="q12" value="A"> A) 1 Дж</label><br>
-    <label><input type="radio" name="q12" value="B"> B) 1 кДж</label><br>
-    <label><input type="radio" name="q12" value="C"> C) 8,2×10^13 Дж</label><br>
-    <label><input type="radio" name="q12" value="D"> D) 1×10^3 Дж</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        13. Тізбекті ядролық реакция кезінде не болуы тиіс?
-    </div>
-    <label><input type="radio" name="q13" value="A"> A) Барлық нейтрондар жоғалады</label><br>
-    <label><input type="radio" name="q13" value="B"> B) Әр реакция келесі реакцияны тудырады</label><br>
-    <label><input type="radio" name="q13" value="C"> C) Энергия жұтылады</label><br>
-    <label><input type="radio" name="q13" value="D"> D) Жылу төмендейді</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        14. Ядролық реакторда нейтронды баяулатушы материал ретінде не қолданылады?
-    </div>
-    <label><input type="radio" name="q14" value="A"> A) Сутегі</label><br>
-    <label><input type="radio" name="q14" value="B"> B) Гелий</label><br>
-    <label><input type="radio" name="q14" value="C"> C) Графит немесе ауыр су</label><br>
-    <label><input type="radio" name="q14" value="D"> D) Оттегі</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        15. Радиоактивті изотоптардың медицинада қолданылуының басты себебі:
-    </div>
-    <label><input type="radio" name="q15" value="A"> A) Энергия өндіру</label><br>
-    <label><input type="radio" name="q15" value="B"> B) Зертханалық тәжірибелер</label><br>
-    <label><input type="radio" name="q15" value="C"> C) Диагностика және емдеу</label><br>
-    <label><input type="radio" name="q15" value="D"> D) Металдарды қыздыру
-        <h3 style="text-align: left; color: white; font-size: 48px; margin-left: 50px;">№2 Тест</h3>
+      <div class="styled-question">3. Вакуумнан мөлдір ортаға өткен кезде жарық жылдамдығы неше есе азаятынын көрсететін шама –</div>
+      <label><input type="radio" name="q3" value="A"> A) Абсолют сыну көрсеткіші</label>
+      <label><input type="radio" name="q3" value="B"> B) Салыстырмалы сыну көрсеткіші</label>
+      <label><input type="radio" name="q3" value="C"> C) Ортаның мөлдірлігі</label>
+      <label><input type="radio" name="q3" value="D"> D) Ортаның оптикалық тығыздығы</label>
 
-        <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-            1. Радиоактивті ыдырау жылдамдығы немен сипатталады?
-        </div>
-    <label><input type="radio" name="q16" value="A"> A) Электр өрісімен</label><br>
-    <label><input type="radio" name="q16" value="B"> B) Жартылай ыдырау кезеңімен</label><br>
-    <label><input type="radio" name="q16" value="C"> C) Қысыммен</label><br>
-    <label><input type="radio" name="q16" value="D"> D) Температурамен</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        2. Жартылай ыдырау кезеңі дегеніміз не?
-    </div>
-    <label><input type="radio" name="q17" value="A"> A) Барлық ядролар ыдырайтын уақыт</label><br>
-    <label><input type="radio" name="q17" value="B"> B) Жарты ядро ыдырайтын уақыт</label><br>
-    <label><input type="radio" name="q17" value="C"> C) Бір бөлшек шығу уақыты</label><br>
-    <label><input type="radio" name="q17" value="D"> D) Реакция басталу уақыты</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        3. Ядролық бөліну реакциясы кезінде пайда болатын бөлшектер:
-    </div>
-    <label><input type="radio" name="q18" value="A"> A) Альфа-бөлшек</label><br>
-    <label><input type="radio" name="q18" value="B"> B) Протон</label><br>
-    <label><input type="radio" name="q18" value="C"> C) Нейтрон</label><br>
-    <label><input type="radio" name="q18" value="D"> D) Электрон</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        4. Атом электр станциясында энергия қалай өндіріледі?
-    </div>
-    <label><input type="radio" name="q19" value="A"> A) Механикалық қозғалыстан</label><br>
-    <label><input type="radio" name="q19" value="B"> B) Химиялық реакциядан</label><br>
-    <label><input type="radio" name="q19" value="C"> C) Ядролық ыдыраудан</label><br>
-    <label><input type="radio" name="q19" value="D"> D) Электр тогынан</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        5. Есеп: Егер бастапқыда 80 г радиоактивті зат бар болса, ал оның жартылай ыдырау кезеңі – 2 күн болса, 6 күннен кейін қанша зат қалады?
-    </div>
-    <label><input type="radio" name="q20" value="A"> A) 40 г</label><br>
-    <label><input type="radio" name="q20" value="B"> B) 20 г</label><br>
-    <label><input type="radio" name="q20" value="C"> C) 10 г</label><br>
-    <label><input type="radio" name="q20" value="D"> D) 5 г</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        6. Ядролық синтез қайда табиғи түрде жүреді?
-    </div>
-    <label><input type="radio" name="q21" value="A"> A) Жерде</label><br>
-    <label><input type="radio" name="q21" value="B"> B) Электр станциясында</label><br>
-    <label><input type="radio" name="q21" value="C"> C) Күнде және жұлдыздарда</label><br>
-    <label><input type="radio" name="q21" value="D"> D) Мұздықтарда</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        7. Қауіпті радиоактивті сәулеленуден қорғану үшін не қолданылады?
-    </div>
-    <label><input type="radio" name="q22" value="A"> A) Қағаз</label><br>
-    <label><input type="radio" name="q22" value="B"> B) Пластик</label><br>
-    <label><input type="radio" name="q22" value="C"> C) Қалың қорғасын немесе бетон</label><br>
-    <label><input type="radio" name="q22" value="D"> D) Ағаш</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        8. Есеп: Егер изотоптың жартылай ыдырау кезеңі 1 сағат болса, 3 сағаттан кейін бастапқы мөлшердің қандай бөлігі қалады?
-    </div>
-    <label><input type="radio" name="q23" value="A"> A) 1/2</label><br>
-    <label><input type="radio" name="q23" value="B"> B) 1/3</label><br>
-    <label><input type="radio" name="q23" value="C"> C) 1/4</label><br>
-    <label><input type="radio" name="q23" value="D"> D) 1/8</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        9. Протон-нейтрон байланысы нәтижесінде пайда болатын күш:
-    </div>
-    <label><input type="radio" name="q24" value="A"> A) Гравитациялық</label><br>
-    <label><input type="radio" name="q24" value="B"> B) Электрлік</label><br>
-    <label><input type="radio" name="q24" value="C"> C) Ядролық</label><br>
-    <label><input type="radio" name="q24" value="D"> D) Магниттік</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        10. Жарықтың қысымы алғаш рет кіммен тәжірибеде дәлелденді?
-    </div>
-    <label><input type="radio" name="q25" value="A"> A) Планк</label><br>
-    <label><input type="radio" name="q25" value="B"> B) Герц</label><br>
-    <label><input type="radio" name="q25" value="C"> C) Лебедев</label><br>
-    <label><input type="radio" name="q25" value="D"> D) Резерфорд</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        11. Массаның энергияға айналуын сипаттайтын Эйнштейн формуласы:
-    </div>
-    <label><input type="radio" name="q26" value="A"> A) F = ma</label><br>
-    <label><input type="radio" name="q26" value="B"> B) E = mc²</label><br>
-    <label><input type="radio" name="q26" value="C"> C) V = IR</label><br>
-    <label><input type="radio" name="q26" value="D"> D) P = F/S</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        12. Есеп: Егер массаның 0,001 кг бөлігі энергияға айналса, қанша энергия бөлінеді? (с = 3×10⁸ м/с)
-    </div>
-    <label><input type="radio" name="q27" value="A"> A) 3×10⁴ Дж</label><br>
-    <label><input type="radio" name="q27" value="B"> B) 9×10¹² Дж</label><br>
-    <label><input type="radio" name="q27" value="C"> C) 3×10⁶ Дж</label><br>
-    <label><input type="radio" name="q27" value="D"> D) 9×10⁸ Дж</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        13. Радиоактивті сәулеленудің тірі организмге әсері:
-    </div>
-    <label><input type="radio" name="q28" value="A"> A) Баяулау</label><br>
-    <label><input type="radio" name="q28" value="B"> B) Улы заттар түзілуі</label><br>
-    <label><input type="radio" name="q28" value="C"> C) Генетикалық өзгерістер және аурулар</label><br>
-    <label><input type="radio" name="q28" value="D"> D) Электр зарядын жоғалту</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        14. Альфа-ыдырау кезінде ядроның массалық саны қалай өзгереді?
-    </div>
-    <label><input type="radio" name="q29" value="A"> A) Өзгермейді</label><br>
-    <label><input type="radio" name="q29" value="B"> B) 2-ге азаяды</label><br>
-    <label><input type="radio" name="q29" value="C"> C) 4-ке азаяды</label><br>
-    <label><input type="radio" name="q29" value="D"> D) 1-ге азаяды</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        15. Радиоактивті изотоптар қай салада кеңінен қолданылады?
-    </div>
-    <label><input type="radio" name="q30" value="A"> A) Кино өндірісінде</label><br>
-    <label><input type="radio" name="q30" value="B"> B) Халық шаруашылығында</label><br>
-    <label><input type="radio" name="q30" value="C"> C) Құрылыс саласында</label><br>
-    <label><input type="radio" name="q30" value="D"> D) Медицина мен археологияда
-        <h3 style="text-align: left; color: white; font-size: 48px; margin-left: 50px;">№3 Тест</h3>
+      <div class="styled-question">4. Шағылу заңы негізінде түсу бұрышы –</div>
+      <label><input type="radio" name="q4" value="A"> A) Сыну бұрышына тең</label>
+      <label><input type="radio" name="q4" value="B"> B) Шағылу бұрышының екі еселік мәніне тең</label>
+      <label><input type="radio" name="q4" value="C"> C) Шағылу бұрышына тең</label>
+      <label><input type="radio" name="q4" value="D"> D) Шағылған сәуле мен беттiң жазықтығы арасындағы бұрышқа тең</label>
 
-        <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-            1. Нуклон дегеніміз не?
-        </div>
-    <label><input type="radio" name="q31" value="A"> A) Электрон</label><br>
-    <label><input type="radio" name="q31" value="B"> B) Протон мен нейтрон</label><br>
-    <label><input type="radio" name="q31" value="C"> C) Нейтрон</label><br>
-    <label><input type="radio" name="q31" value="D"> D) Альфа-бөлшек</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        2. Изотоптар дегеніміз не?
-    </div>
-    <label><input type="radio" name="q32" value="A"> A) Бірдей нейтрон саны</label><br>
-    <label><input type="radio" name="q32" value="B"> B) Бірдей массалық саны</label><br>
-    <label><input type="radio" name="q32" value="C"> C) Бірдей протон саны, әртүрлі нейтрон саны</label><br>
-    <label><input type="radio" name="q32" value="D"> D) Әртүрлі химиялық элементтер</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        3. Фотоэффект құбылысын алғаш байқаған кім?
-    </div>
-    <label><input type="radio" name="q33" value="A"> A) Эйнштейн</label><br>
-    <label><input type="radio" name="q33" value="B"> B) Герц</label><br>
-    <label><input type="radio" name="q33" value="C"> C) Планк</label><br>
-    <label><input type="radio" name="q33" value="D"> D) Бор</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        4. Фотоэффект кезінде электрон қалай босап шығады?
-    </div>
-    <label><input type="radio" name="q34" value="A"> A) Электр өрісі әсерінен</label><br>
-    <label><input type="radio" name="q34" value="B"> B) Жылулық қозумен</label><br>
-    <label><input type="radio" name="q34" value="C"> C) Жарық энергиясының әсерінен</label><br>
-    <label><input type="radio" name="q34" value="D"> D) Магнит өрісі әсерінен</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        5. Фотоэффекттің энергетикалық шарты:
-    </div>
-    <label><input type="radio" name="q35" value="A"> A) hν<aшығуh\nu></aшығуh\nu><aшығу>>    </aшығу></label><br>
-    <label><input type="radio" name="q35" value="B"> B) hν>Aшығуh\nu > A_{\text{шығу}}hν>Aшығу​</label><br>
-    <label><input type="radio" name="q35" value="C"> C) Aшығу=0A_{\text{шығу}} = 0Aшығу​=0</label><br>
-    <label><input type="radio" name="q35" value="D"> D) hν=0h\nu = 0hν=0</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        6. Есеп: Шығу жұмысы 2 эВ болатын металл үшін фотоэффект байқалуы үшін жарықтың ең кіші жиілігі қандай? (h = 6,63×10⁻³⁴ Дж·с, 1 эВ = 1,6×10⁻¹⁹ Дж)
-    </div>
-    <label><input type="radio" name="q36" value="A"> A) 4,8×10¹⁴ Гц</label><br>
-    <label><input type="radio" name="q36" value="B"> B) 3,0×10¹⁴ Гц</label><br>
-    <label><input type="radio" name="q36" value="C"> C) 1,2×10¹⁴ Гц</label><br>
-    <label><input type="radio" name="q36" value="D"> D) 1,0×10¹⁵ Гц</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        7. Жарықтың кванттық теориясын енгізген кім?
-    </div>
-    <label><input type="radio" name="q37" value="A"> A) Ньютон</label><br>
-    <label><input type="radio" name="q37" value="B"> B) Эйнштейн</label><br>
-    <label><input type="radio" name="q37" value="C"> C) Планк</label><br>
-    <label><input type="radio" name="q37" value="D"> D) Де Бройль</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        8. Фотонның массасы қандай?
-    </div> 
-    <label><input type="radio" name="q38" value="A"> A) Электрон массасына тең</label><br>
-    <label><input type="radio" name="q38" value="B"> B) Протон массасына тең</label><br>
-    <label><input type="radio" name="q38" value="C"> C) 0</label><br>
-    <label><input type="radio" name="q38" value="D"> D) Нейтрон массасына тең</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        9. Фотоэффект заңдарының бірі:
-    </div> 
-    <label><input type="radio" name="q39" value="A"> A) Тоқ жиілігі жарық қарқындылығына тәуелді</label><br>
-    <label><input type="radio" name="q39" value="B"> B) Тоқ тек жарық жиілігіне тәуелді</label><br>
-    <label><input type="radio" name="q39" value="C"> C) Тоқ тек жарықтың түсу бұрышына тәуелді</label><br>
-    <label><input type="radio" name="q39" value="D"> D) Тоқ тек айна сапасына тәуелді</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        10. Есеп: Егер фотон энергиясы 5 эВ болса, ал шығу жұмысы 3 эВ болса, электрон қандай кинетикалық энергиямен ұшып шығады?
-    </div> 
-    <label><input type="radio" name="q40" value="A"> A) 1 эВ</label><br>
-    <label><input type="radio" name="q40" value="B"> B) 2 эВ</label><br>
-    <label><input type="radio" name="q40" value="C"> C) 3 эВ</label><br>
-    <label><input type="radio" name="q40" value="D"> D) 5 эВ</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        11. Фотоэффекттің тоқталу потенциалы немен өлшенеді?
-    </div>
-    <label><input type="radio" name="q41" value="A"> A) Ампермен</label><br>
-    <label><input type="radio" name="q41" value="B"> B) Вольтпен</label><br>
-    <label><input type="radio" name="q41" value="C"> C) Джоульмен</label><br>
-    <label><input type="radio" name="q41" value="D"> D) Ньютонмен</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        12. Электронның жарықпен шығарылуы қай шартта болмайды?
-    </div>
-    <label><input type="radio" name="q42" value="A"> A) hν < A</label><br>
-    <label><input type="radio" name="q42" value="B"> B) hν > A</label><br>
-    <label><input type="radio" name="q42" value="C"> C) hν = A</label><br>
-    <label><input type="radio" name="q42" value="D"> D) Жарық болмаса</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        13. Фотоэффект құбылысы қай салада қолданылады?
-    </div>
-    <label><input type="radio" name="q43" value="A"> A) Химия</label><br>
-    <label><input type="radio" name="q43" value="B"> B) Фотоэлементтер, күн батареясы</label><br>
-    <label><input type="radio" name="q43" value="C"> C) Биология</label><br>
-    <label><input type="radio" name="q43" value="D"> D) География</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        14. Фотонның энергиясы қалай есептеледі?
-    </div>
-    <label><input type="radio" name="q44" value="A"> A) E = mc²</label><br>
-    <label><input type="radio" name="q44" value="B"> B) E = hf</label><br>
-    <label><input type="radio" name="q44" value="C"> C) E = ma</label><br>
-    <label><input type="radio" name="q44" value="D"> D) E = pt</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        15. Фотонның импульсі қалай анықталады?
-    </div>
-    <label><input type="radio" name="q45" value="A"> A) p = E/c</label><br>
-    <label><input type="radio" name="q45" value="B"> B) p = mc²</label><br>
-    <label><input type="radio" name="q45" value="C"> C) p = F/t</label><br>
-    <label><input type="radio" name="q45" value="D"> D) p = mv
-        <h3 style="text-align: left; color: white; font-size: 48px; margin-left: 50px;">№4 Тест</h3>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        1. Резерфорд тәжірибесі нені дәлелдеді?
-    </div>
-    <label><input type="radio" name="q46" value="A"> A) Электрон бұлт бар екенін</label><br>
-    <label><input type="radio" name="q46" value="B"> B) Атомның ядросы бар екенін</label><br>
-    <label><input type="radio" name="q46" value="C"> C) Атомның үздіксіз массасы</label><br>
-    <label><input type="radio" name="q46" value="D"> D) Электронның толқындық қасиеті</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        2. Альфа-бөлшек арқылы шашырау тәжірибесі не көрсетті?
-    </div>
-    <label><input type="radio" name="q47" value="A"> A) Барлық бөлшектер өтіп кетеді</label><br>
-    <label><input type="radio" name="q47" value="B"> B) Көбі шашырайды</label><br>
-    <label><input type="radio" name="q47" value="C"> C) Сирек шашырау, тығыз ядро бар екенін</label><br>
-    <label><input type="radio" name="q47" value="D"> D) Электрондар шашырайды</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        3. Резерфорд моделі бойынша атом қандай?
-    </div>
-    <label><input type="radio" name="q48" value="A"> A) Қатты шар</label><br>
-    <label><input type="radio" name="q48" value="B"> B) Тұтас масса</label><br>
-    <label><input type="radio" name="q48" value="C"> C) Ядро мен электрондардан тұратын бос кеңістік</label><br>
-    <label><input type="radio" name="q48" value="D"> D) Электрон қабаты</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        4. Бор постулаттарының бірі:
-    </div>
-    <label><input type="radio" name="q49" value="A"> A) Электрон кез келген орбитамен айналады</label><br>
-    <label><input type="radio" name="q49" value="B"> B) Электрон қозғалысы үздіксіз энергия шығарады</label><br>
-    <label><input type="radio" name="q49" value="C"> C) Электрон тек рұқсат етілген орбиталарда айналады</label><br>
-    <label><input type="radio" name="q49" value="D"> D) Электрон ядро ішінде болады</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        5. Бор теориясы қай элементке арналған?
-    </div>
-    <label><input type="radio" name="q50" value="A"> A) Гелий</label><br>
-    <label><input type="radio" name="q50" value="B"> B) Сутек</label><br>
-    <label><input type="radio" name="q50" value="C"> C) Оттегі</label><br>
-    <label><input type="radio" name="q50" value="D"> D) Көміртек</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        6. Бор моделіндегі энергетикалық деңгейлердің айырмашылығы неде?
-    </div>
-    <label><input type="radio" name="q51" value="A"> A) Бірдей энергия</label><br>
-    <label><input type="radio" name="q51" value="B"> B) Сызықты өсу</label><br>
-    <label><input type="radio" name="q51" value="C"> C) Деңгейлер арасындағы энергия айырмасы квантталған</label><br>
-    <label><input type="radio" name="q51" value="D"> D) Үздіксіз өсу</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        7. Есеп: Егер электрон сутектегі екінші деңгейден бірінші деңгейге өтсе, қандай сәуле шығарылады?
-    </div>
-    <label><input type="radio" name="q52" value="A"> A) Электрон</label><br>
-    <label><input type="radio" name="q52" value="B"> B) Альфа-бөлшек</label><br>
-    <label><input type="radio" name="q52" value="C"> C) Фотон</label><br>
-    <label><input type="radio" name="q52" value="D"> D) Нейтрон</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        8. Франк және Герц тәжірибесінің нәтижесі:
-    </div>    
-    <label><input type="radio" name="q53" value="A"> A) Электрон толқыны</label><br>
-    <label><input type="radio" name="q53" value="B"> B) Фотоэффект</label><br>
-    <label><input type="radio" name="q53" value="C"> C) Энергия квантталуы</label><br>
-    <label><input type="radio" name="q53" value="D"> D) Масса сақталуы</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        9. Франк-Герц тәжірибесінде қолданылған элемент:
-    </div>  
-    <label><input type="radio" name="q54" value="A"> A) Сутек</label><br>
-    <label><input type="radio" name="q54" value="B"> B) Неон</label><br>
-    <label><input type="radio" name="q54" value="C"> C) Сынап</label><br>
-    <label><input type="radio" name="q54" value="D"> D) Көміртек</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        10. Есеп: Егер электронға 10,2 эВ энергия берілсе, ол сутек атомының қай деңгейіне өтеді?
-    </div>
-    <label><input type="radio" name="q55" value="A"> A) n = 2</label><br>
-    <label><input type="radio" name="q55" value="B"> B) n = 3</label><br>
-    <label><input type="radio" name="q55" value="C"> C) n = 4</label><br>
-    <label><input type="radio" name="q55" value="D"> D) n = 1</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        11. Резерфорд моделінің кемшілігі:
-    </div>
-    <label><input type="radio" name="q56" value="A"> A) Электрон орбитада тұра алмайды</label><br>
-    <label><input type="radio" name="q56" value="B"> B) Ядро болмайды</label><br>
-    <label><input type="radio" name="q56" value="C"> C) Энергия үнемі шығарылады, атом тұрақсыз</label><br>
-    <label><input type="radio" name="q56" value="D"> D) Энергия сақталмайды</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        12. Бор теориясы қай физикалық заңмен сәйкес келеді?
-    </div>
-    <label><input type="radio" name="q57" value="A"> A) Кванттық теориямен</label><br>
-    <label><input type="radio" name="q57" value="B"> B) Классикалық механикамен</label><br>
-    <label><input type="radio" name="q57" value="C"> C) Электростатикамен</label><br>
-    <label><input type="radio" name="q57" value="D"> D) Динамикамен</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        13. Электронның энергиясы неге байланысты?
-    </div>
-    <label><input type="radio" name="q58" value="A"> A) Массаға</label><br>
-    <label><input type="radio" name="q58" value="B"> B) Жылдамдыққа</label><br>
-    <label><input type="radio" name="q58" value="C"> C) Орбитаның номеріне</label><br>
-    <label><input type="radio" name="q58" value="D"> D) Температураға</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        14. Электрон орбиталарының радиусы:
-    </div>
-    <label><input type="radio" name="q59" value="A"> A) Үнемі бірдей</label><br>
-    <label><input type="radio" name="q59" value="B"> B) Пропорционал энергияға</label><br>
-    <label><input type="radio" name="q59" value="C"> C) Кванттық сандармен анықталады</label><br>
-    <label><input type="radio" name="q59" value="D"> D) Жылдамдыққа тәуелді</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        15. Квантталған энергияның мағынасы:
-    </div>
-    <label><input type="radio" name="q60" value="A"> A) Үздіксіз мән</label><br>
-    <label><input type="radio" name="q60" value="B"> B) Кез келген сан</label><br>
-    <label><input type="radio" name="q60" value="C"> C) Белгілі дискретті мәндер</label><br>
-    <label><input type="radio" name="q60" value="D"> D) Кездейсоқ шамалар
-        <h3 style="text-align: left; color: white; font-size: 48px; margin-left: 50px;">№5 Тест</h3>
+      <div class="styled-question">5. Линзаның сындыру қабілетін сипаттайтын физикалық шама –</div>
+      <label><input type="radio" name="q5" value="A"> A) Линзаның үлкеюі</label>
+      <label><input type="radio" name="q5" value="B"> B) Линзаның фокусы</label>
+      <label><input type="radio" name="q5" value="C"> C) Линзаның оптикалық күші</label>
+      <label><input type="radio" name="q5" value="D"> D) Абсолют сыну көрсеткіші</label>
 
-        <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-            1. Де Бройль гипотезасы бойынша бөлшектердің толқын ұзындығы:
-        </div>
-    <label><input type="radio" name="q61" value="A"> A) λ = h/p</label><br>
-    <label><input type="radio" name="q61" value="B"> B) λ = p/h</label><br>
-    <label><input type="radio" name="q61" value="C"> C) λ = mc</label><br>
-    <label><input type="radio" name="q61" value="D"> D) λ = h·f</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        2. Электронның толқындық қасиетін кім тәжірибе жүзінде дәлелдеді?
-    </div>
-    <label><input type="radio" name="q62" value="A"> A) Бор</label><br>
-    <label><input type="radio" name="q62" value="B"> B) Томсон</label><br>
-    <label><input type="radio" name="q62" value="C"> C) Дэвиссон және Джермер</label><br>
-    <label><input type="radio" name="q62" value="D"> D) Герц</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        3. Лазер дегеніміз не?
-    </div>
-    <label><input type="radio" name="q63" value="A"> A) Жарықты сөндіретін құрылғы</label><br>
-    <label><input type="radio" name="q63" value="B"> B) Жылу көзі</label><br>
-    <label><input type="radio" name="q63" value="C"> C) Когерентті сәуле шығаратын құрылғы</label><br>
-    <label><input type="radio" name="q63" value="D"> D) Электр таратқыш</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        4. Лазерлік сәуленің басты қасиеті:
-    </div>
-    <label><input type="radio" name="q64" value="A"> A) Шашыраңқы</label><br>
-    <label><input type="radio" name="q64" value="B"> B) Әрқашан көрінбейді</label><br>
-    <label><input type="radio" name="q64" value="C"> C) Монохроматтық және когеренттік</label><br>
-    <label><input type="radio" name="q64" value="D"> D) Кездейсоқ бағытта таралады</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        5. Лазерлер қай салада кең қолданылады?
-    </div>
-    <label><input type="radio" name="q65" value="A"> A) Географияда</label><br>
-    <label><input type="radio" name="q65" value="B"> B) Медицина, байланыс, техника</label><br>
-    <label><input type="radio" name="q65" value="C"> C) Бухгалтерияда</label><br>
-    <label><input type="radio" name="q65" value="D"> D) Құрылыс</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        6. Есеп: Егер электронның импульсі 3.3×10−243.3 \times 10^{-24}3.3×10−24 кг·м/с болса, оның толқын ұзындығы қандай? (h = 6.63×10−346.63 \times 10^{-34}6.63×10−34 Дж·с)
-    </div>
-    <label><input type="radio" name="q66" value="A"> A) 2×10−102 \times 10^{-10}2×10−10 м</label><br>
-    <label><input type="radio" name="q66" value="B"> B) 3×10−103 \times 10^{-10}3×10−10 м</label><br>
-    <label><input type="radio" name="q66" value="C"> C) 1×10−91 \times 10^{-9}1×10−9 м</label><br>
-    <label><input type="radio" name="q66" value="D"> D) 5×10−125 \times 10^{-12}5×10−12 м</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        7. Де Бройль толқындары ненің дәлелі?
-    </div>
-    <label><input type="radio" name="q67" value="A"> A) Электронның энергиясы</label><br>
-    <label><input type="radio" name="q67" value="B"> B) Бөлшектің кванттық табиғаты</label><br>
-    <label><input type="radio" name="q67" value="C"> C) Электр өрісі</label><br>
-    <label><input type="radio" name="q67" value="D"> D) Масса</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        8. Интерференциялық сурет нені дәлелдейді?
-    </div> 
-    <label><input type="radio" name="q68" value="A"> A) Бөлшектердің зарядын</label><br>
-    <label><input type="radio" name="q68" value="B"> B) Жылдамдығын</label><br>
-    <label><input type="radio" name="q68" value="C"> C) Толқындық қасиетті</label><br>
-    <label><input type="radio" name="q68" value="D"> D) Магниттік өрісті</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        9. Лазер сәулесі қалай алынады?
-    </div> 
-    <label><input type="radio" name="q69" value="A"> A) Табиғи сәуле</label><br>
-    <label><input type="radio" name="q69" value="B"> B) Күн сәулесінен</label><br>
-    <label><input type="radio" name="q69" value="C"> C) Мәжбүрлі сәуле шығару арқылы</label><br>
-    <label><input type="radio" name="q69" value="D"> D) Қара денеден</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        10. Кванттық генератор дегеніміз не?
-    </div>
-    <label><input type="radio" name="q70" value="A"> A) Электр қозғалтқыш</label><br>
-    <label><input type="radio" name="q70" value="B"> B) Радиотолқын көзі</label><br>
-    <label><input type="radio" name="q70" value="C"> C) Лазер</label><br>
-    <label><input type="radio" name="q70" value="D"> D) Ультракүлгін шам</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        11. Когеренттік дегеніміз не?
-    </div>
-    <label><input type="radio" name="q71" value="A"> A) Сәулелердің шашырауы</label><br>
-    <label><input type="radio" name="q71" value="B"> B) Әр түрлі бағытта таралу</label><br>
-    <label><input type="radio" name="q71" value="C"> C) Бірдей фаза мен жиіліктегі толқын</label><br>
-    <label><input type="radio" name="q71" value="D"> D) Бөлшектердің араласуы</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        12. Есеп: Егер бөлшектің массасы 9.1×10−319.1 \times 10^{-31}9.1×10−31 кг және жылдамдығы 2×1062 \times 10^62×106 м/с болса, де Бройль толқын ұзындығы қандай?
-    </div>
-    <label><input type="radio" name="q72" value="A"> A) 3.6×10−103.6 \times 10^{-10}3.6×10−10 м</label><br>
-    <label><input type="radio" name="q72" value="B"> B) 2.3×10−92.3 \times 10^{-9}2.3×10−9 м</label><br>
-    <label><input type="radio" name="q72" value="C"> C) 1.0×10−101.0 \times 10^{-10}1.0×10−10 м</label><br>
-    <label><input type="radio" name="q72" value="D"> D) 2.0×10−112.0 \times 10^{-11}2.0×10−11 м</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        13. Лазер сәулесінің қуатын өлшеу үшін қолданылатын бірлік:
-    </div>
-    <label><input type="radio" name="q73" value="A"> A) Джоуль</label><br>
-    <label><input type="radio" name="q73" value="B"> B) Вольт</label><br>
-    <label><input type="radio" name="q73" value="C"> C) Ватт</label><br>
-    <label><input type="radio" name="q73" value="D"> D) Кельвин</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        14. Толқындық-корпускулалық дуализм неге қатысты?
-    </div>
-    <label><input type="radio" name="q74" value="A"> A) Ядроға</label><br>
-    <label><input type="radio" name="q74" value="B"> B) Электронға</label><br>
-    <label><input type="radio" name="q74" value="C"> C) Барлық микробөлшектерге</label><br>
-    <label><input type="radio" name="q74" value="D"> D) Протонға</label><br>
-    <div class="styled-question" style="display: inline-block; margin: 10px 0 15px 0; text-align: left; padding: 10px 20px; background-color: #f25c05; border-radius: 50px; color: white; font-size: 18px; font-weight: bold;">
-        15. Лазер жарығының артықшылығы:
-    </div>
-    <label><input type="radio" name="q75" value="A"> A) Тез таралады</label><br>
-    <label><input type="radio" name="q75" value="B"> B) Жоғары жиілік</label><br>
-    <label><input type="radio" name="q75" value="C"> C) Бағытталған, қуатты, монохроматтық</label><br>
-    <label><input type="radio" name="q75" value="D"> D) Қарапайым шамнан әлсіз
-    
-            <div style="text-align: center;">
-                <button type="button" onclick="checkTest()">Нәтижені көру</button>
-            </div>
-        </label></label></label></label></label></form>
-        <div id="result" style="margin-top: 30px;"></div>
-    </div>
-    <script>
-    function startTest() {
-        document.getElementById('startScreen').style.display = 'none';
-        document.getElementById('quizForm').style.display = 'block';
-    }
-    
-    function checkTest() {
-        const answers = ["B", "C", "B", "C", "A", "B", "B", "C", "C", "B", "B", "A", "C", "B", "A", "C", "A", "C", "C", "B", "B", "B", "B", "C", "C", "A", "C", "A", "A", "C", "B", "C", "B", "C", "B", "A", "C", "C", "B", "B", "B", "A", "B", "B", "A", "B", "C", "C", "C", "B", "C", "C", "C", "C", "A", "C", "A", "C", "C", "C", "A", "C", "C", "C", "B", "A", "B", "C", "C", "C", "C", "A", "C", "C", "C"];
-        const resultDiv = document.getElementById('result');
-        let html = '';
-        const perTest = 15;
-        const testNames = ['№1 Тест', '№2 Тест', '№3 Тест', '№4 Тест', '№5 Тест'];
-    
-        for (let t = 0; t < answers.length / perTest; t++) {
-            html += `<h3>${testNames[t]}</h3>`;
-            html += '<table class="result-table"><tr>';
-            for (let i = 1; i <= perTest; i++) {
-                html += `<th>${i}</th>`;
-            }
-            html += '</tr><tr>';
-            for (let i = 1; i <= perTest; i++) {
-                const idx = t * perTest + i;
-                const selected = document.querySelector('input[name="q' + idx + '"]:checked');
-                let selectedVal = selected ? selected.value : '-';
-                let cellClass = '';
-                if (selectedVal === answers[idx - 1]) {
-                    cellClass = 'correct';
-                } else if (selectedVal !== '-') {
-                    cellClass = 'wrong';
-                }
-                html += `<td class="${cellClass}">${selectedVal}</td>`;
-            }
-            html += '</tr></table>';
-        }
-    
-        resultDiv.innerHTML = html;
-    }
-    </script>
-    </body>
-    </body></html>
-    
+      <div class="styled-question">6. Адам айнаға қарай 1 м/с жылдамдықпен жүріп бара жатыр. Ол өзінің кескінiне қандай жылдамдықпен жақындайды?</div>
+      <label><input type="radio" name="q6" value="A"> A) 0,5 м/с</label>
+      <label><input type="radio" name="q6" value="B"> B) 1 м/с</label>
+      <label><input type="radio" name="q6" value="C"> C) 1,5 м/с</label>
+      <label><input type="radio" name="q6" value="D"> D) 2 м/с</label>
 
+      <div class="styled-question">7. Сфералық ойыс айна көмегімен алынған заттың кескіні пішіні: үлкейтілген, төңкерілген. Зат қай жерде тұр?</div>
+      <label><input type="radio" name="q7" value="A"> A) Төбесі мен фокус арасында</label>
+      <label><input type="radio" name="q7" value="B"> B) Айна фокусында</label>
+      <label><input type="radio" name="q7" value="C"> C) Сфералық беттiң центрі мен фокусы арасында</label>
+      <label><input type="radio" name="q7" value="D"> D) Сфералық беттің центрінде</label>
 
-    
+      <div class="styled-question">8. Фокусы 20 см-ге тең болатын линзаның оптикалық күші –</div>
+      <label><input type="radio" name="q8" value="A"> A) 2 дптр</label>
+      <label><input type="radio" name="q8" value="B"> B) 3 дптр</label>
+      <label><input type="radio" name="q8" value="C"> C) 4 дптр</label>
+      <label><input type="radio" name="q8" value="D"> D) 5 дптр</label>
 
+      <div class="styled-question">9. Көз бұршағының қалыңдығын өзгерту қасиеті –</div>
+      <label><input type="radio" name="q9" value="A"> A) Аккомодация</label>
+      <label><input type="radio" name="q9" value="B"> B) Модификация</label>
+      <label><input type="radio" name="q9" value="C"> C) Оптимизация</label>
+      <label><input type="radio" name="q9" value="D"> D) Шоғырландыру</label>
 
+      <!-- 2-нұсқа -->
+      <h3 style="margin-top:34px;">2-нұсқа</h3>
 
-    
+      <div class="styled-question">1. Бойымен жарық таралатын сызық –</div>
+      <label><input type="radio" name="q10" value="A"> A) Сәуле</label>
+      <label><input type="radio" name="q10" value="B"> B) Траектория</label>
+      <label><input type="radio" name="q10" value="C"> C) Орын ауыстыру</label>
+      <label><input type="radio" name="q10" value="D"> D) Түзу</label>
 
-    
+      <div class="styled-question">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен түскен сәуле арасындағы бұрыш –</div>
+      <label><input type="radio" name="q11" value="A"> A) Шағылу бұрышы</label>
+      <label><input type="radio" name="q11" value="B"> B) Түсу бұрышы</label>
+      <label><input type="radio" name="q11" value="C"> C) Сыну бұрышы</label>
+      <label><input type="radio" name="q11" value="D"> D) Шағылудың шектік бұрышы</label>
 
-   
+      <div class="styled-question">3. Сыну бұрышы 90° болған кездегі түсу бұрышы –</div>
+      <label><input type="radio" name="q12" value="A"> A) Толық сынудың шектік бұрышы</label>
+      <label><input type="radio" name="q12" value="B"> B) Толқын шағылудың шектік бұрышы</label>
+      <label><input type="radio" name="q12" value="C"> C) Максимал түсу бұрышы</label>
+      <label><input type="radio" name="q12" value="D"> D) Минимал түсу бұрышы</label>
 
+      <div class="styled-question">4. Линзаның оптикалық күшінің өлшем бірлігі –</div>
+      <label><input type="radio" name="q13" value="A"> A) метр</label>
+      <label><input type="radio" name="q13" value="B"> B) диоптрия</label>
+      <label><input type="radio" name="q13" value="C"> C) ампер</label>
+      <label><input type="radio" name="q13" value="D"> D) ньютон</label>
 
+      <div class="styled-question">5. Затты жалған, тура және оның өлшеміне тең кескінін беретін оптикалық аспап –</div>
+      <label><input type="radio" name="q14" value="A"> A) Ойыс айна</label>
+      <label><input type="radio" name="q14" value="B"> B) Дөңес айна</label>
+      <label><input type="radio" name="q14" value="C"> C) Оң (жинағыш) линза</label>
+      <label><input type="radio" name="q14" value="D"> D) Жазық айна</label>
 
+      <div class="styled-question">6. Айнаның сфералық бетінің қисықтық радиусы 20 см. Айнаның фокустық қашықтығы –</div>
+      <label><input type="radio" name="q15" value="A"> A) 40 см</label>
+      <label><input type="radio" name="q15" value="B"> B) 20 см</label>
+      <label><input type="radio" name="q15" value="C"> C) 10 см</label>
+      <label><input type="radio" name="q15" value="D"> D) 5 см</label>
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
+      <div class="styled-question">7. Айнадан көретін кескініміз жалған, тура және кішірейтілген. Мұндай кескінді беретін айна –</div>
+      <label><input type="radio" name="q16" value="A"> A) Жазық</label>
+      <label><input type="radio" name="q16" value="B"> B) Дөңес</label>
+      <label><input type="radio" name="q16" value="C"> C) Ойыс</label>
+      <label><input type="radio" name="q16" value="D"> D) Ешқайсысы</label>
 
+      <div class="styled-question">8. Линзаның оптикалық күші 2 дптр. Фокустық қашықтық және линза түрі –</div>
+      <label><input type="radio" name="q17" value="A"> A) 50 см, жинағыш</label>
+      <label><input type="radio" name="q17" value="B"> B) 50 см, шашыратқыш</label>
+      <label><input type="radio" name="q17" value="C"> C) 20 см, жинағыш</label>
+      <label><input type="radio" name="q17" value="D"> D) 20 см, шашыратқыш</label>
 
+      <div class="styled-question">9. Заттың кескіні көз тор қабығының артқы жағында алынады. Жүйе түрі және түзететін линза –</div>
+      <label><input type="radio" name="q18" value="A"> A) Алыстан көргіштік, жинағыш линза</label>
+      <label><input type="radio" name="q18" value="B"> B) Алыстан көргіштік, шашыратқыш линза</label>
+      <label><input type="radio" name="q18" value="C"> C) Жақыннан көргіштік, жинағыш линза</label>
+      <label><input type="radio" name="q18" value="D"> D) Жақыннан көргіштік, шашыратқыш линза</label>
+
+      <div style="text-align:center;">
+        <button type="button" onclick="checkTest()">Нәтижені көру</button>
+      </div>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+<script>
+function startTest(){
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('quizForm').style.display='block';
+}
+
+// правильные ответы по порядку (1-нұсқа q1–q9, 2-нұсқа q10–q18)
+const ANSWERS = [
+  'D','A','A','C','C','D','C','D','A',  // 1-нұсқа (1–9)
+  'A','B','A','B','D','C','B','A','A'   // 2-нұсқа (10–18)
+];
+
+function checkTest(){
+  const total = ANSWERS.length;
+  let html = '<table class="result-table"><tr>';
+  for (let i=1;i<=total;i++){ html += `<th>${i}</th>`; }
+  html += '</tr><tr>';
+
+  for (let i=1;i<=total;i++){
+    const sel = document.querySelector(`input[name="q${i}"]:checked`);
+    const val = sel ? sel.value : '-';
+    let cls = '';
+    if (val === ANSWERS[i-1]) cls = 'correct';
+    else if (val !== '-') cls = 'wrong';
+    html += `<td class="${cls}">${val}</td>`;
+  }
+  html += '</tr></table>';
+
+  document.getElementById('result').innerHTML = html;
+}
+</script>
+</body>
+</html>

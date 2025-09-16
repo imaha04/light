@@ -1,288 +1,258 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Activitar Template">
-    <meta name="keywords" content="Activitar, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ядролық физика</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Жарық құбылыстары</title>
 
-    <!-- Google Font -->
-    <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link href="css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Fonts (как у тебя в проекте) -->
+  <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="css2?family=Roboto&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="cssi/style.css" type="text/css">
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
+  <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
+
+  <!-- Your theme -->
+  <link rel="stylesheet" href="cssi/style.css" type="text/css">
+
+  <style>
+    /* лёгкие правки для этого экрана */
+    body{
+      background-image: url('img/PH/88.jpg');
+      background-size: cover;
+      background-repeat: repeat-y;
+      background-attachment: fixed;
+      color: #fff;
+      padding-top: 120px; /* место под фикс-хедер */
+    }
+    .video-block{
+      text-align: center;
+      margin: 80px 16px;
+    }
+    .video-block h2{
+      font-size: 44px;
+      margin: 20px 0 16px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,.6);
+      font-family: "Oswald", sans-serif;
+      letter-spacing: .3px;
+    }
+    .video-block p{
+      max-width: 900px;
+      margin: 16px auto 30px;
+      font-size: 20px;
+      line-height: 1.7;
+      text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+    }
+    .video-frame{
+      width: min(960px, 100%);
+      aspect-ratio: 16 / 9;
+      display: block;
+      margin: 0 auto 10px;
+      background: rgba(0,0,0,.25);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,.35);
+    }
+    .video-frame video{ width: 100%; height: 100%; display: block; }
+  </style>
 </head>
 
-<script>
-  // Dropdown: клик для тач/мобилок + закрытие по клику вне/ESC
-  (function(){
-    const items = document.querySelectorAll('.mainmenu > ul > li.dropdown');
-    items.forEach(li => {
-      const a = li.querySelector(':scope > a');
-      if (!a) return;
-      a.setAttribute('aria-haspopup', 'true');
-      a.setAttribute('aria-expanded', 'false');
+<body>
+  <!-- Page Preloader -->
+  <div id="preloder"><div class="loader"></div></div>
 
-      a.addEventListener('click', (e) => {
-        // предотвращаем переход и переключаем меню
-        e.preventDefault();
-        const willOpen = !li.classList.contains('open');
-        // закрываем другие
-        items.forEach(x => {
-          if (x !== li) {
-            x.classList.remove('open');
-            const ax = x.querySelector(':scope > a');
-            if (ax) ax.setAttribute('aria-expanded', 'false');
-          }
+  <!-- Header -->
+  <header class="header-sectioni">
+    <div class="container-fluid">
+      <div class="logo">
+        <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
+      </div>
+
+      <div class="container">
+        <div class="nav-menu">
+          <nav class="mainmenu mobile-menu">
+            <ul>
+              <li class="active"><a href="index.html">Басты бет</a></li>
+
+              <li class="dropdown">
+                <a href="javascript:void(0);">Теориялық бөлім</a>
+                <ul class="dropdown-menu" aria-label="Теориялық бөлім">
+                  <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
+                  <li><a href="theory-2.html">Жарықтың сынуы</a></li>
+                  <li><a href="theory-3.html">Линзалар</a></li>
+                  <li><a href="theory-4.html">Интерференция</a></li>
+                  <li><a href="theory-5.html">Дифракция</a></li>
+                  <li><a href="theory-6.html">Поляризация</a></li>
+                </ul>
+              </li>
+
+              <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>
+              <li><a href="test.html">Тесттер</a></li>
+              <li><a href="esepter.html">Есептер</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+
+    <!-- 1 -->
+    <section class="video-block" id="v1">
+      <h2>1. Жарықтың шағылуы</h2>
+      <p>
+        Жарық түскен орта бетінде шағылады: түсу жазықтығында қалады және
+        <em>түсу бұрышы = шағылу бұрышы</em>. Плоская/сфералық айналарда кескіннің қасиеттерін зерттейміз.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/1.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="video-block" id="v2">
+      <h2>2. Жарықтың сынуы</h2>
+      <p>
+        Жарық бір ортадан екінші ортаға өткенде бағыты өзгереді. Снелль заңы:
+        <em>n₁ sinθ₁ = n₂ sinθ₂</em>. Шектік бұрыш және толық ішкі шағылу құбылыстарын көрнекілеу.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/2.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="video-block" id="v3">
+      <h2>3. Линзалар</h2>
+      <p>
+        Жинағыш және шашыратқыш линзалар, фокус пен оптикалық күш. Линза теңдеуі:
+        <em>1/f = 1/d + 1/d′</em>. Нақты/жалған, тура/төңкерілген кескін алу шарттары.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/3.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="video-block" id="v4">
+      <h2>4. Интерференция</h2>
+      <p>
+        Когерентті екі көзден шыққан толқындар қосылып, максимум-минимумдар береді.
+        Қос саңылау тәжірибесі: жол айырымы мен ақ-қара жолақтардың пайда болуы.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/4.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="video-block" id="v5">
+      <h2>5. Дифракция</h2>
+      <p>
+        Жарықтың кедергілерді айналып өтуі және тар саңылаудан өткендегі жайылуы.
+        Фраунгофер дифракциясы, дифракциялық тордағы спектрлер.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/5.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="video-block" id="v6">
+      <h2>6. Поляризация</h2>
+      <p>
+        Жарық тербелістерінің белгілі бір бағытқа реттелуі. Поляризаторлар, қос сынғыш кристалдар және
+        Малюс заңы арқылы интенсивтіліктің өзгеруі.
+      </p>
+      <div class="video-frame">
+        <video controls preload="metadata">
+          <source src="img/video/6.mp4" type="video/mp4">
+          Сіздің браузеріңіз видеоны қолдамайды.
+        </video>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- One-at-a-time playback + dropdown init -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // только одно видео играет одновременно
+      const vids = document.querySelectorAll('video');
+      vids.forEach(v => v.addEventListener('play', () => {
+        vids.forEach(o => { if (o !== v) o.pause(); });
+      }));
+
+      // dropdown для тач-устройств
+      const items = document.querySelectorAll('.mainmenu > ul > li.dropdown');
+      items.forEach(li => {
+        const a = li.querySelector(':scope > a');
+        if (!a) return;
+        a.setAttribute('aria-haspopup', 'true');
+        a.setAttribute('aria-expanded', 'false');
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const willOpen = !li.classList.contains('open');
+          items.forEach(x => {
+            if (x !== li) {
+              x.classList.remove('open');
+              const ax = x.querySelector(':scope > a');
+              if (ax) ax.setAttribute('aria-expanded', 'false');
+            }
+          });
+          li.classList.toggle('open', willOpen);
+          a.setAttribute('aria-expanded', String(willOpen));
         });
-        // переключаем текущий
-        li.classList.toggle('open', willOpen);
-        a.setAttribute('aria-expanded', String(willOpen));
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.mainmenu')) {
+          items.forEach(li => li.classList.remove('open'));
+          document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
+            .forEach(a => a.setAttribute('aria-expanded','false'));
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          items.forEach(li => li.classList.remove('open'));
+          document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
+            .forEach(a => a.setAttribute('aria-expanded','false'));
+        }
       });
     });
+  </script>
 
-    // закрыть по клику вне меню
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.mainmenu')) {
-        items.forEach(li => {
-          li.classList.remove('open');
-          const a = li.querySelector(':scope > a');
-          if (a) a.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-
-    // закрыть по ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        items.forEach(li => li.classList.remove('open'));
-        document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
-          .forEach(a => a.setAttribute('aria-expanded', 'false'));
-      }
-    });
-  })();
-</script>
-
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section">
-    <div class="container-fluid">
-        <div class="logo">
-            <a href="index.html"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-        </div>
-        <div class="container">
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="index.html">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-    <!-- Header End -->
-
-<!-- Hero Section Begin -->
-<body style="background-image: url('img/PH/88.jpg'); background-size: cover; background-repeat: repeat-y; background-attachment: fixed;">
-
-    
-        <!-- Google Fonts (қосымша әдемі шрифт) -->
-
-
-       <div style="text-align: center; margin-top: 100px; color: white;">
-    
-            <!-- Бірінші зертханалық жұмыс -->
-            <h2 style="margin-top: 150px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Ядроның құрылуы
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                PHET симуляциясы – атом бөлшектерін (протон, нейтрон, электрон) 
-                қосып немесе алып тастау арқылы атом ядросының қалай өзгеретінін көрнекі түрде бақылауға мүмкіндік беретін тиімді құрал.
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%AF%D0%B4%D1%80%D0%BE%20%D2%9B%D2%B1%D1%80%D1%8B%D0%BB%D1%83%D1%8B.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-        <div style="text-align: center; margin-top: 20px; color: white;">
-    
-            <!-- Екінші зертханалық жұмыс -->
-            <h2 style="margin-top: 60px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Ыдырау түрлері
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                Альфа және бета ыдырау — бұл радиоактивтік ыдыраудың негізгі түрлері, яғни тұрақсыз атом ядроларының өздігінен ыдырауы арқылы тұрақты күйге өтуі.
-                Бұл үдерістерде әртүрлі бөлшектер бөлініп шығады.
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%AB%D0%B4%D1%8B%D1%80%D0%B0%D1%83%20%D1%82%D2%AF%D1%80%D0%BB%D0%B5%D1%80%D1%96.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-
-        <div style="text-align: center; margin-top: 20px; color: white;">
-    
-            <!-- Үшінші зертханалық жұмыс -->
-            <h2 style="margin-top: 60px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Атом құрылысы 
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                Атом құрылысы — физика мен химияның негізгі ұғымдарының бірі. 
-                Бұл тақырып атомның ішкі құрылымын, ондағы бөлшектердің қасиеттерін және олардың өзара әрекеттесуін қарастырады.
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%90%D1%82%D0%BE%D0%BC%20%D2%9B%D2%B1%D1%80%D1%8B%D0%BB%D1%8B%D1%81%D1%8B.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-        <div style="text-align: center; margin-top: 20px; color: white;">
-    
-            <!-- Төртінші зертханалық жұмыс -->
-            <h2 style="margin-top: 60px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Тізбекті реакция
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                Тізбекті реакция — бұл бір ядролық реакция нәтижесінде пайда болған бөлшектердің келесі ядролармен реакцияға түсіп, жаңа реакциялар тудыруы. 
-                Бұл үдеріс бірнеше сатымен жалғасып, өздігінен дамиды.
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%A2%D1%96%D0%B7%D0%B1%D0%B5%D0%BA%D1%82%D1%96%20%D1%80%D0%B5%D0%B0%D0%BA%D1%86%D0%B8%D1%8F.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-        <div style="text-align: center; margin-top: 20px; color: white;">
-    
-            <!-- Бесінші зертханалық жұмыс -->
-            <h2 style="margin-top: 60px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Радиоактивті элементтер қасиеті
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D1%82%D1%96%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%82%D0%B5%D1%80%20%D2%9B%D0%B0%D1%81%D0%B8%D0%B5%D1%82%D1%96.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-        <div style="text-align: center; margin-top: 20px; color: white;">
-    
-            <!-- Алтыншы зертханалық жұмыс -->
-            <h2 style="margin-top: 60px; font-size: 48px; color: white; text-shadow: 2px 2px 4px #000;">
-                Радиоактивтілік
-            </h2>
-            
-            <p style="font-size: 24px; max-width: 900px; margin: 40px auto 60px auto; line-height: 1.6; color: white; text-shadow: 1px 1px 2px #000;">
-                Радиоактивтілік – орнықсыз 
-                атом ядроларының басқа элементтер ядросына бөлшектер немесе гамма-кванттар шығару арқылы өздігінен түрлену құбылысы.
-            </p>
-    
-            <video controls="" width="640" style="margin-bottom: 120px;">
-                <source src="img/video/%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D1%82%D1%96%D0%BB%D1%96%D0%BA.mp4" type="video/mp4">
-                Сіздің браузеріңіз видеоны қолдамайды.
-            </video>
-    
-        </div>
-
-        <!-- Барлық видеолар біткеннен кейін HTML соңына қос -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const videos = document.querySelectorAll('video');
-
-        videos.forEach(video => {
-            video.addEventListener('play', () => {
-                videos.forEach(otherVideo => {
-                    if (otherVideo !== video) {
-                        otherVideo.pause();
-                    }
-                });
-            });
-        });
-    });
-</script>
-    
-    </body>
-    
-
-
-    
-
-
-
-    
-
-    
-
-   
-
-
-
-
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
+  <!-- Vendor JS -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/mixitup.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
-
 </html>

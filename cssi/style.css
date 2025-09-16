@@ -136,12 +136,18 @@ hr { border: 0; border-top: 1px solid rgba(255,255,255,.08); margin: 24px 0; }
   z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,.06);
   transition: padding .2s ease, background .2s ease, border-color .2s ease;
-  padding: 14px 0;
 }
 .header-section.scrolled { padding: 8px 0; background: rgba(10,14,24,.82); border-color: rgba(255,255,255,.08); }
 .header-section .container { display: flex; align-items: center; justify-content: space-between; }
 .logo a { color: #fff; font-weight: 800; font-size: 24px; letter-spacing: .5px; }
-
+.header-sectioni {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(10,14,24,.65);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: padding .2s ease, background .2s ease, border-color .2s ease;
+}
 /* Навигация */
 .mainmenu ul { display: flex; gap: 28px; margin: 0; padding: 0; list-style: none; }
 .mainmenu li { position: relative; }
@@ -447,7 +453,6 @@ label { font-weight: 700; color: #dfe7f3; }
 }
 @media (max-width: 768px) {
   body { padding-top: 72px; }
-  .header-section { padding: 10px 0; }
   .logo a { font-size: 20px; }
   .mainmenu { display: none; } /* мобильную навигацию отдаёт slicknav.js */
   .section { padding: 64px 0; }
