@@ -5,43 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Жарық құбылыстары – Тест</title>
 
-  <!-- твой общий стиль, если нужен -->
+  <!-- CSS -->
   <link rel="stylesheet" href="cssi/style.css" type="text/css">
-
-  <header class="header-sectioni">
-    <div class="container-fluid">
-        <div class="logo">
-            <a href="index.html"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-        </div>
-        <div class="container">
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-    </div>
-</header>
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 
   <style>
     body{
@@ -50,6 +16,7 @@
       background-attachment:fixed;
       font-family:Arial, sans-serif; color:#fff;
       padding:150px 20px 80px;
+      margin:0;
     }
     .container{
       max-width:1000px; margin:auto;
@@ -78,9 +45,53 @@
     .result-table th,.result-table td{ border:1px solid #ccc; padding:10px; text-align:center; }
     .correct{ background:#5cb85c; color:#fff; }
     .wrong{ background:#d9534f; color:#fff; }
+
+    /* mobile-menu-wrap — только на мобильных */
+    #mobile-menu-wrap{ display:none; }
+    @media (max-width: 992px){
+      #mobile-menu-wrap{ display:block; }
+    }
   </style>
 </head>
+
 <body>
+  <!-- Header -->
+  <header class="header-section">
+    <div class="container">
+      <div class="logo">
+        <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
+      </div>
+
+      <div class="nav-menu">
+        <nav class="mainmenu mobile-menu">
+          <ul>
+            <li class="active"><a href="index.htm">Басты бет</a></li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0);">Теориялық бөлім</a>
+              <ul class="dropdown-menu">
+                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
+                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
+                <li><a href="theory-3.html">Линзалар</a></li>
+                <li><a href="theory-4.html">Интерференция</a></li>
+                <li><a href="theory-5.html">Дифракция</a></li>
+                <li><a href="theory-6.html">Поляризация</a></li>
+              </ul>
+            </li>
+
+            <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>
+            <li><a href="test.html">Тесттер</a></li>
+            <li><a href="esepter.html">Есептер</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- мобильный wrap (slicknav сюда отрисует меню) -->
+      <div id="mobile-menu-wrap"></div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
   <div class="container">
     <h1>Жарық құбылыстары – Тест</h1>
 
@@ -89,7 +100,6 @@
     </div>
 
     <form id="quizForm" style="display:none;">
-
       <!-- 1-нұсқа -->
       <h3>1-нұсқа</h3>
 
@@ -212,38 +222,40 @@
     <div id="result"></div>
   </div>
 
-<script>
-function startTest(){
-  document.getElementById('startScreen').style.display='none';
-  document.getElementById('quizForm').style.display='block';
-}
+  <!-- JS -->
+  <script>
+    function startTest(){
+      document.getElementById('startScreen').style.display='none';
+      document.getElementById('quizForm').style.display='block';
+    }
 
-// правильные ответы по порядку (1-нұсқа q1–q9, 2-нұсқа q10–q18)
-const ANSWERS = [
-  'D','A','A','C','C','D','C','D','A',  // 1-нұсқа (1–9)
-  'A','B','A','B','D','C','B','A','A'   // 2-нұсқа (10–18)
-];
+    // правильные ответы
+    const ANSWERS = [
+      'D','A','A','C','C','D','C','D','A',
+      'A','B','A','B','D','C','B','A','A'
+    ];
 
-function checkTest(){
-  const total = ANSWERS.length;
-  let html = '<table class="result-table"><tr>';
-  for (let i=1;i<=total;i++){ html += `<th>${i}</th>`; }
-  html += '</tr><tr>';
+    function checkTest(){
+      const total = ANSWERS.length;
+      let html = '<table class="result-table"><tr>';
+      for (let i=1;i<=total;i++){ html += `<th>${i}</th>`; }
+      html += '</tr><tr>';
 
-  for (let i=1;i<=total;i++){
-    const sel = document.querySelector(`input[name="q${i}"]:checked`);
-    const val = sel ? sel.value : '-';
-    let cls = '';
-    if (val === ANSWERS[i-1]) cls = 'correct';
-    else if (val !== '-') cls = 'wrong';
-    html += `<td class="${cls}">${val}</td>`;
-  }
-  html += '</tr></table>';
+      for (let i=1;i<=total;i++){
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        const val = sel ? sel.value : '-';
+        let cls = '';
+        if (val === ANSWERS[i-1]) cls = 'correct';
+        else if (val !== '-') cls = 'wrong';
+        html += `<td class="${cls}">${val}</td>`;
+      }
+      html += '</tr></table>';
 
-  document.getElementById('result').innerHTML = html;
-}
-</script>
-<script src="js/jquery.slicknav.js"></script>
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+      document.getElementById('result').innerHTML = html;
+    }
+  </script>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
 </body>
 </html>

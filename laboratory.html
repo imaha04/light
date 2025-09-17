@@ -48,6 +48,7 @@
       font-size: 20px;
       line-height: 1.7;
       text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+      color: white;
     }
     .video-frame{
       width: min(960px, 100%);
@@ -68,133 +69,65 @@
   <div id="preloder"><div class="loader"></div></div>
 
   <!-- Header -->
-  <header class="header-sectioni">
-    <div class="container-fluid">
-      <div class="logo">
-        <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-      </div>
-
-      <div class="container">
-        <div class="nav-menu">
-          <nav class="mainmenu mobile-menu">
-            <ul>
-              <li class="active"><a href="index.html">Басты бет</a></li>
-
-              <li class="dropdown">
-                <a href="javascript:void(0);">Теориялық бөлім</a>
-                <ul class="dropdown-menu" aria-label="Теориялық бөлім">
-                  <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                  <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                  <li><a href="theory-3.html">Линзалар</a></li>
-                  <li><a href="theory-4.html">Интерференция</a></li>
-                  <li><a href="theory-5.html">Дифракция</a></li>
-                  <li><a href="theory-6.html">Поляризация</a></li>
-                </ul>
-              </li>
-
-              <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>
-              <li><a href="test.html">Тесттер</a></li>
-              <li><a href="esepter.html">Есептер</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div id="mobile-menu-wrap"></div>
+  <header class="header-section">
+  <div class="container">
+    <div class="logo">
+      <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
     </div>
-  </header>
+    <div class="nav-menu">
+      <nav class="mainmenu mobile-menu">
+        <ul>
+                        <li class="active"><a href="index.htm">Басты бет</a></li>
+                        
+                        <!-- Теориялық бөлім с выпадающим списком -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);">Теориялық бөлім</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
+                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
+                                <li><a href="theory-3.html">Линзалар</a></li>
+                                <li><a href="theory-4.html">Интерференция</a></li>
+                                <li><a href="theory-5.html">Дифракция</a></li>
+                                <li><a href="theory-6.html">Поляризация</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
+                        <li><a href="test.html">Тесттер</a></li>                          
+                        <li><a href="esepter.html">Есептер</a></li>
+                    <</ul>
+      </nav>
+    </div>
+    <!-- мобильный wrap -->
+    <div id="mobile-menu-wrap"></div>
+  </div>
+</header>
 
   <!-- CONTENT -->
   <main>
 
     <!-- 1 -->
     <section class="video-block" id="v1">
-      <h2>1. Жарықтың шағылуы</h2>
+      <h2>1. Шынының сыну көрсеткішін анықтау</h2>
       <p>
-        Жарық түскен орта бетінде шағылады: түсу жазықтығында қалады және
-        <em>түсу бұрышы = шағылу бұрышы</em>. Плоская/сфералық айналарда кескіннің қасиеттерін зерттейміз.
+        Сәуленің сыну құбылысы дененің бір бетінен кері бетіне өту кезінде байқалады. Өйткені әр ортаның өзінің оптикалық тығыздығына сай жылдамдығы өзгереді. 
       </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/1.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
+      <a href="https://efizika.ru/html5/117/index.html">Сілтеме арқылы өту</a>
     </section>
 
     <!-- 2 -->
     <section class="video-block" id="v2">
-      <h2>2. Жарықтың сынуы</h2>
+      <h2>2. Жұқа линзаның фокустық қашықтығын анықтау</h2>
       <p>
-        Жарық бір ортадан екінші ортаға өткенде бағыты өзгереді. Снелль заңы:
-        <em>n₁ sinθ₁ = n₂ sinθ₂</em>. Шектік бұрыш және толық ішкі шағылу құбылыстарын көрнекілеу.
+        Линза деп екі сфералық бетпен шектелген мөлдір денені атайды. Егер линзаның
+қалыңдығы оның сфералық беттерінің қисықтық радиустарынан анағұрлым аз болса онда
+ол жұқа линза деп аталады. 
       </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/2.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
+      <a href="https://efizika.ru/html5/150/index.html">Сілтеме арқылы өту</a>
     </section>
 
     <!-- 3 -->
-    <section class="video-block" id="v3">
-      <h2>3. Линзалар</h2>
-      <p>
-        Жинағыш және шашыратқыш линзалар, фокус пен оптикалық күш. Линза теңдеуі:
-        <em>1/f = 1/d + 1/d′</em>. Нақты/жалған, тура/төңкерілген кескін алу шарттары.
-      </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/3.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
-    </section>
-
-    <!-- 4 -->
-    <section class="video-block" id="v4">
-      <h2>4. Интерференция</h2>
-      <p>
-        Когерентті екі көзден шыққан толқындар қосылып, максимум-минимумдар береді.
-        Қос саңылау тәжірибесі: жол айырымы мен ақ-қара жолақтардың пайда болуы.
-      </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/4.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
-    </section>
-
-    <!-- 5 -->
-    <section class="video-block" id="v5">
-      <h2>5. Дифракция</h2>
-      <p>
-        Жарықтың кедергілерді айналып өтуі және тар саңылаудан өткендегі жайылуы.
-        Фраунгофер дифракциясы, дифракциялық тордағы спектрлер.
-      </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/5.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section class="video-block" id="v6">
-      <h2>6. Поляризация</h2>
-      <p>
-        Жарық тербелістерінің белгілі бір бағытқа реттелуі. Поляризаторлар, қос сынғыш кристалдар және
-        Малюс заңы арқылы интенсивтіліктің өзгеруі.
-      </p>
-      <div class="video-frame">
-        <video controls preload="metadata">
-          <source src="img/video/6.mp4" type="video/mp4">
-          Сіздің браузеріңіз видеоны қолдамайды.
-        </video>
-      </div>
-    </section>
+    
 
   </main>
 
