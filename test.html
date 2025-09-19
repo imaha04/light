@@ -8,7 +8,6 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="cssi/style.css">
   <link rel="stylesheet" href="css/slicknav.min.css">
 
@@ -16,15 +15,16 @@
     body {
       margin: 0;
       font-family: 'Nunito Sans', sans-serif;
-      background: radial-gradient(circle at top left, #1a2a6c, #b21f1f, #fdbb2d);
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      background-attachment: fixed;
       color: #fff;
       padding: 140px 20px 60px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.6);
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0,0,0,.4);
@@ -33,55 +33,65 @@
 
     h1 {
       text-align: center;
-      font-size: 40px;
-      margin-bottom: 30px;
+      font-size: 42px;
+      margin-bottom: 25px;
       font-family: 'Oswald', sans-serif;
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ff7043;
     }
 
     h3 {
-      margin: 35px 0 20px;
-      font-size: 26px;
+      margin-bottom: 20px;
+      font-size: 24px;
       font-weight: 600;
       color: #ffce54;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .test-block {
+      background: rgba(0,0,0,0.75);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
     .styled-question {
-      margin: 20px 0 12px;
-      font-size: 20px;
+      margin: 18px 0 12px;
+      font-size: 18px;
       font-weight: 700;
-      color: #ff8a00;
+      color: #ffce54;
     }
 
     label {
       display: block;
       margin: 8px 0;
       padding: 12px 18px;
-      border-radius: 12px;
+      border-radius: 10px;
       background: rgba(255,255,255,0.05);
       cursor: pointer;
       transition: all .3s ease;
     }
-    label:hover { background: rgba(255,138,0,0.25); }
+    label:hover { background: rgba(255,138,0,0.3); }
 
     input[type="radio"] { margin-right: 12px; }
 
     button {
-      padding: 14px 30px;
+      padding: 12px 26px;
       font-size: 18px;
       border: none;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      border-radius: 8px;
+      background: #ff7043;
       color: #fff;
       cursor: pointer;
-      margin-top: 30px;
-      transition: transform .2s;
+      margin-top: 25px;
+      transition: background .2s;
     }
-    button:hover { transform: scale(1.05); }
+    button:hover { background: #ff5722; }
 
-    #startScreen { text-align: center; }
+    #startScreen { text-align: center; margin-bottom: 25px; }
 
     .result-table {
       width: 100%;
@@ -92,6 +102,7 @@
     .result-table th, .result-table td {
       border: 1px solid #ccc;
       padding: 10px;
+      text-align: center;
     }
     .correct { background: #28a745; color:#fff; }
     .wrong   { background: #dc3545; color:#fff; }
@@ -103,11 +114,10 @@
 
     /* Mobile */
     #mobile-menu-wrap{ display:none; }
-    @media (max-width: 992px){
+    @media (max-width: 768px){
       #mobile-menu-wrap{ display:block; }
-      h1 { font-size: 30px; }
+      h1 { font-size: 28px; }
       .container { padding: 20px; }
-      label { font-size: 16px; padding: 10px 14px; }
     }
   </style>
 </head>
@@ -154,16 +164,27 @@
     </div>
 
     <form id="quizForm" style="display:none;">
-      <!-- 1-нұсқа -->
-      <h3>1-нұсқа</h3>
+      <div class="grid">
+        <!-- 1-нұсқа -->
+        <div class="test-block">
+          <h3>1-нұсқа</h3>
+          <div class="styled-question">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
+          <label><input type="radio" name="q1" value="A">A) 3·10⁵ м/с</label>
+          <label><input type="radio" name="q1" value="B">B) 3·10⁶ м/с</label>
+          <label><input type="radio" name="q1" value="C">C) 3·10⁷ м/с</label>
+          <label><input type="radio" name="q1" value="D">D) 3·10⁸ м/с</label>
+        </div>
 
-      <div class="styled-question">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
-      <label><input type="radio" name="q1" value="A">A) 3·10⁵ м/с</label>
-      <label><input type="radio" name="q1" value="B">B) 3·10⁶ м/с</label>
-      <label><input type="radio" name="q1" value="C">C) 3·10⁷ м/с</label>
-      <label><input type="radio" name="q1" value="D">D) 3·10⁸ м/с</label>
-
-      <!-- ... оставшиеся вопросы как в твоём коде ... -->
+        <!-- 2-нұсқа -->
+        <div class="test-block">
+          <h3>2-нұсқа</h3>
+          <div class="styled-question">1. Воиымен жарық таралатын сызық –</div>
+          <label><input type="radio" name="q2" value="A">A) Сәуле</label>
+          <label><input type="radio" name="q2" value="B">B) Траектория</label>
+          <label><input type="radio" name="q2" value="C">C) Орнын ауыстыру</label>
+          <label><input type="radio" name="q2" value="D">D) Түзу</label>
+        </div>
+      </div>
 
       <div style="text-align:center;">
         <button type="button" onclick="checkTest()">Нәтижені көру</button>
@@ -173,17 +194,13 @@
     <div id="result"></div>
   </div>
 
-  <!-- JS -->
   <script>
     function startTest(){
       document.getElementById('startScreen').style.display='none';
       document.getElementById('quizForm').style.display='block';
     }
 
-    const ANSWERS = [
-      'D','A','A','C','C','D','C','D','A',
-      'A','B','A','B','D','C','B','A','A'
-    ];
+    const ANSWERS = ['D','A']; // только для примера
 
     function checkTest(){
       const total = ANSWERS.length;
@@ -200,12 +217,8 @@
         html += `<td class="${cls}">${val}</td>`;
       }
       html += '</tr></table>';
-
       document.getElementById('result').innerHTML = html;
     }
   </script>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery.slicknav.js"></script>
 </body>
 </html>
