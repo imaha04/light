@@ -1,58 +1,562 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Жарық құбылыстары – Тест</title>
-  <link rel="stylesheet" href="cssi/test.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Жарық құбылыстары — Тест</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #0b1220;
+      --bg2: #1b2a5a;
+      --accent: #ff8a00;
+      --accent-2: #e52e71;
+      --glass: rgba(255,255,255,0.04);
+      --muted: #bfcbdc;
+      --success: #28a745;
+      --danger: #dc3545;
+      --radius: 12px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Nunito Sans", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(3,162,255,0.08), transparent 18%),
+        linear-gradient(135deg,var(--bg1), var(--bg2));
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      padding-top:80px; /* header space */
+    }
+
+    /* Header */
+    .header{
+      position: fixed;
+      top:0; left:0; right:0;
+      height:72px;
+      display:flex;
+      align-items:center;
+      background: rgba(6,10,20,0.45);
+      backdrop-filter: blur(8px);
+      padding:0 20px;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .header .container{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo { font-family: "Oswald", sans-serif; font-size:20px; color:#ffd86b; font-weight:700; letter-spacing:.6px; }
+    .nav { display:flex; gap:18px; align-items:center; }
+    .nav a{ color:#fff; text-decoration:none; font-weight:600; opacity:.95; padding:8px 6px; border-radius:8px; }
+    .nav a.active, .nav a:hover{ color:var(--accent); background: rgba(255,138,0,0.06); }
+
+    /* Page container */
+    .page {
+      width:90%;
+      max-width:1200px;
+      margin: 28px auto 80px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--glass);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(2,6,20,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Title */
+    h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 36px;
+      margin: 0 0 6px;
+      color: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color: #ffd86b;
+      text-align: center;
+    }
+    .subtitle { text-align:center; color:var(--muted); margin-bottom:20px; }
+
+    /* Start button */
+    #startScreen { text-align:center; margin:18px 0 20px; }
+    .btn {
+      display:inline-block;
+      padding:12px 26px;
+      border-radius:10px;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#08101a;
+      font-weight:700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(229,46,113,0.14);
+      transition: transform .16s ease, box-shadow .16s;
+    }
+    .btn:hover{ transform: translateY(-3px); box-shadow:0 18px 40px rgba(229,46,113,0.18); }
+
+    /* Grid with two columns for variants */
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 16px;
+    }
+
+    .variant-title { font-family: "Oswald", sans-serif; font-size:20px; color:#ffd86b; margin-bottom:12px; }
+
+    /* Each test-block */
+    .test-block { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px; }
+    .q { margin-bottom:14px; }
+    .question-label {
+      display:block;
+      font-weight:700;
+      color:#ffd86b;
+      margin-bottom:8px;
+    }
+
+    /* Option styling */
+    .options { list-style:none; padding:0; margin:0; display:block; }
+    .options li { margin-bottom:8px; }
+    .options label{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 14px;
+      border-radius:10px;
+      background: rgba(255,255,255,0.02);
+      cursor:pointer;
+      transition: all .18s ease;
+      border:1px solid rgba(255,255,255,0.02);
+      user-select:none;
+    }
+    .options label:hover{ transform: translateY(-3px); background: rgba(255,255,255,0.03); box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
+
+    .options input[type="radio"]{ accent-color: var(--accent); width:18px; height:18px; }
+
+    /* After checking: classes */
+    .label-correct { background: rgba(40,167,69,0.14); border-color: rgba(40,167,69,0.28); box-shadow: 0 8px 20px rgba(40,167,69,0.06); }
+    .label-wrong { background: rgba(220,53,69,0.12); border-color: rgba(220,53,69,0.24); box-shadow: 0 8px 20px rgba(220,53,69,0.06); opacity:0.95; }
+
+    /* result area */
+    .result-wrap { margin-top:18px; display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; }
+    .result-summary {
+      min-width:220px;
+      padding:14px;
+      border-radius:10px;
+      background: rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .result-summary h3 { margin:0 0 6px; font-size:18px; color:#ffd86b; }
+    .result-table {
+      overflow-x:auto;
+      margin-top:12px;
+    }
+    .result-table table {
+      border-collapse:collapse;
+      width:100%;
+      min-width:420px;
+      background:rgba(255,255,255,0.02);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .result-table th, .result-table td {
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,0.03);
+      text-align:center;
+      color:#fff;
+    }
+    .cell-correct { background: rgba(40,167,69,0.2); color:#eaffef; font-weight:700; }
+    .cell-wrong   { background: rgba(220,53,69,0.18); color:#fff1f1; font-weight:700; }
+
+    /* Reset button */
+    .small { display:inline-block; padding:10px 14px; border-radius:8px; background: rgba(255,255,255,0.03); color:#fff; border:1px solid rgba(255,255,255,0.04); cursor:pointer; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid { grid-template-columns: 1fr; }
+      .page { padding:0 18px; }
+      body { padding-top:84px; }
+    }
+    @media (max-width: 520px){
+      h1 { font-size:26px; }
+      .header .container { padding:0 12px; }
+      .logo { font-size:18px; }
+    }
+
+    /* small helpers */
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Жарық</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Басты бет</a></li>
-        <li><a href="theory.html">Теория</a></li>
-        <li><a href="lab.html">Лаборатория</a></li>
-        <li><a href="test.html" class="active">Тест</a></li>
-        <li><a href="authors.html">Авторлар</a></li>
-      </ul>
-    </nav>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Жарық құбылыстары</div>
+      <nav class="nav" aria-label="Главная навигация">
+        <a href="index.htm">Басты бет</a>
+        <a href="#" class="active">Тесттер</a>
+        <a href="laboratory.html">Зертханалық</a>
+        <a href="esepter.html">Есептер</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="test-container">
-      <h1>Білімді тексеру</h1>
-      <p class="subtitle">Төмендегі сұрақтарға жауап беріңіз:</p>
+  <main class="page">
+    <div class="card">
+      <h1>Жарық құбылыстары — Тест</h1>
+      <p class="subtitle">Төмендегі сұрақтарға жауап беріп, нәтижені тексеріңіз. Мобильде — карточкалар бір бағанға орналасады.</p>
 
-      <div class="question">
-        <h2>1. Жарықтың таралу жылдамдығы қайда ең баяу?</h2>
-        <ul>
-          <li><button>Ауада</button></li>
-          <li><button>Суда</button></li>
-          <li><button>Вакуумда</button></li>
-        </ul>
+      <div id="startScreen">
+        <button class="btn" id="startBtn">Тестті бастау</button>
       </div>
 
-      <div class="question">
-        <h2>2. Жарықтың сыну құбылысы қашан байқалады?</h2>
-        <ul>
-          <li><button>Жарық шағылғанда</button></li>
-          <li><button>Бір ортадан екінші ортаға өткенде</button></li>
-          <li><button>Жарық көзінен шыққанда</button></li>
-        </ul>
+      <form id="quizForm" style="display:none;" class="quiz-form">
+        <div class="grid">
+          <!-- 1-нұсқа -->
+          <div class="test-block">
+            <div class="variant-title">1-нұсқа</div>
+
+            <div class="q">
+              <div class="question-label">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q1" value="A"> A) 3·10⁵ м/с</label></li>
+                <li><label><input type="radio" name="q1" value="B"> B) 3·10⁶ м/с</label></li>
+                <li><label><input type="radio" name="q1" value="C"> C) 3·10⁷ м/с</label></li>
+                <li><label><input type="radio" name="q1" value="D"> D) 3·10⁸ м/с</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен шағылған сәуле арасындағы бұрыш –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q2" value="A"> A) Шағылу бұрышы</label></li>
+                <li><label><input type="radio" name="q2" value="B"> B) Түсу бұрышы</label></li>
+                <li><label><input type="radio" name="q2" value="C"> C) Сыну бұрышы</label></li>
+                <li><label><input type="radio" name="q2" value="D"> D) Шағылудың шектік бұрышы</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">3. Вакуумнан мөлдір ортаға өткен кезде жарық жылдамдығы неше есе азаятынын көрсететін шама –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q3" value="A"> A) Абсолют сыну көрсеткіші</label></li>
+                <li><label><input type="radio" name="q3" value="B"> B) Салыстырмалы сыну көрсеткіші</label></li>
+                <li><label><input type="radio" name="q3" value="C"> C) Ортаның мөлдірлігі</label></li>
+                <li><label><input type="radio" name="q3" value="D"> D) Ортаның оптикалық тығыздығы</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">4. Шағылу заңы негізінде түсу бұрышы –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q4" value="A"> A) Сыну бұрышына тең</label></li>
+                <li><label><input type="radio" name="q4" value="B"> B) Шағылу бұрышының екі еселік мәніне тең</label></li>
+                <li><label><input type="radio" name="q4" value="C"> C) Шағылу бұрышына тең</label></li>
+                <li><label><input type="radio" name="q4" value="D"> D) Шағылған сәуле мен беттiң жазықтығы арасындағы бұрышқа тең</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">5. Линзаның сындыру қабілетін сипаттайтын физикалық шама –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q5" value="A"> A) Линзаның үлкеюі</label></li>
+                <li><label><input type="radio" name="q5" value="B"> B) Линзаның фокусы</label></li>
+                <li><label><input type="radio" name="q5" value="C"> C) Линзаның оптикалық күші</label></li>
+                <li><label><input type="radio" name="q5" value="D"> D) Абсолют сыну көрсеткіші</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">6. Адам айнаға қарай 1 м/с жылдамдықпен жүріп бара жатыр. Ол өзінің кескінiне қандай жылдамдықпен жақындайды?</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q6" value="A"> A) 0,5 м/с</label></li>
+                <li><label><input type="radio" name="q6" value="B"> B) 1 м/с</label></li>
+                <li><label><input type="radio" name="q6" value="C"> C) 1,5 м/с</label></li>
+                <li><label><input type="radio" name="q6" value="D"> D) 2 м/с</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">7. Сфералық ойыс айна көмегімен алынған заттың кескіні пішіні: үлкейтілген, төңкерілген. Зат қай жерде тұр?</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q7" value="A"> A) Төбесі мен фокус арасында</label></li>
+                <li><label><input type="radio" name="q7" value="B"> B) Айна фокусында</label></li>
+                <li><label><input type="radio" name="q7" value="C"> C) Сфералық беттiң центрі мен фокусы арасында</label></li>
+                <li><label><input type="radio" name="q7" value="D"> D) Сфералық беттің центрінде</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">8. Фокусы 20 см-ге тең болатын линзаның оптикалық күші –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q8" value="A"> A) 2 дптр</label></li>
+                <li><label><input type="radio" name="q8" value="B"> B) 3 дптр</label></li>
+                <li><label><input type="radio" name="q8" value="C"> C) 4 дптр</label></li>
+                <li><label><input type="radio" name="q8" value="D"> D) 5 дптр</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">9. Көз бұршағының қалыңдығын өзгерту қасиеті –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q9" value="A"> A) Аккомодация</label></li>
+                <li><label><input type="radio" name="q9" value="B"> B) Модификация</label></li>
+                <li><label><input type="radio" name="q9" value="C"> C) Оптимизация</label></li>
+                <li><label><input type="radio" name="q9" value="D"> D) Шоғырландыру</label></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- 2-нұсқа -->
+          <div class="test-block">
+            <div class="variant-title">2-нұсқа</div>
+
+            <div class="q">
+              <div class="question-label">1. Бойымен жарық таралатын сызық –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q10" value="A"> A) Сәуле</label></li>
+                <li><label><input type="radio" name="q10" value="B"> B) Траектория</label></li>
+                <li><label><input type="radio" name="q10" value="C"> C) Орын ауыстыру</label></li>
+                <li><label><input type="radio" name="q10" value="D"> D) Түзу</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен түскен сәуле арасындағы бұрыш –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q11" value="A"> A) Шағылу бұрышы</label></li>
+                <li><label><input type="radio" name="q11" value="B"> B) Түсу бұрышы</label></li>
+                <li><label><input type="radio" name="q11" value="C"> C) Сыну бұрышы</label></li>
+                <li><label><input type="radio" name="q11" value="D"> D) Шағылудың шектік бұрышы</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">3. Сыну бұрышы 90° болған кездегі түсу бұрышы –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q12" value="A"> A) Толық сынудың шектік бұрышы</label></li>
+                <li><label><input type="radio" name="q12" value="B"> B) Толқын шағылудың шектік бұрышы</label></li>
+                <li><label><input type="radio" name="q12" value="C"> C) Максимал түсу бұрышы</label></li>
+                <li><label><input type="radio" name="q12" value="D"> D) Минимал түсу бұрышы</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">4. Линзаның оптикалық күшінің өлшем бірлігі –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q13" value="A"> A) метр</label></li>
+                <li><label><input type="radio" name="q13" value="B"> B) диоптрия</label></li>
+                <li><label><input type="radio" name="q13" value="C"> C) ампер</label></li>
+                <li><label><input type="radio" name="q13" value="D"> D) ньютон</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">5. Затты жалған, тура және оның өлшеміне тең кескінін беретін оптикалық аспап –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q14" value="A"> A) Ойыс айна</label></li>
+                <li><label><input type="radio" name="q14" value="B"> B) Дөңес айна</label></li>
+                <li><label><input type="radio" name="q14" value="C"> C) Оң (жинағыш) линза</label></li>
+                <li><label><input type="radio" name="q14" value="D"> D) Жазық айна</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">6. Айнаның сфералық бетінің қисықтық радиусы 20 см. Айнаның фокустық қашықтығы –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q15" value="A"> A) 40 см</label></li>
+                <li><label><input type="radio" name="q15" value="B"> B) 20 см</label></li>
+                <li><label><input type="radio" name="q15" value="C"> C) 10 см</label></li>
+                <li><label><input type="radio" name="q15" value="D"> D) 5 см</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">7. Айнадан көретін кескініміз жалған, тура және кішірейтілген. Мұндай кескінді беретін айна –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q16" value="A"> A) Жазық</label></li>
+                <li><label><input type="radio" name="q16" value="B"> B) Дөңес</label></li>
+                <li><label><input type="radio" name="q16" value="C"> C) Ойыс</label></li>
+                <li><label><input type="radio" name="q16" value="D"> D) Ешқайсысы</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">8. Линзаның оптикалық күші 2 дптр. Фокустық қашықтық және линза түрі –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q17" value="A"> A) 50 см, жинағыш</label></li>
+                <li><label><input type="radio" name="q17" value="B"> B) 50 см, шашыратқыш</label></li>
+                <li><label><input type="radio" name="q17" value="C"> C) 20 см, жинағыш</label></li>
+                <li><label><input type="radio" name="q17" value="D"> D) 20 см, шашыратқыш</label></li>
+              </ul>
+            </div>
+
+            <div class="q">
+              <div class="question-label">9. Заттың кескіні көз тор қабығының артқы жағында алынады. Жүйе түрі және түзететін линза –</div>
+              <ul class="options">
+                <li><label><input type="radio" name="q18" value="A"> A) Алыстан көргіштік, жинағыш линза</label></li>
+                <li><label><input type="radio" name="q18" value="B"> B) Алыстан көргіштік, шашыратқыш линза</label></li>
+                <li><label><input type="radio" name="q18" value="C"> C) Жақыннан көргіштік, жинағыш линза</label></li>
+                <li><label><input type="radio" name="q18" value="D"> D) Жақыннан көргіштік, шашыратқыш линза</label></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+          <button type="button" class="btn" id="checkBtn">Нәтижені көру</button>
+        </div>
+
+      </form>
+
+      <div id="resultArea" style="display:none; margin-top:18px;">
+        <div class="result-wrap">
+          <div class="result-summary">
+            <h3>Нәтиже</h3>
+            <p id="scoreText" class="muted">—</p>
+            <div style="margin-top:8px">
+              <button id="retryBtn" class="small">Қайта бастау</button>
+            </div>
+          </div>
+
+          <div class="result-table card" id="resultTableWrap" style="flex:1;">
+            <!-- таблица вставится сюда -->
+          </div>
+        </div>
       </div>
 
-      <div class="submit-area">
-        <button class="submit-btn">Жауаптарды тексеру</button>
-      </div>
-
-      <div class="result hidden">
-        <h2>Нәтиже:</h2>
-        <p>Сіз 2/2 дұрыс жауап бердіңіз 🎉</p>
-      </div>
-    </section>
+    </div>
   </main>
+
+<script>
+  // правильные ответы (1..18)
+  const ANSWERS = [
+    'D','A','A','C','C','D','C','D','A',
+    'A','B','A','B','D','C','B','A','A'
+  ];
+
+  const startBtn = document.getElementById('startBtn');
+  const quizForm = document.getElementById('quizForm');
+  const startScreen = document.getElementById('startScreen');
+  const checkBtn = document.getElementById('checkBtn');
+  const resultArea = document.getElementById('resultArea');
+  const scoreText = document.getElementById('scoreText');
+  const resultTableWrap = document.getElementById('resultTableWrap');
+  const retryBtn = document.getElementById('retryBtn');
+
+  startBtn && startBtn.addEventListener('click', () => {
+    startScreen.style.display = 'none';
+    quizForm.style.display = 'block';
+    // плавный скролл к форме на мобильных
+    setTimeout(()=>{ document.querySelector('.quiz-form').scrollIntoView({behavior:'smooth'}); }, 80);
+  });
+
+  // вспомог: получить все input элементы одного вопроса
+  function getInputsByQ(i){ return Array.from(document.querySelectorAll('input[name="q'+i+'"]')); }
+
+  // очистить классы подсветки
+  function clearHighlights(){
+    for(let i=1;i<=18;i++){
+      getInputsByQ(i).forEach(inp=>{
+        const lab = inp.closest('label');
+        if(lab){ lab.classList.remove('label-correct','label-wrong'); lab.style.opacity = ''; }
+      });
+    }
+  }
+
+  function checkTest(){
+    let correctCount = 0;
+    const total = ANSWERS.length;
+    clearHighlights();
+
+    // результатная строка для таблицы
+    let header = '<table><thead><tr>';
+    for(let i=1;i<=total;i++){ header += `<th>${i}</th>`; }
+    header += '</tr></thead><tbody><tr>';
+
+    for(let i=1;i<=total;i++){
+      const name = 'q'+i;
+      const selected = document.querySelector(`input[name="${name}"]:checked`);
+      const chosen = selected ? selected.value : '-';
+      const right = ANSWERS[i-1];
+
+      // подсветка в карточках: пометим правильный и ошибочный выбор
+      const inputs = getInputsByQ(i);
+      inputs.forEach(inp=>{
+        const lab = inp.closest('label');
+        if(!lab) return;
+        if(inp.value === right){
+          lab.classList.add('label-correct');
+        } else {
+          lab.classList.remove('label-correct');
+        }
+        // если выбран и неправилен — пометим как wrong
+        if(inp.checked && inp.value !== right){
+          lab.classList.add('label-wrong');
+        }
+      });
+
+      // подсчёт
+      if(chosen === right) { correctCount++; header += `<td class="cell-correct">${chosen}</td>`; }
+      else if (chosen === '-') { header += `<td>${chosen}</td>`; }
+      else { header += `<td class="cell-wrong">${chosen}</td>`; }
+    }
+
+    header += '</tr></tbody></table>';
+    // Показ результата
+    const percent = Math.round((correctCount/total)*100);
+    scoreText.innerHTML = `<strong>${correctCount}/${total}</strong> — ${percent}% дұрыc жауап`;
+    resultTableWrap.innerHTML = header;
+    resultArea.style.display = 'block';
+    // запретить менять ответы после проверки (по желанию можно убрать)
+    // document.querySelectorAll('input[type="radio"]').forEach(i=> i.disabled = true);
+  }
+
+  checkBtn && checkBtn.addEventListener('click', () => {
+    checkTest();
+    // прокрутка к результату
+    setTimeout(()=>{ resultArea.scrollIntoView({behavior:'smooth'}); }, 80);
+  });
+
+  retryBtn && retryBtn.addEventListener('click', ()=>{
+    // сброс
+    document.querySelectorAll('input[type="radio"]').forEach(i=> { i.checked = false; i.disabled = false; });
+    clearHighlights();
+    resultArea.style.display = 'none';
+    scoreText.textContent = '—';
+    // вернуться наверх формы
+    setTimeout(()=>{ document.querySelector('.quiz-form').scrollIntoView({behavior:'smooth'}); }, 80);
+  });
+
+  // Необязательное: при выборе варианта — подсветка выбранной строки (визуально)
+  document.querySelectorAll('.options').forEach(list=>{
+    list.addEventListener('change', (e)=>{
+      const name = e.target.name;
+      // сброс opacity у всех в этом вопросе
+      getInputsByQ(name.replace('q','')).forEach(inp=>{
+        const lab = inp.closest('label');
+        if(lab){ lab.style.opacity = '0.9'; }
+      });
+      // выделим выбранную ярче
+      const sel = document.querySelector(`input[name="${name}"]:checked`);
+      if(sel){ sel.closest('label').style.opacity = '1'; }
+    });
+  });
+
+</script>
+
 </body>
 </html>
