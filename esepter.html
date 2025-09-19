@@ -1,216 +1,424 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Жарық құбылыстары — Есептер</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Жарық құбылыстары — Есептер</title>
+<meta name="color-scheme" content="dark light">
 
-  <!-- Сіздің стильдеріңіз -->
-  <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css">
-  <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css">
-  <link rel="stylesheet" href="css%20%281%29/elegant-icons.css">
-  <link rel="stylesheet" href="css%20%281%29/nice-select.css">
-  <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css">
-  <link rel="stylesheet" href="css%20%281%29/magnific-popup.css">
-  <link rel="stylesheet" href="cssi/style.css">
+<style>
+/* ====== RESET & TOKENS ====== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#060a1b; --bg1:#0a1030;
+  --txt:#e9eefc; --muted:#b7c2e8;
+  --brand1:#4ea4ff; --brand2:#8a6bff; --brand3:#19ffd2;
+  --glass: rgba(255,255,255,.06);
+  --glass-stroke: rgba(180,210,255,.18);
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
 
-  <style>
-    body{background-image:url('img/PH/0000.jpg');background-size:cover;background-repeat:repeat-y;background-attachment:fixed}
-    .task-wrap{max-width:900px;margin:140px auto 60px;background:rgba(255,255,255,.92);border-radius:16px;padding:28px 26px}
-    .task{padding:16px 0;border-bottom:1px dashed #ddd}
-    .task:last-child{border-bottom:none}
-    .task h4{font-weight:700;margin:0 0 10px;color:black}
-    .answer{margin-top:8px;font-style:italic;color:#108f3e}
-    .check-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .check-row input{flex:1 1 220px;padding:10px 12px;border:1px solid #ccc;border-radius:10px}
-    .btn-check{background:#e45400;border:none;color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer}
-    .result{margin-top:10px;font-weight:700}
-    .ok{color:#108f3e}
-    .bad{color:#d81e1e}
-    .task-wrap h2{color:black;}
-    .task p{color:rgb(16, 183, 46);}
-  </style>
+html,body{min-height:100%}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Nunito Sans", "Oswald", Arial, sans-serif;
+  background:
+    radial-gradient(60vw 60vh at 100% -10%, rgba(78,164,255,.15), transparent 55%),
+    radial-gradient(50vw 50vh at -10% 100%, rgba(26,255,226,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, #0a0f2d 100%);
+  color:var(--txt);
+  overflow-x:hidden;
+}
+
+/* animated aurora layers */
+.aurora{ position:fixed; inset:-20vmax; pointer-events:none; z-index:-1; filter: blur(42px) saturate(120%); opacity:.85 }
+.aurora div{
+  position:absolute; width:55vmax; height:55vmax; border-radius:50%;
+  background: radial-gradient(closest-side, rgba(78,164,255,.35), transparent 70%);
+  animation: drift 26s linear infinite; mix-blend-mode:screen;
+}
+.aurora .b{ background: radial-gradient(closest-side, rgba(138,107,255,.35), transparent 70%); animation-duration:34s}
+.aurora .c{ background: radial-gradient(closest-side, rgba(25,255,210,.35), transparent 70%); animation-duration:30s}
+.aurora .d{ background: radial-gradient(closest-side, rgba(255,120,120,.25), transparent 70%); animation-duration:38s}
+@keyframes drift{
+  0%{transform:translate(-20vw,-10vh) rotate(0)}25%{transform:translate(40vw,-5vh) rotate(90deg)}
+  50%{transform:translate(20vw,30vh) rotate(180deg)}75%{transform:translate(-30vw,10vh) rotate(270deg)}
+  100%{transform:translate(-20vw,-10vh) rotate(360deg)}
+}
+
+/* faint stars */
+.stars{ position:fixed; inset:0; pointer-events:none; z-index:-2; opacity:.6 }
+.stars canvas{ width:100%; height:100%; display:block }
+
+/* ====== LAYOUT ====== */
+.wrap{ width:min(1200px,92vw); margin:auto }
+
+/* ====== HEADER ====== */
+.header{
+  position: sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,15,40,.7), rgba(10,15,40,.35));
+  border-bottom:1px solid var(--glass-stroke);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
+.brand{ display:flex; align-items:center; gap:12px; color:var(--txt); text-decoration:none }
+.brand .dot{
+  width:26px;height:26px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--brand1) 55%, transparent 62%);
+  box-shadow: 0 0 22px rgba(78,164,255,.85), inset 0 0 10px rgba(255,255,255,.4);
+}
+.brand span{ font-family:"Oswald",system-ui,sans-serif; font-weight:700; letter-spacing:.5px; font-size:18px }
+.nav a.link{ color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600 }
+.nav a.link[aria-current="page"], .nav a.link:hover{ color:#fff }
+
+/* ====== HERO ====== */
+.hero{ padding: clamp(26px,6vw,56px) 0 8px }
+.title{
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: clamp(34px, 5.4vw, 62px);
+  line-height:1.04; letter-spacing:.4px;
+  background: linear-gradient(90deg, #e9efff, #9ec6ff 40%, #9e8bff 80%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.subtitle{ color:var(--muted); font-size: clamp(15px, 1.7vw, 20px); max-width: 60ch; margin-top:8px }
+
+/* progress badge */
+.progress{
+  display:flex; align-items:center; gap:10px; margin-top:14px; font-weight:800; color:#061024;
+  width:max-content; padding:8px 12px; border-radius:999px;
+  background: linear-gradient(90deg, var(--brand3), var(--brand1));
+  box-shadow: 0 0 12px rgba(78,164,255,.55);
+}
+.progress .dot{ width:8px;height:8px;border-radius:50%; background:#fff; box-shadow:0 0 8px #fff }
+
+/* ====== SECTIONS / ACCORDION ====== */
+.section{ margin-top:24px; border:1px solid var(--glass-stroke); border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04)) }
+.summary{
+  display:flex; align-items:center; justify-content:space-between; width:100%;
+  background: rgba(255,255,255,.03); padding:16px 18px; cursor:pointer; border:none; color:var(--txt)
+}
+.summary h2{ font-family:"Oswald", system-ui; font-size: clamp(22px,3vw,30px) }
+.chev{ transition:.25s transform }
+.section.open .chev{ transform: rotate(180deg) }
+
+/* ====== TASKS GRID ====== */
+.tasks{ padding: 16px clamp(14px,2.2vw,22px) 18px }
+.grid{
+  display:grid; gap: clamp(14px, 2.2vw, 20px);
+  grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+}
+
+/* ====== TASK CARD ====== */
+.card{
+  position:relative; padding:16px 16px 14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid var(--glass-stroke); border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow:hidden; isolation:isolate;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.card:hover{ transform: translateY(-5px); box-shadow: 0 18px 50px rgba(0,0,0,.55) }
+
+.card .glow{
+  position:absolute; inset:-40%;
+  background: radial-gradient(closest-side, rgba(78,164,255,.22), transparent 70%),
+              radial-gradient(closest-side, rgba(138,107,255,.22), transparent 70%);
+  transform: translate(var(--mx,0),var(--my,0));
+  mix-blend-mode:screen; filter: blur(26px); opacity:.65; z-index:-1;
+}
+
+.card h4{ font-size: 18px; line-height:1.35; margin-bottom:8px }
+.card .hint{ color:var(--muted); font-size:14px; line-height:1.6; margin:6px 0 10px }
+
+/* input + button */
+.row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px }
+.inp{
+  flex:1 1 180px; padding:11px 12px; border-radius:10px;
+  color:#061024; background:#fff; border:1px solid #d7e3ff; outline:none;
+}
+.btn{
+  --h:44px; height:var(--h); padding:0 16px; border-radius:12px; border:none; cursor:pointer;
+  background: linear-gradient(90deg, var(--brand1), var(--brand2)); color:#061024; font-weight:800;
+  box-shadow: 0 10px 30px rgba(78,164,255,.35), inset 0 0 0 1px rgba(255,255,255,.25);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.btn:hover{ transform: translateY(-2px); filter: saturate(115%); box-shadow: 0 16px 40px rgba(78,164,255,.5) }
+.btn:active{ transform: translateY(0) scale(.98) }
+
+/* answers */
+.res{ margin-top:8px; font-weight:800 }
+.ok{ color:#2af598 } .bad{ color:#ff6b6b }
+.answer{ margin-top:6px; color:#9fe7ff; font-style:italic }
+
+/* REVEAL */
+.reveal{ opacity:0; transform: translateY(12px); transition: .7s cubic-bezier(.2,.8,.2,1) }
+.reveal.visible{ opacity:1; transform:none }
+
+/* FOOTER */
+.footer{ text-align:center; color:#93a3d9; padding:32px 0 40px }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce){
+  .aurora,.stars{ display:none }
+}
+
+/* small helpers */
+.mt-8{ margin-top:8px }
+</style>
 </head>
 <body>
 
-<header class="header-section">
-  <div class="container">
-    <div class="logo">
-      <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-    </div>
-    <div class="nav-menu">
-      <nav class="mainmenu mobile-menu">
-        <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
+<!-- moving lights -->
+<div class="aurora">
+  <div class="a"></div><div class="b"></div><div class="c"></div><div class="d"></div>
+</div>
+<div class="stars"><canvas id="stars"></canvas></div>
 
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    <</ul>
-      </nav>
-    </div>
-    <!-- мобильный wrap -->
-    <div id="mobile-menu-wrap"></div>
+<header class="header">
+  <div class="wrap nav">
+    <a href="index.htm" class="brand"><span class="dot"></span><span>Жарық құбылыстары</span></a>
+    <nav>
+      <a class="link" href="index.htm">Басты бет</a>
+      <a class="link" href="theory-1.html">Теориялар</a>
+      <a class="link" href="laboratory.html">Лаборатория</a>
+      <a class="link" href="test.html">Тесттер</a>
+      <a class="link" href="esepter.html" aria-current="page">Есептер</a>
+    </nav>
   </div>
 </header>
 
-<!-- Блок үш есепке -->
-<section class="task-wrap">
-  <h2 style="text-align:center;margin-top:0">Жаттығу 28</h2>
-
-  <!-- Есеп 1 (жауабы көрсетіледі) -->
-  <div class="task">
-    <h4>1) Жабық стадиондағы ойын алаңында жүрген спортшыдан төрт көлеңке түседі. Неліктен?</h4>
-    <p class="answer">Жауабы: Алаңды бірнеше прожектор (мысалы, төрт бұрыштағы шамдар) жарықтандырады. Әрқайсысы жеке көлеңке жасайды — сондықтан көлеңкелер саны төрт.</p>
-  </div>
-
-  <!-- Есеп 2 (жауабы көрсетіледі) -->
-  <div class="task">
-    <h4>2) Бойы 1,8 м адамның көлеңкесі 0,9 м, ал ағаштың көлеңкесі 10 м. Ағаштың биіктігі қанша?</h4>
-    <p>Ұқсас үшбұрыштар: \( \dfrac{h_{\text{ағаш}}}{10} = \dfrac{1{,}8}{0{,}9} \Rightarrow h_{\text{ағаш}} = 20 \text{ м}\).</p>
-    <p class="answer">Жауабы: <b>20 м</b>.</p>
-  </div>
-
-  <!-- Есеп 3 (қолданушы өзі енгізеді) -->
-  <div class="task" id="task3">
-    <h4>3) Көше шамы 3 м биіктікте. Ұзындығы 1,2 м тік таяқтың көлеңке ұзындығы өз ұзындығына тең. Таяқ бағананың түбінен қандай қашықтықта орналасқан?</h4>
-    <p>Кеңес: нүктелік шам үшін көлеңке ұзындығы s = d·h/(H−h). Мұнда H=3 м, h=1,2 м.</p>
-
-    <div class="check-row">
-      <input id="ans3" type="text" placeholder="Жауабыңызды енгізіңіз, м (мысалы: 1.8)">
-      <button class="btn-check" onclick="checkT3()">Тексеру</button>
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="title reveal">Есептер</h1>
+    <p class="subtitle reveal" style="transition-delay:.06s">
+      Оптика бойынша қысқа жаттығулар. Жауабыңызды енгізіп, бірден тексеріңіз.
+    </p>
+    <div class="progress reveal" style="transition-delay:.1s" id="progress">
+      <span class="dot"></span><span>Дұрыс: <b id="score">0</b> / <span id="total">3</span></span>
     </div>
-    <div id="res3" class="result"></div>
-  </div>
+  </section>
 
-<!-- ================= Жаттығу 29 ================= -->
-  <h2 style="text-align:center;margin-top:0">Жаттығу 29</h2>
+  <!-- Жаттығу 28 -->
+  <section class="section reveal">
+    <button class="summary" type="button">
+      <h2>Жаттығу 28</h2>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="tasks">
+      <div class="grid">
 
-  <!-- Есеп 1 -->
-  <div class="task">
-    <h4>1) Түскен сәуле мен шағылған сәуле арасындағы бұрыш 60°. Түсу бұрышы қандай?</h4>
-    <p>Шағылу заңына сәйкес: түсу бұрышы = шағылу бұрышы. 
-    Ал екеуінің арасындағы бұрыш = 2i.  
-    2i = 60° → i = 30°.</p>
-    <p class="answer">Жауабы: <b>30°</b></p>
-  </div>
+        <!-- 28-1 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>1) Жабық стадиондағы ойын алаңында жүрген спортшыдан төрт көлеңке түседі. Неліктен?</h4>
+          <p class="answer">Жауабы: алаңды бірнеше прожектор жарықтандырады (мысалы, төрт бұрышта). Әр шам жеке көлеңке жасайды — сондықтан көлеңкелер саны төрт.</p>
+        </article>
 
-  <!-- Есеп 2 -->
-  <div class="task">
-    <h4>2) Жазық айнада D, B және C нүктелерінің кескінін салыңыз. Әр нүктенің айнадан қашықтығы бірдей болады.</h4>
-    <p class="answer">Жауабы: Кескіндер айнаға симметриялы орналасады (d = d’).</p>
-  </div>
+        <!-- 28-2 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>2) Бойы 1,8 м адамның көлеңкесі 0,9 м, ал ағаштың көлеңкесі 10 м. Ағаштың биіктігі қанша?</h4>
+          <p class="hint">Ұқсас үшбұрыштар: \( h_{\text{ағаш}}/10 = 1{,}8/0{,}9 \Rightarrow h_{\text{ағаш}} = 20 \text{ м} \).</p>
+          <p class="answer">Жауабы: <b>20 м</b>.</p>
+        </article>
 
-  <!-- Есеп 3 (интерактивті) -->
-  <div class="task" id="task29_3">
-    <h4>3) Сәуленің жазық айнаға түсу бұрышы 30°-тан 45°-қа дейін артты. Түскен сәуле мен шағылған сәуле арасындағы бұрыш қалай өзгереді?</h4>
-    <p>Арадағы бұрыш = 2i. Егер i=30° → 60°. Егер i=45° → 90°.  
-    Демек өзгеріс: 30°-қа артты.</p>
+        <!-- 28-3 интерактив -->
+        <article class="card" data-task="t28_3">
+          <div class="glow"></div>
+          <h4>3) Көше шамы 3 м биіктікте. Ұзындығы 1,2 м таяқтың көлеңкесі өз ұзындығына тең. Таяқ бағананың түбінен қандай қашықтықта орналасқан?</h4>
+          <p class="hint">Кеңес: нүктелік шам үшін \(s = d\cdot h/(H-h)\). Мұнда H = 3 м, h = 1.2 м, s = 1.2 м.</p>
+          <div class="row mt-8">
+            <input class="inp" type="text" inputmode="decimal" placeholder="мысалы: 1.8" data-input>
+            <button class="btn" data-check>Тексеру</button>
+          </div>
+          <div class="res" data-res></div>
+        </article>
 
-    <div class="check-row">
-      <input id="ans29_3" type="text" placeholder="Жауабыңызды енгізіңіз, °">
-      <button class="btn-check" onclick="checkT29_3()">Тексеру</button>
+      </div>
     </div>
-    <div id="res29_3" class="result"></div>
-  </div>
+  </section>
 
-  <h2 style="text-align:center;margin-top:40px">Жаттығу 30</h2>
+  <!-- Жаттығу 29 -->
+  <section class="section reveal">
+    <button class="summary" type="button">
+      <h2>Жаттығу 29</h2>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="tasks">
+      <div class="grid">
 
-  <!-- Есеп 4 -->
-  <div class="task">
-    <h4>1) Жарық сәулесі жазық айнаға оның бетіне қатысты 30° бұрышпен түседі. Түскен сәуле мен шағылған сәуле арасындағы бұрыш қанша?</h4>
-    <p>30° бетке қатысты → 60° нормальға қатысты.  
-    Шағылған да 60°. Екеуінің арасындағы бұрыш = 120°.</p>
-    <p class="answer">Жауабы: <b>120°</b></p>
-  </div>
+        <!-- 29-1 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>1) Түскен сәуле мен шағылған сәуле арасындағы бұрыш 60°. Түсу бұрышы қандай?</h4>
+          <p class="hint">Шағылу заңы: \(i = r\). Арадағы бұрыш = \(2i\).</p>
+          <p class="answer">Жауабы: <b>30°</b>.</p>
+        </article>
 
-  <!-- Есеп 5 -->
-  <div class="task">
-    <h4>2) Адам жазық айнаға қарай 2 м/с жылдамдықпен жүрді. Оның кескіні қандай жылдамдықпен жақындайды?</h4>
-    <p>Кескін айна артында симметриялы қозғалады.  
-    Сондықтан жылдамдық = 2+2 = 4 м/с.</p>
-    <p class="answer">Жауабы: <b>4 м/с</b></p>
-  </div>
+        <!-- 29-2 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>2) Жазық айнада D, B және C нүктелерінің кескінін салыңыз. Әр нүктенің айнадан қашықтығы бірдей.</h4>
+          <p class="answer">Жауабы: кескіндер айнаға симметриялы орналасады (d = d’).</p>
+        </article>
 
-  <!-- Есеп 6 (интерактивті) -->
-  <div class="task" id="task29_6">
-    <h4>3) Күн сәулелері Жер бетімен 40° бұрыш жасайды. Сәуле бағытына тік бұрышпен қойылған тікеннің көлеңкесі қандай бұрышпен бағытталады?</h4>
-    <p>Күн сәулесі горизонтпен 40° → вертикальға қатысты 50°.  
-    Көлеңке жер бетінде, сәулеге қарама-қарсы бағытталады.</p>
+        <!-- 29-3 интерактив -->
+        <article class="card" data-task="t29_3">
+          <div class="glow"></div>
+          <h4>3) Түсу бұрышы 30°-тан 45°-қа артты. Түскен сәуле мен шағылған сәуле арасындағы бұрыш қалай өзгереді?</h4>
+          <p class="hint">Арадағы бұрыш = \(2i\).</p>
+          <div class="row mt-8">
+            <input class="inp" type="text" inputmode="decimal" placeholder="мысалы: 30" data-input>
+            <button class="btn" data-check>Тексеру</button>
+          </div>
+          <div class="res" data-res></div>
+        </article>
 
-    <div class="check-row">
-      <input id="ans29_6" type="text" placeholder="Жауабыңызды енгізіңіз, °">
-      <button class="btn-check" onclick="checkT29_6()">Тексеру</button>
+      </div>
     </div>
-    <div id="res29_6" class="result"></div>
-  </div>
-</section>
+  </section>
+
+  <!-- Жаттығу 30 -->
+  <section class="section reveal">
+    <button class="summary" type="button">
+      <h2>Жаттығу 30</h2>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="tasks">
+      <div class="grid">
+
+        <!-- 30-1 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>1) Сәуле айна бетіне қатысты 30° бұрышпен түседі. Түскен және шағылған сәулелер арасындағы бұрыш қанша?</h4>
+          <p class="hint">Бетке 30° → нормальға 60°. Арадағы бұрыш = 120°.</p>
+          <p class="answer">Жауабы: <b>120°</b>.</p>
+        </article>
+
+        <!-- 30-2 -->
+        <article class="card" data-static>
+          <div class="glow"></div>
+          <h4>2) Адам айнаға қарай 2 м/с жылдамдықпен жүреді. Кескін қандай жылдамдықпен жақындайды?</h4>
+          <p class="answer">Жауабы: <b>4 м/с</b>.</p>
+        </article>
+
+        <!-- 30-3 интерактив -->
+        <article class="card" data-task="t30_3">
+          <div class="glow"></div>
+          <h4>3) Күн сәулелері Жер бетімен 40° бұрыш жасайды. Сәуле бағытына тік қойылған таяқтың көлеңкесі қандай бұрышпен бағытталады?</h4>
+          <p class="hint">Горизонтпен 40° → вертикальға 50°.</p>
+          <div class="row mt-8">
+            <input class="inp" type="text" inputmode="decimal" placeholder="мысалы: 50" data-input>
+            <button class="btn" data-check>Тексеру</button>
+          </div>
+          <div class="res" data-res></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  © 2025 Жарық құбылыстары • Барлық құқықтар қорғалған
+</footer>
 
 <script>
-  function checkT29_3(){
-    const val = parseFloat(document.getElementById('ans29_3').value);
-    const res = document.getElementById('res29_3');
-    if(isNaN(val)){res.textContent='Сан енгізіңіз';res.className='result bad';return;}
-    if(Math.abs(val-30)<=2){res.textContent='Дұрыс! Жауап: 30°';res.className='result ok';}
-    else{res.textContent='Дұрыс емес';res.className='result bad';}
+/* ====== REVEAL ON VIEW ====== */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target) }})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ====== STARS CANVAS ====== */
+(function stars(){
+  const c = document.getElementById('stars'); const ctx = c.getContext('2d');
+  let w,h,stars=[]; const DPR = Math.min(2, window.devicePixelRatio||1);
+  function resize(){
+    w=c.width = Math.floor(innerWidth*DPR);
+    h=c.height= Math.floor(innerHeight*DPR);
+    c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
+    const count = Math.floor((w*h)/22000);
+    stars = Array.from({length:count}, ()=>({x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.2+.3, a:Math.random()*1}));
   }
-
-  function checkT29_6(){
-    const val = parseFloat(document.getElementById('ans29_6').value);
-    const res = document.getElementById('res29_6');
-    if(isNaN(val)){res.textContent='Сан енгізіңіз';res.className='result bad';return;}
-    const correct=50;
-    if(Math.abs(val-correct)<=2){res.textContent='Дұрыс! Жауап: 50°';res.className='result ok';}
-    else{res.textContent='Дұрыс емес';res.className='result bad';}
-  }
-</script>
-
-
-<!-- Скрипт: есеп 3 тексеру -->
-<script>
-  function checkT3(){
-    const input = document.getElementById('ans3').value.trim().replace(',', '.');
-    const val = parseFloat(input);
-    const correct = 1.8; // d = H - h = 3 - 1.2
-    const eps = 0.05;    // +/- 5 см дәлдікке рұқсат
-    const res = document.getElementById('res3');
-
-    if(isNaN(val)){
-      res.textContent = 'Сан енгізіңіз (мысалы: 1.8).';
-      res.className = 'result bad';
-      return;
+  resize(); addEventListener('resize', resize);
+  let t0=performance.now();
+  (function loop(now){
+    const dt=(now-t0)/1000; t0=now;
+    ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='screen';
+    for(const s of stars){
+      s.a+=(Math.random()-.5)*0.04;
+      const alpha=.25+Math.abs(Math.sin(s.a))*0.45;
+      ctx.beginPath(); ctx.fillStyle=`rgba(220,235,255,${alpha})`;
+      ctx.arc(s.x,s.y,s.r*DPR,0,Math.PI*2); ctx.fill();
     }
-    if(Math.abs(val - correct) <= eps){
-      res.textContent = 'Дұрыс! Жауап: 1.8 м.';
-      res.className = 'result ok';
+    requestAnimationFrame(loop);
+  })(t0);
+})();
+
+/* ====== ACCORDION ====== */
+document.querySelectorAll('.section').forEach(sec=>{
+  const btn = sec.querySelector('.summary');
+  btn.addEventListener('click', ()=> sec.classList.toggle('open'));
+  // start opened by default
+  sec.classList.add('open');
+});
+
+/* ====== HOVER GLOW FOLLOWS CURSOR ====== */
+document.querySelectorAll('.card').forEach(card=>{
+  const glow = card.querySelector('.glow');
+  if(!glow) return;
+  function move(e){
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left)/r.width - .5)*40;
+    const y = ((e.clientY - r.top )/r.height- .5)*40;
+    glow.style.setProperty('--mx', x+'px');
+    glow.style.setProperty('--my', y+'px');
+  }
+  card.addEventListener('mousemove', move);
+  card.addEventListener('mouseleave', ()=>{ glow.style.setProperty('--mx','0'); glow.style.setProperty('--my','0') });
+});
+
+/* ====== QUIZ LOGIC ====== */
+const scoreEl = document.getElementById('score');
+const totalEl = document.getElementById('total');
+let score = 0;
+const epsilon = { deg:2, m:0.05 };
+
+const tasks = {
+  t28_3: {answer: 1.8, tol: epsilon.m, unit:' м', ok:'Дұрыс! Жауап: 1.8 м.'},
+  t29_3: {answer: 30, tol: epsilon.deg, unit:'°',  ok:'Дұрыс! Жауап: 30°.'},
+  t30_3: {answer: 50, tol: epsilon.deg, unit:'°',  ok:'Дұрыс! Жауап: 50°.'},
+};
+
+// bind buttons
+document.querySelectorAll('[data-task]').forEach(card=>{
+  const key = card.dataset.task;
+  const cfg = tasks[key];
+  const input = card.querySelector('[data-input]');
+  const btn   = card.querySelector('[data-check]');
+  const res   = card.querySelector('[data-res]');
+  btn.addEventListener('click', ()=>{
+    const raw = (input.value||'').trim().replace(',','.');
+    const val = parseFloat(raw);
+    if(Number.isNaN(val)){ res.textContent='Сан енгізіңіз'; res.className='res bad'; return; }
+    if(Math.abs(val - cfg.answer) <= cfg.tol){
+      if(!card.dataset.done){ score++; scoreEl.textContent = score; card.dataset.done='1'; }
+      res.textContent = cfg.ok; res.className='res ok';
     }else{
-      res.textContent = 'Дұрыс емес. Қайта көріңіз.';
-      res.className = 'result bad';
+      res.textContent = 'Дұрыс емес. Қайта көріңіз.'; res.className='res bad';
     }
-  }
-</script>
+  });
+});
 
-<!-- Сіздің JS плагиндеріңіз -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/mixitup.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
-<script src="js/main.js"></script>
+// total problems that need input
+totalEl.textContent = Object.keys(tasks).length;
+
+/* ====== REDUCED MOTION ====== */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.aurora, .stars').forEach(el=> el.style.display='none');
+}
+</script>
 </body>
 </html>
