@@ -1,278 +1,100 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kk">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Жарық құбылыстары">
-    <meta name="keywords" content="физика, жарық, оптика, мектеп, 11-сынып">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Жарық құбылыстары</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жарық құбылыстары</title>
 
-    <!-- Google Font -->
-    <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="cssi/style.css" type="text/css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
+  <!-- Навигация -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Жарық</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Басты бет</a></li>
+          <li><a href="#">Теориялар</a></li>
+          <li><a href="#">Лаборатория</a></li>
+          <li><a href="#">Тесттер</a></li>
+          <li><a href="#">Авторлар</a></li>
+        </ul>
+      </nav>
+      <div class="burger">&#9776;</div>
+    </div>
+  </header>
 
-<script>
-  // эффект "сжатия" хедера при скролле
-  (function(){
-    const header = document.querySelector('.header-section');
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
-    onScroll(); window.addEventListener('scroll', onScroll);
-  })();
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Жарық құбылыстары</h1>
+      <p>Оптика әлемін зертте — шағылу, сыну, интерференция, дифракция.</p>
+      <a href="#theory" class="btn">Бастау</a>
+    </div>
+    <div class="prism">
+      <div class="beam"></div>
+      <div class="spectrum"></div>
+    </div>
+  </section>
 
-  // клик для открытия дропдауна на мобильных/тач
-  (function(){
-    const mq = window.matchMedia('(max-width: 992px)');
-    function setup() {
-      document.querySelectorAll('.mainmenu > ul > li.dropdown > a, .mainmenu > ul > li.dropdown > a[href="javascript:void(0);"]').forEach(a=>{
-        // снимем старый обработчик
-        if (a._handler) a.removeEventListener('click', a._handler);
-        if (mq.matches) {
-          a._handler = function(e){
-            e.preventDefault();
-            const li = this.parentElement;
-            // закрыть другие
-            document.querySelectorAll('.mainmenu > ul > li.dropdown.open').forEach(x=>{ if(x!==li) x.classList.remove('open'); });
-            li.classList.toggle('open');
-          };
-          a.addEventListener('click', a._handler);
+  <!-- Разделы -->
+  <section class="sections">
+    <h2>Негізгі бөлімдер</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/theory.svg" alt="Теория">
+        <h3>Теориялар</h3>
+        <p>Физикалық заңдар мен формулалар.</p>
+      </div>
+      <div class="card">
+        <img src="img/lab.svg" alt="Лаборатория">
+        <h3>Лаборатория</h3>
+        <p>Тәжірибелер мен есептер.</p>
+      </div>
+      <div class="card">
+        <img src="img/test.svg" alt="Тесттер">
+        <h3>Тесттер</h3>
+        <p>Біліміңді тексер.</p>
+      </div>
+      <div class="card">
+        <img src="img/author.svg" alt="Авторлар">
+        <h3>Авторлар</h3>
+        <p>Жоба жасаушылар.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Жарық құбылыстары. Барлық құқықтар қорғалған.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Burger menu
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav ul');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Анимация появления
+    const elements = document.querySelectorAll('.card, .hero-content, h2');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    }
-    setup(); window.addEventListener('resize', setup);
-  })();
-</script>
+    }, { threshold: 0.2 });
 
-<script>
-  // Dropdown: клик для тач/мобилок + закрытие по клику вне/ESC
-  (function(){
-    const items = document.querySelectorAll('.mainmenu > ul > li.dropdown');
-    items.forEach(li => {
-      const a = li.querySelector(':scope > a');
-      if (!a) return;
-      a.setAttribute('aria-haspopup', 'true');
-      a.setAttribute('aria-expanded', 'false');
-
-      a.addEventListener('click', (e) => {
-        // предотвращаем переход и переключаем меню
-        e.preventDefault();
-        const willOpen = !li.classList.contains('open');
-        // закрываем другие
-        items.forEach(x => {
-          if (x !== li) {
-            x.classList.remove('open');
-            const ax = x.querySelector(':scope > a');
-            if (ax) ax.setAttribute('aria-expanded', 'false');
-          }
-        });
-        // переключаем текущий
-        li.classList.toggle('open', willOpen);
-        a.setAttribute('aria-expanded', String(willOpen));
-      });
-    });
-
-    // закрыть по клику вне меню
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.mainmenu')) {
-        items.forEach(li => {
-          li.classList.remove('open');
-          const a = li.querySelector(':scope > a');
-          if (a) a.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-
-    // закрыть по ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        items.forEach(li => li.classList.remove('open'));
-        document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
-          .forEach(a => a.setAttribute('aria-expanded', 'false'));
-      }
-    });
-  })();
-</script>
-
-
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder"><div class="loader"></div></div>
-
-    <!-- Header -->
-    <header class="header-section">
-  <div class="container">
-    <div class="logo">
-      <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-    </div>
-    <div class="nav-menu">
-      <nav class="mainmenu mobile-menu">
-        <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    <</ul>
-      </nav>
-    </div>
-    <!-- мобильный wrap -->
-    <div id="mobile-menu-wrap"></div>
-  </div>
-</header>
-
-
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-item set-bg" data-setbg="img/9997.jpg">
-                <div class="container"><div class="hero-text text-center">
-                    <h2>Мектеп курсындағы</h2>
-                    <h1>Жарық құбылыстары</h1>
-                    <a href="#content" class="primary-btn">Бастау</a>
-                </div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section class="home-about spad" id="content">
-  <div class="container">
-    <div class="row align-items-center g-5"> <!-- g-5: простор между колонками -->
-      <!-- Текст слева -->
-      <div class="col-lg-6 about-text">
-        <h2 class="about-title">Қош келдіңіздер!</h2>
-        <p class="short-details">
-          Бұл бөлімде сіз 8-сыныпқа арналған жарық құбылыстары курсының барлық негізгі тақырыптарын таба аласыз.
-        </p>
-        <p class="long-details">
-          Теориялық материалдар, тесттер, есептер мен зертханалық жұмыстар бір жерде жинақталған және мектеп бағдарламасына толық сәйкес келеді.
-        </p>
-        <a href="theory-1.html" class="primary-btn about-btn">Теорияға өту</a>
-      </div>
-
-      <!-- Картинка справа -->
-      <!-- Картинка справа -->
-<div class="col-lg-6">
-  <!-- ДВА ЧЕЛОВЕКА ГОРИЗОНТАЛЬНО -->
-  <div class="about-visual team-duo">
-    <figure class="person">
-      <img src="img/mam.png" alt="Айбек Нұрланұлы">
-      <figcaption>
-        <div class="fio">Упишева Алмагул Мизамовна</div>
-        <div class="role">Физика пәні мұғалімі</div>
-      </figcaption>
-    </figure>
-
-    <figure class="person">
-      <img src="img/team/person-2.jpg" alt="Алина Сейтқызы">
-      <figcaption>
-        <div class="fio">Алина Сейтқызы</div>
-        <div class="role">Әдістемелік кеңесші</div>
-      </figcaption>
-    </figure>
-  </div>
-</div>
-
-    </div>
-  </div>
-</section>
-
-
-    <!-- Classes -->
-    <section class="classes-section">
-        <div class="class-title set-bg" data-setbg="img/classes-title-bg.jpg">
-            <div class="container text-center">
-                <h2>📚 Курс мазмұны:</h2>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 classes-item set-bg text-center" data-setbg="img/ph/light1.jpg">
-                    <p>§29. Жарықтың шағылуы. Шағылу заңы</p>
-                    <p>§30. Жарықтың сынуы. Снелль заңы</p>
-                </div>
-                <div class="col-lg-3 col-sm-6 classes-item set-bg text-center" data-setbg="img/ph/light2.jpg">
-                    <p>§31. Линзалар. Жұқа линза формуласы</p>
-                    <p>§32. Оптикалық аспаптар</p>
-                </div>
-                <div class="col-lg-3 col-sm-6 classes-item set-bg text-center" data-setbg="img/ph/light3.jpg">
-                    <p>§33. Интерференция</p>
-                    <p>§34. Дифракция</p>
-                </div>
-                <div class="col-lg-3 col-sm-6 classes-item set-bg text-center" data-setbg="img/ph/light4.jpg">
-                    <p>§35. Поляризация</p>
-                    <p>§36. Толық ішкі шағылу</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="feature-section spad">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>🧠 Не үйренесіздер:</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4 feature-item set-bg" data-setbg="img/ph/reflect.jpg">
-                    <p>Жарықтың шағылуы мен сынуын</p>
-                </div>
-                <div class="col-md-4 feature-item set-bg" data-setbg="img/ph/lens.jpg">
-                    <p>Линзалар мен оптикалық аспаптарды</p>
-                </div>
-                <div class="col-md-4 feature-item set-bg" data-setbg="img/ph/interference.jpg">
-                    <p>Интерференция, дифракция, поляризация құбылыстарын</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video -->
-    <section class="video-section set-bg" data-setbg="img/optics-lab.jpg">
-        <div class="container text-center">
-            <h2>Жарық құбылыстары</h2>
-            <a href="img/3.mp4" class="play-btn video-popup"><i class="fa fa-play"></i></a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="container text-center">
-            <p>© <script>document.write(new Date().getFullYear());</script> Жарық құбылыстары. Барлық құқықтар қорғалған.</p>
-        </div>
-    </footer>
-
-    <!-- Js -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <script src="js/main.js"></script>
+    elements.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
