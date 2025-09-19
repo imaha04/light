@@ -4,221 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Жарық құбылыстары – Тест</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="cssi/style.css">
-  <link rel="stylesheet" href="css/slicknav.min.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Nunito Sans', sans-serif;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-      background-attachment: fixed;
-      color: #fff;
-      padding: 140px 20px 60px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.4);
-      animation: fadeIn 1s ease;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 42px;
-      margin-bottom: 25px;
-      font-family: 'Oswald', sans-serif;
-      color: #ff7043;
-    }
-
-    h3 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      font-weight: 600;
-      color: #ffce54;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-    }
-
-    .test-block {
-      background: rgba(0,0,0,0.75);
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .styled-question {
-      margin: 18px 0 12px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #ffce54;
-    }
-
-    label {
-      display: block;
-      margin: 8px 0;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.05);
-      cursor: pointer;
-      transition: all .3s ease;
-    }
-    label:hover { background: rgba(255,138,0,0.3); }
-
-    input[type="radio"] { margin-right: 12px; }
-
-    button {
-      padding: 12px 26px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #ff7043;
-      color: #fff;
-      cursor: pointer;
-      margin-top: 25px;
-      transition: background .2s;
-    }
-    button:hover { background: #ff5722; }
-
-    #startScreen { text-align: center; margin-bottom: 25px; }
-
-    .result-table {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      animation: fadeIn 0.8s ease;
-    }
-    .result-table th, .result-table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-    .correct { background: #28a745; color:#fff; }
-    .wrong   { background: #dc3545; color:#fff; }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(20px);}
-      to   {opacity:1; transform:translateY(0);}
-    }
-
-    /* Mobile */
-    #mobile-menu-wrap{ display:none; }
-    @media (max-width: 768px){
-      #mobile-menu-wrap{ display:block; }
-      h1 { font-size: 28px; }
-      .container { padding: 20px; }
-    }
-  </style>
+  <link rel="stylesheet" href="test.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- Header -->
-  <header class="header-section">
-    <div class="container">
-      <div class="logo">
-        <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-      </div>
-
-      <div class="nav-menu">
-        <nav class="mainmenu mobile-menu">
-          <ul>
-            <li><a href="index.htm">Басты бет</a></li>
-            <li class="dropdown">
-              <a href="javascript:void(0);">Теориялық бөлім</a>
-              <ul class="dropdown-menu">
-                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                <li><a href="theory-3.html">Линзалар</a></li>
-                <li><a href="theory-4.html">Интерференция</a></li>
-                <li><a href="theory-5.html">Дифракция</a></li>
-                <li><a href="theory-6.html">Поляризация</a></li>
-              </ul>
-            </li>
-            <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>
-            <li class="active"><a href="test.html">Тесттер</a></li>
-            <li><a href="esepter.html">Есептер</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="mobile-menu-wrap"></div>
-    </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Жарық</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Басты бет</a></li>
+        <li><a href="theory.html">Теория</a></li>
+        <li><a href="lab.html">Лаборатория</a></li>
+        <li><a href="test.html" class="active">Тест</a></li>
+        <li><a href="authors.html">Авторлар</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Content -->
-  <div class="container">
-    <h1>Жарық құбылыстары – Тест</h1>
+  <main>
+    <section class="test-container">
+      <h1>Білімді тексеру</h1>
+      <p class="subtitle">Төмендегі сұрақтарға жауап беріңіз:</p>
 
-    <div id="startScreen">
-      <button onclick="startTest()">Тестті бастау</button>
-    </div>
-
-    <form id="quizForm" style="display:none;">
-      <div class="grid">
-        <!-- 1-нұсқа -->
-        <div class="test-block">
-          <h3>1-нұсқа</h3>
-          <div class="styled-question">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
-          <label><input type="radio" name="q1" value="A">A) 3·10⁵ м/с</label>
-          <label><input type="radio" name="q1" value="B">B) 3·10⁶ м/с</label>
-          <label><input type="radio" name="q1" value="C">C) 3·10⁷ м/с</label>
-          <label><input type="radio" name="q1" value="D">D) 3·10⁸ м/с</label>
-        </div>
-
-        <!-- 2-нұсқа -->
-        <div class="test-block">
-          <h3>2-нұсқа</h3>
-          <div class="styled-question">1. Воиымен жарық таралатын сызық –</div>
-          <label><input type="radio" name="q2" value="A">A) Сәуле</label>
-          <label><input type="radio" name="q2" value="B">B) Траектория</label>
-          <label><input type="radio" name="q2" value="C">C) Орнын ауыстыру</label>
-          <label><input type="radio" name="q2" value="D">D) Түзу</label>
-        </div>
+      <div class="question">
+        <h2>1. Жарықтың таралу жылдамдығы қайда ең баяу?</h2>
+        <ul>
+          <li><button>Ауада</button></li>
+          <li><button>Суда</button></li>
+          <li><button>Вакуумда</button></li>
+        </ul>
       </div>
 
-      <div style="text-align:center;">
-        <button type="button" onclick="checkTest()">Нәтижені көру</button>
+      <div class="question">
+        <h2>2. Жарықтың сыну құбылысы қашан байқалады?</h2>
+        <ul>
+          <li><button>Жарық шағылғанда</button></li>
+          <li><button>Бір ортадан екінші ортаға өткенде</button></li>
+          <li><button>Жарық көзінен шыққанда</button></li>
+        </ul>
       </div>
-    </form>
 
-    <div id="result"></div>
-  </div>
+      <div class="submit-area">
+        <button class="submit-btn">Жауаптарды тексеру</button>
+      </div>
 
-  <script>
-    function startTest(){
-      document.getElementById('startScreen').style.display='none';
-      document.getElementById('quizForm').style.display='block';
-    }
-
-    const ANSWERS = ['D','A']; // только для примера
-
-    function checkTest(){
-      const total = ANSWERS.length;
-      let html = '<table class="result-table"><tr>';
-      for (let i=1;i<=total;i++){ html += `<th>${i}</th>`; }
-      html += '</tr><tr>';
-
-      for (let i=1;i<=total;i++){
-        const sel = document.querySelector(`input[name="q${i}"]:checked`);
-        const val = sel ? sel.value : '-';
-        let cls = '';
-        if (val === ANSWERS[i-1]) cls = 'correct';
-        else if (val !== '-') cls = 'wrong';
-        html += `<td class="${cls}">${val}</td>`;
-      }
-      html += '</tr></table>';
-      document.getElementById('result').innerHTML = html;
-    }
-  </script>
+      <div class="result hidden">
+        <h2>Нәтиже:</h2>
+        <p>Сіз 2/2 дұрыс жауап бердіңіз 🎉</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
