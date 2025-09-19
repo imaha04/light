@@ -1,562 +1,677 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Жарық құбылыстары — Тест</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Жарық құбылыстары — Тесттер</title>
+<meta name="color-scheme" content="dark light">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ====== RESET & TOKENS ====== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#060a1b; --bg1:#0a1030;
+  --txt:#e9eefc; --muted:#b7c2e8;
+  --brand1:#4ea4ff; --brand2:#8a6bff; --brand3:#19ffd2; --hot:#ff6b9a;
+  --glass: rgba(255,255,255,.06);
+  --glass-stroke: rgba(180,210,255,.18);
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+  --ok:#2af598; --bad:#ff6b6b;
+}
 
-  <style>
-    :root{
-      --bg1: #0b1220;
-      --bg2: #1b2a5a;
-      --accent: #ff8a00;
-      --accent-2: #e52e71;
-      --glass: rgba(255,255,255,0.04);
-      --muted: #bfcbdc;
-      --success: #28a745;
-      --danger: #dc3545;
-      --radius: 12px;
-    }
+/* ====== PAGE & BACKGROUND ====== */
+html,body{min-height:100%}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Nunito Sans", "Oswald", Arial, sans-serif;
+  background:
+    radial-gradient(60vw 60vh at 100% -10%, rgba(78,164,255,.15), transparent 55%),
+    radial-gradient(50vw 50vh at -10% 100%, rgba(26,255,226,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, #0a0f2d 100%);
+  color:var(--txt);
+  overflow-x:hidden;
+  padding-top:76px; /* header space */
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Nunito Sans", system-ui, -apple-system, sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(3,162,255,0.08), transparent 18%),
-        linear-gradient(135deg,var(--bg1), var(--bg2));
-      color:#fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
-      padding-top:80px; /* header space */
-    }
+/* aurora */
+.aurora{ position:fixed; inset:-20vmax; pointer-events:none; z-index:-3; filter: blur(42px) saturate(120%); opacity:.85 }
+.aurora div{
+  position:absolute; width:55vmax; height:55vmax; border-radius:50%;
+  background: radial-gradient(closest-side, rgba(78,164,255,.35), transparent 70%);
+  animation: drift 26s linear infinite; mix-blend-mode:screen;
+}
+.aurora .b{ background: radial-gradient(closest-side, rgba(138,107,255,.35), transparent 70%); animation-duration:34s}
+.aurora .c{ background: radial-gradient(closest-side, rgba(25,255,210,.35), transparent 70%); animation-duration:30s}
+.aurora .d{ background: radial-gradient(closest-side, rgba(255,120,120,.25), transparent 70%); animation-duration:38s}
+@keyframes drift{
+  0%{transform:translate(-20vw,-10vh) rotate(0)}25%{transform:translate(40vw,-5vh) rotate(90deg)}
+  50%{transform:translate(20vw,30vh) rotate(180deg)}75%{transform:translate(-30vw,10vh) rotate(270deg)}
+  100%{transform:translate(-20vw,-10vh) rotate(360deg)}
+}
+/* stars */
+.stars{ position:fixed; inset:0; pointer-events:none; z-index:-4; opacity:.6 }
+.stars canvas{ width:100%; height:100%; display:block }
 
-    /* Header */
-    .header{
-      position: fixed;
-      top:0; left:0; right:0;
-      height:72px;
-      display:flex;
-      align-items:center;
-      background: rgba(6,10,20,0.45);
-      backdrop-filter: blur(8px);
-      padding:0 20px;
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.04);
-    }
-    .header .container{
-      width:100%;
-      max-width:1200px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .logo { font-family: "Oswald", sans-serif; font-size:20px; color:#ffd86b; font-weight:700; letter-spacing:.6px; }
-    .nav { display:flex; gap:18px; align-items:center; }
-    .nav a{ color:#fff; text-decoration:none; font-weight:600; opacity:.95; padding:8px 6px; border-radius:8px; }
-    .nav a.active, .nav a:hover{ color:var(--accent); background: rgba(255,138,0,0.06); }
+/* ====== HEADER ====== */
+.header{
+  position: fixed; top:0; left:0; right:0; z-index:20; height:76px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,15,40,.7), rgba(10,15,40,.35));
+  border-bottom:1px solid var(--glass-stroke);
+  display:flex; align-items:center;
+}
+.container{ width:min(1200px,92vw); margin:0 auto; }
+.header .row{ display:flex; align-items:center; justify-content:space-between; }
+.logo{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px; text-decoration:none; color:var(--txt) }
+.logo .dot{
+  width:26px;height:26px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--brand1) 55%, transparent 62%);
+  box-shadow: 0 0 22px rgba(78,164,255,.85), inset 0 0 10px rgba(255,255,255,.4);
+}
+.logo span{ font-family:"Oswald",system-ui,sans-serif; font-size:20px }
 
-    /* Page container */
-    .page {
-      width:90%;
-      max-width:1200px;
-      margin: 28px auto 80px;
-    }
+.nav ul{ list-style:none; display:flex; gap:22px; align-items:center }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:700 }
+.nav a:hover,.nav a[aria-current="page"]{ color:#fff }
+.burger{ display:none; font-size:26px; cursor:pointer; user-select:none }
 
-    /* Card */
-    .card {
-      background: var(--glass);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(2,6,20,0.6);
-      border: 1px solid rgba(255,255,255,0.03);
-    }
+@media (max-width:820px){
+  .burger{ display:block }
+  .nav ul{ position:fixed; right:18px; top:76px; flex-direction:column; gap:12px;
+           background:rgba(10,15,40,.92); border:1px solid var(--glass-stroke); border-radius:12px;
+           padding:14px; width: min(85vw, 320px); transform-origin: top right; transform: scale(.96); opacity:0; pointer-events:none; transition:.25s }
+  .nav ul.open{ transform: scale(1); opacity:1; pointer-events:auto }
+}
 
-    /* Title */
-    h1 {
-      font-family: "Oswald", sans-serif;
-      font-size: 36px;
-      margin: 0 0 6px;
-      color: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color: #ffd86b;
-      text-align: center;
-    }
-    .subtitle { text-align:center; color:var(--muted); margin-bottom:20px; }
+/* ====== PAGE WRAP ====== */
+.page{ width:min(1200px,92vw); margin: 24px auto 80px; }
+.card{
+  background: var(--glass);
+  border-radius: var(--radius);
+  padding: clamp(18px,3vw,28px);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--glass-stroke);
+}
 
-    /* Start button */
-    #startScreen { text-align:center; margin:18px 0 20px; }
-    .btn {
-      display:inline-block;
-      padding:12px 26px;
-      border-radius:10px;
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#08101a;
-      font-weight:700;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 28px rgba(229,46,113,0.14);
-      transition: transform .16s ease, box-shadow .16s;
-    }
-    .btn:hover{ transform: translateY(-3px); box-shadow:0 18px 40px rgba(229,46,113,0.18); }
+/* ====== HERO (title + progress + wave) ====== */
+h1{
+  font-family:"Oswald", system-ui, sans-serif;
+  font-size: clamp(32px, 5.6vw, 46px);
+  line-height:1.04; letter-spacing:.4px; text-align:center;
+  background: linear-gradient(90deg, #e9efff, #9ec6ff 40%, #9e8bff 80%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.subtitle{ text-align:center; color:var(--muted); margin-top:6px }
 
-    /* Grid with two columns for variants */
-    .grid {
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-top: 16px;
-    }
+.hero-accent{
+  position:relative; margin: 14px auto 10px; width:100%; max-width:860px; aspect-ratio: 16/5;
+  border:1px solid var(--glass-stroke); border-radius:14px; overflow:hidden;
+  background: radial-gradient(70% 70% at 30% 60%, rgba(255,255,255,.06), transparent 70%);
+  box-shadow: var(--shadow);
+}
+.hero-accent svg{ width:100%; height:100% }
+.hero-accent path{
+  fill:none; stroke:url(#grad); stroke-width:3;
+  filter: drop-shadow(0 0 12px rgba(120,170,255,.65));
+  stroke-dasharray: 12 16; animation: dash 12s linear infinite;
+}
+.hero-accent path:nth-child(2){ opacity:.7; animation-duration:16s }
+.hero-accent path:nth-child(3){ opacity:.5; animation-duration:20s }
+@keyframes dash{ to{ stroke-dashoffset:-280 } }
 
-    .variant-title { font-family: "Oswald", sans-serif; font-size:20px; color:#ffd86b; margin-bottom:12px; }
+.toolbar{
+  display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; margin:10px 0 6px;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 12px; border-radius:999px; font-weight:900; color:#061024;
+  background: linear-gradient(90deg, var(--brand3), var(--brand1));
+  box-shadow: 0 0 12px rgba(78,164,255,.45);
+}
+.pill .dot{ width:8px;height:8px;border-radius:50%; background:#fff; box-shadow:0 0 8px #fff }
+.timer{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+        background: rgba(255,255,255,.06); border:1px solid var(--glass-stroke); color:#cfe0ff; font-weight:800 }
 
-    /* Each test-block */
-    .test-block { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px; }
-    .q { margin-bottom:14px; }
-    .question-label {
-      display:block;
-      font-weight:700;
-      color:#ffd86b;
-      margin-bottom:8px;
-    }
+.progress{
+  position:relative; height:10px; border-radius:999px; overflow:hidden;
+  background: rgba(255,255,255,.08); border:1px solid var(--glass-stroke);
+  max-width: 860px; margin: 8px auto 0;
+}
+.progress .bar{
+  position:absolute; left:0; top:0; bottom:0; width:0%;
+  background: linear-gradient(90deg, var(--brand3), var(--brand1), var(--brand2));
+  box-shadow: 0 0 16px rgba(78,164,255,.55);
+}
+.progress span{
+  position:absolute; right:10px; top:50%; transform:translateY(-50%);
+  font-size:12px; letter-spacing:.3px; color:#cfe0ff; font-weight:800;
+}
 
-    /* Option styling */
-    .options { list-style:none; padding:0; margin:0; display:block; }
-    .options li { margin-bottom:8px; }
-    .options label{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:12px 14px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.02);
-      cursor:pointer;
-      transition: all .18s ease;
-      border:1px solid rgba(255,255,255,0.02);
-      user-select:none;
-    }
-    .options label:hover{ transform: translateY(-3px); background: rgba(255,255,255,0.03); box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
+/* ====== QUIZ LAYOUT ====== */
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px }
+@media (max-width:980px){ .grid{ grid-template-columns:1fr } }
 
-    .options input[type="radio"]{ accent-color: var(--accent); width:18px; height:18px; }
+.variant-title{ font-family:"Oswald", system-ui; font-size:20px; color:#ffd86b; margin-bottom:12px; text-shadow:0 0 12px rgba(255,216,107,.18) }
+.test-block{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  padding:16px; border-radius:12px; border:1px solid var(--glass-stroke);
+}
+.q{ margin-bottom:14px }
+.question-label{ display:block; font-weight:800; color:#ffd86b; margin-bottom:8px }
 
-    /* After checking: classes */
-    .label-correct { background: rgba(40,167,69,0.14); border-color: rgba(40,167,69,0.28); box-shadow: 0 8px 20px rgba(40,167,69,0.06); }
-    .label-wrong { background: rgba(220,53,69,0.12); border-color: rgba(220,53,69,0.24); box-shadow: 0 8px 20px rgba(220,53,69,0.06); opacity:0.95; }
+.options{ list-style:none }
+.options li{ margin-bottom:8px }
+.options label{
+  display:flex; align-items:center; gap:12px;
+  padding:12px 14px; border-radius:10px;
+  background: rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.02);
+  cursor:pointer; user-select:none;
+  transition:.18s ease transform, .18s ease box-shadow, .18s ease background;
+}
+.options label:hover{ transform: translateY(-3px); background: rgba(255,255,255,.04); box-shadow: 0 8px 20px rgba(0,0,0,.45) }
+.options input[type="radio"]{ accent-color:#ffd86b; width:18px; height:18px }
 
-    /* result area */
-    .result-wrap { margin-top:18px; display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; }
-    .result-summary {
-      min-width:220px;
-      padding:14px;
-      border-radius:10px;
-      background: rgba(0,0,0,0.35);
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .result-summary h3 { margin:0 0 6px; font-size:18px; color:#ffd86b; }
-    .result-table {
-      overflow-x:auto;
-      margin-top:12px;
-    }
-    .result-table table {
-      border-collapse:collapse;
-      width:100%;
-      min-width:420px;
-      background:rgba(255,255,255,0.02);
-      border-radius:8px;
-      overflow:hidden;
-    }
-    .result-table th, .result-table td {
-      padding:8px 10px;
-      border:1px solid rgba(255,255,255,0.03);
-      text-align:center;
-      color:#fff;
-    }
-    .cell-correct { background: rgba(40,167,69,0.2); color:#eaffef; font-weight:700; }
-    .cell-wrong   { background: rgba(220,53,69,0.18); color:#fff1f1; font-weight:700; }
+.label-correct{ background: rgba(42,245,152,.14)!important; border-color: rgba(42,245,152,.28)!important; box-shadow: 0 8px 22px rgba(42,245,152,.1)!important }
+.label-wrong  { background: rgba(255,107,107,.12)!important; border-color: rgba(255,107,107,.24)!important; box-shadow: 0 8px 22px rgba(255,107,107,.08)!important }
 
-    /* Reset button */
-    .small { display:inline-block; padding:10px 14px; border-radius:8px; background: rgba(255,255,255,0.03); color:#fff; border:1px solid rgba(255,255,255,0.04); cursor:pointer; }
+.actions{ text-align:center; margin-top:16px }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 26px; border-radius:12px; border:none; cursor:pointer; text-decoration:none;
+  background: linear-gradient(90deg, var(--brand1), var(--brand2)); color:#061024; font-weight:900;
+  box-shadow: 0 10px 30px rgba(78,164,255,.35), inset 0 0 0 1px rgba(255,255,255,.25);
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.btn:hover{ transform: translateY(-2px); filter:saturate(115%); box-shadow: 0 16px 40px rgba(78,164,255,.5) }
+.small{ padding:10px 14px; border-radius:10px; background: rgba(255,255,255,.06); border:1px solid var(--glass-stroke); color:#cfe0ff; font-weight:800 }
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .grid { grid-template-columns: 1fr; }
-      .page { padding:0 18px; }
-      body { padding-top:84px; }
-    }
-    @media (max-width: 520px){
-      h1 { font-size:26px; }
-      .header .container { padding:0 12px; }
-      .logo { font-size:18px; }
-    }
+/* ====== RESULT ====== */
+.result-wrap{ margin-top:18px; display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap }
+.result-summary{ min-width:230px; padding:14px; border-radius:12px; background: rgba(0,0,0,.35); border:1px solid var(--glass-stroke) }
+.result-summary h3{ margin:0 0 6px; font-size:18px; color:#ffd86b }
+.result-table{ flex:1; background: var(--glass); border-radius:12px; border:1px solid var(--glass-stroke); padding:12px }
+.result-table table{ border-collapse:collapse; width:100%; min-width:420px }
+.result-table th,.result-table td{ padding:8px 10px; border:1px solid rgba(255,255,255,.06); text-align:center }
+.cell-correct{ background: rgba(42,245,152,.18); color:#eaffef; font-weight:800 }
+.cell-wrong  { background: rgba(255,107,107,.18); color:#fff1f1; font-weight:800 }
 
-    /* small helpers */
-    .muted { color:var(--muted); font-size:14px; }
-  </style>
+/* ====== REVEAL ====== */
+.reveal{ opacity:0; transform: translateY(14px); transition:.7s cubic-bezier(.2,.8,.2,1) }
+.reveal.visible{ opacity:1; transform:none }
+
+/* ====== CONFETTI CANVAS ====== */
+#confetti{ position:fixed; inset:0; pointer-events:none; z-index:50 }
+
+/* ====== REDUCED MOTION ====== */
+@media (prefers-reduced-motion: reduce){
+  .aurora,.stars,.hero-accent path{ display:none }
+}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">Жарық құбылыстары</div>
-      <nav class="nav" aria-label="Главная навигация">
-        <a href="index.htm">Басты бет</a>
-        <a href="#" class="active">Тесттер</a>
-        <a href="laboratory.html">Зертханалық</a>
-        <a href="esepter.html">Есептер</a>
+<!-- background FX -->
+<div class="aurora"><div class="a"></div><div class="b"></div><div class="c"></div><div class="d"></div></div>
+<div class="stars"><canvas id="stars"></canvas></div>
+<canvas id="confetti"></canvas>
+
+<!-- NAV -->
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <a class="logo" href="index.htm" aria-label="Жарық құбылыстары"><span class="dot"></span><span>Жарық құбылыстары</span></a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.htm">Басты бет</a></li>
+          <li><a href="theory.html">Теориялар</a></li>
+          <li><a href="laboratory.html">Лаборатория</a></li>
+          <li><a href="esepter.html">Есептер</a></li>
+          <li><a href="test.html" aria-current="page">Тесттер</a></li>
+        </ul>
       </nav>
+      <div class="burger" aria-label="Мәзір">☰</div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="page">
-    <div class="card">
-      <h1>Жарық құбылыстары — Тест</h1>
-      <p class="subtitle">Төмендегі сұрақтарға жауап беріп, нәтижені тексеріңіз. Мобильде — карточкалар бір бағанға орналасады.</p>
+<main class="page">
+  <div class="card reveal">
+    <h1>Жарық құбылыстары — Тест</h1>
+    <p class="subtitle">Сұрақтарға жауап бер, прогресті бақылайсың — соңында нәтижені аласың. Сәттілік! ✨</p>
 
-      <div id="startScreen">
-        <button class="btn" id="startBtn">Тестті бастау</button>
+    <!-- optic wave accent -->
+    <div class="hero-accent" aria-hidden="true">
+      <svg viewBox="0 0 1000 320" preserveAspectRatio="none">
+        <defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#4ea4ff"/><stop offset="50%" stop-color="#19ffd2"/><stop offset="100%" stop-color="#8a6bff"/>
+        </linearGradient></defs>
+        <path d="M0,220 C140,160 260,260 400,200 540,140 620,260 780,200 900,160 960,200 1000,180"/>
+        <path d="M0,160 C160,100 280,200 430,140 560,100 640,200 820,160 900,140 960,160 1000,140"/>
+        <path d="M0,260 C160,200 280,300 460,240 600,200 680,300 860,260 940,240 960,260 1000,240"/>
+      </svg>
+    </div>
+
+    <div class="toolbar">
+      <div class="pill"><span class="dot"></span><span id="answered">0</span>/<span id="total">18</span> сұрақ</div>
+      <div class="timer" aria-live="polite">⏱️ <span id="clock">00:00</span></div>
+    </div>
+    <div class="progress"><div class="bar" id="bar"></div><span id="barText">0%</span></div>
+
+    <!-- START -->
+    <div id="startScreen" style="text-align:center; margin:16px 0 10px;">
+      <button class="btn" id="startBtn">Тестті бастау</button>
+    </div>
+
+    <!-- QUIZ -->
+    <form id="quizForm" style="display:none;" class="quiz-form">
+      <div class="grid">
+        <!-- 1-нұсқа -->
+        <div class="test-block">
+          <div class="variant-title">1-нұсқа</div>
+
+          <div class="q">
+            <div class="question-label">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q1" value="A"> A) 3·10⁵ м/с</label></li>
+              <li><label><input type="radio" name="q1" value="B"> B) 3·10⁶ м/с</label></li>
+              <li><label><input type="radio" name="q1" value="C"> C) 3·10⁷ м/с</label></li>
+              <li><label><input type="radio" name="q1" value="D"> D) 3·10⁸ м/с</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен шағылған сәуле арасындағы бұрыш –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q2" value="A"> A) Шағылу бұрышы</label></li>
+              <li><label><input type="radio" name="q2" value="B"> B) Түсу бұрышы</label></li>
+              <li><label><input type="radio" name="q2" value="C"> C) Сыну бұрышы</label></li>
+              <li><label><input type="radio" name="q2" value="D"> D) Шағылудың шектік бұрышы</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">3. Вакуумнан мөлдір ортаға өткен кезде жарық жылдамдығы неше есе азаятынын көрсететін шама –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q3" value="A"> A) Абсолют сыну көрсеткіші</label></li>
+              <li><label><input type="radio" name="q3" value="B"> B) Салыстырмалы сыну көрсеткіші</label></li>
+              <li><label><input type="radio" name="q3" value="C"> C) Ортаның мөлдірлігі</label></li>
+              <li><label><input type="radio" name="q3" value="D"> D) Ортаның оптикалық тығыздығы</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">4. Шағылу заңы негізінде түсу бұрышы –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q4" value="A"> A) Сыну бұрышына тең</label></li>
+              <li><label><input type="radio" name="q4" value="B"> B) Шағылу бұрышының екі еселік мәніне тең</label></li>
+              <li><label><input type="radio" name="q4" value="C"> C) Шағылу бұрышына тең</label></li>
+              <li><label><input type="radio" name="q4" value="D"> D) Шағылған сәуле мен беттiң жазықтығы арасындағы бұрышқа тең</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">5. Линзаның сындыру қабілетін сипаттайтын физикалық шама –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q5" value="A"> A) Линзаның үлкеюі</label></li>
+              <li><label><input type="radio" name="q5" value="B"> B) Линзаның фокусы</label></li>
+              <li><label><input type="radio" name="q5" value="C"> C) Линзаның оптикалық күші</label></li>
+              <li><label><input type="radio" name="q5" value="D"> D) Абсолют сыну көрсеткіші</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">6. Адам айнаға қарай 1 м/с жылдамдықпен жүріп бара жатыр. Ол өзінің кескінiне қандай жылдамдықпен жақындайды?</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q6" value="A"> A) 0,5 м/с</label></li>
+              <li><label><input type="radio" name="q6" value="B"> B) 1 м/с</label></li>
+              <li><label><input type="radio" name="q6" value="C"> C) 1,5 м/с</label></li>
+              <li><label><input type="radio" name="q6" value="D"> D) 2 м/с</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">7. Сфералық ойыс айна көмегімен алынған заттың кескіні пішіні: үлкейтілген, төңкерілген. Зат қай жерде тұр?</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q7" value="A"> A) Төбесі мен фокус арасында</label></li>
+              <li><label><input type="radio" name="q7" value="B"> B) Айна фокусында</label></li>
+              <li><label><input type="radio" name="q7" value="C"> C) Сфералық беттiң центрі мен фокусы арасында</label></li>
+              <li><label><input type="radio" name="q7" value="D"> D) Сфералық беттің центрінде</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">8. Фокусы 20 см-ге тең болатын линзаның оптикалық күші –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q8" value="A"> A) 2 дптр</label></li>
+              <li><label><input type="radio" name="q8" value="B"> B) 3 дптр</label></li>
+              <li><label><input type="radio" name="q8" value="C"> C) 4 дптр</label></li>
+              <li><label><input type="radio" name="q8" value="D"> D) 5 дптр</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">9. Көз бұршағының қалыңдығын өзгерту қасиеті –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q9" value="A"> A) Аккомодация</label></li>
+              <li><label><input type="radio" name="q9" value="B"> B) Модификация</label></li>
+              <li><label><input type="radio" name="q9" value="C"> C) Оптимизация</label></li>
+              <li><label><input type="radio" name="q9" value="D"> D) Шоғырландыру</label></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2-нұсқа -->
+        <div class="test-block">
+          <div class="variant-title">2-нұсқа</div>
+
+          <div class="q">
+            <div class="question-label">1. Бойымен жарық таралатын сызық –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q10" value="A"> A) Сәуле</label></li>
+              <li><label><input type="radio" name="q10" value="B"> B) Траектория</label></li>
+              <li><label><input type="radio" name="q10" value="C"> C) Орын ауыстыру</label></li>
+              <li><label><input type="radio" name="q10" value="D"> D) Түзу</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен түскен сәуле арасындағы бұрыш –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q11" value="A"> A) Шағылу бұрышы</label></li>
+              <li><label><input type="radio" name="q11" value="B"> B) Түсу бұрышы</label></li>
+              <li><label><input type="radio" name="q11" value="C"> C) Сыну бұрышы</label></li>
+              <li><label><input type="radio" name="q11" value="D"> D) Шағылудың шектік бұрышы</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">3. Сыну бұрышы 90° болған кездегі түсу бұрышы –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q12" value="A"> A) Толық сынудың шектік бұрышы</label></li>
+              <li><label><input type="radio" name="q12" value="B"> B) Толқын шағылудың шектік бұрышы</label></li>
+              <li><label><input type="radio" name="q12" value="C"> C) Максимал түсу бұрышы</label></li>
+              <li><label><input type="radio" name="q12" value="D"> D) Минимал түсу бұрышы</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">4. Линзаның оптикалық күшінің өлшем бірлігі –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q13" value="A"> A) метр</label></li>
+              <li><label><input type="radio" name="q13" value="B"> B) диоптрия</label></li>
+              <li><label><input type="radio" name="q13" value="C"> C) ампер</label></li>
+              <li><label><input type="radio" name="q13" value="D"> D) ньютон</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">5. Затты жалған, тура және оның өлшеміне тең кескінін беретін оптикалық аспап –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q14" value="A"> A) Ойыс айна</label></li>
+              <li><label><input type="radio" name="q14" value="B"> B) Дөңес айна</label></li>
+              <li><label><input type="radio" name="q14" value="C"> C) Оң (жинағыш) линза</label></li>
+              <li><label><input type="radio" name="q14" value="D"> D) Жазық айна</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">6. Айнаның сфералық бетінің қисықтық радиусы 20 см. Айнаның фокустық қашықтығы –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q15" value="A"> A) 40 см</label></li>
+              <li><label><input type="radio" name="q15" value="B"> B) 20 см</label></li>
+              <li><label><input type="radio" name="q15" value="C"> C) 10 см</label></li>
+              <li><label><input type="radio" name="q15" value="D"> D) 5 см</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">7. Айнадан көретін кескініміз жалған, тура және кішірейтілген. Мұндай кескінді беретін айна –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q16" value="A"> A) Жазық</label></li>
+              <li><label><input type="radio" name="q16" value="B"> B) Дөңес</label></li>
+              <li><label><input type="radio" name="q16" value="C"> C) Ойыс</label></li>
+              <li><label><input type="radio" name="q16" value="D"> D) Ешқайсысы</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">8. Линзаның оптикалық күші 2 дптр. Фокустық қашықтық және линза түрі –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q17" value="A"> A) 50 см, жинағыш</label></li>
+              <li><label><input type="radio" name="q17" value="B"> B) 50 см, шашыратқыш</label></li>
+              <li><label><input type="radio" name="q17" value="C"> C) 20 см, жинағыш</label></li>
+              <li><label><input type="radio" name="q17" value="D"> D) 20 см, шашыратқыш</label></li>
+            </ul>
+          </div>
+
+          <div class="q">
+            <div class="question-label">9. Заттың кескіні көз тор қабығының артқы жағында алынады. Жүйе түрі және түзететін линза –</div>
+            <ul class="options">
+              <li><label><input type="radio" name="q18" value="A"> A) Алыстан көргіштік, жинағыш линза</label></li>
+              <li><label><input type="radio" name="q18" value="B"> B) Алыстан көргіштік, шашыратқыш линза</label></li>
+              <li><label><input type="radio" name="q18" value="C"> C) Жақыннан көргіштік, жинағыш линза</label></li>
+              <li><label><input type="radio" name="q18" value="D"> D) Жақыннан көргіштік, шашыратқыш линза</label></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <form id="quizForm" style="display:none;" class="quiz-form">
-        <div class="grid">
-          <!-- 1-нұсқа -->
-          <div class="test-block">
-            <div class="variant-title">1-нұсқа</div>
-
-            <div class="q">
-              <div class="question-label">1. Вакуумдағы жарықтың таралу жылдамдығы –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q1" value="A"> A) 3·10⁵ м/с</label></li>
-                <li><label><input type="radio" name="q1" value="B"> B) 3·10⁶ м/с</label></li>
-                <li><label><input type="radio" name="q1" value="C"> C) 3·10⁷ м/с</label></li>
-                <li><label><input type="radio" name="q1" value="D"> D) 3·10⁸ м/с</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен шағылған сәуле арасындағы бұрыш –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q2" value="A"> A) Шағылу бұрышы</label></li>
-                <li><label><input type="radio" name="q2" value="B"> B) Түсу бұрышы</label></li>
-                <li><label><input type="radio" name="q2" value="C"> C) Сыну бұрышы</label></li>
-                <li><label><input type="radio" name="q2" value="D"> D) Шағылудың шектік бұрышы</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">3. Вакуумнан мөлдір ортаға өткен кезде жарық жылдамдығы неше есе азаятынын көрсететін шама –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q3" value="A"> A) Абсолют сыну көрсеткіші</label></li>
-                <li><label><input type="radio" name="q3" value="B"> B) Салыстырмалы сыну көрсеткіші</label></li>
-                <li><label><input type="radio" name="q3" value="C"> C) Ортаның мөлдірлігі</label></li>
-                <li><label><input type="radio" name="q3" value="D"> D) Ортаның оптикалық тығыздығы</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">4. Шағылу заңы негізінде түсу бұрышы –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q4" value="A"> A) Сыну бұрышына тең</label></li>
-                <li><label><input type="radio" name="q4" value="B"> B) Шағылу бұрышының екі еселік мәніне тең</label></li>
-                <li><label><input type="radio" name="q4" value="C"> C) Шағылу бұрышына тең</label></li>
-                <li><label><input type="radio" name="q4" value="D"> D) Шағылған сәуле мен беттiң жазықтығы арасындағы бұрышқа тең</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">5. Линзаның сындыру қабілетін сипаттайтын физикалық шама –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q5" value="A"> A) Линзаның үлкеюі</label></li>
-                <li><label><input type="radio" name="q5" value="B"> B) Линзаның фокусы</label></li>
-                <li><label><input type="radio" name="q5" value="C"> C) Линзаның оптикалық күші</label></li>
-                <li><label><input type="radio" name="q5" value="D"> D) Абсолют сыну көрсеткіші</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">6. Адам айнаға қарай 1 м/с жылдамдықпен жүріп бара жатыр. Ол өзінің кескінiне қандай жылдамдықпен жақындайды?</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q6" value="A"> A) 0,5 м/с</label></li>
-                <li><label><input type="radio" name="q6" value="B"> B) 1 м/с</label></li>
-                <li><label><input type="radio" name="q6" value="C"> C) 1,5 м/с</label></li>
-                <li><label><input type="radio" name="q6" value="D"> D) 2 м/с</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">7. Сфералық ойыс айна көмегімен алынған заттың кескіні пішіні: үлкейтілген, төңкерілген. Зат қай жерде тұр?</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q7" value="A"> A) Төбесі мен фокус арасында</label></li>
-                <li><label><input type="radio" name="q7" value="B"> B) Айна фокусында</label></li>
-                <li><label><input type="radio" name="q7" value="C"> C) Сфералық беттiң центрі мен фокусы арасында</label></li>
-                <li><label><input type="radio" name="q7" value="D"> D) Сфералық беттің центрінде</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">8. Фокусы 20 см-ге тең болатын линзаның оптикалық күші –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q8" value="A"> A) 2 дптр</label></li>
-                <li><label><input type="radio" name="q8" value="B"> B) 3 дптр</label></li>
-                <li><label><input type="radio" name="q8" value="C"> C) 4 дптр</label></li>
-                <li><label><input type="radio" name="q8" value="D"> D) 5 дптр</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">9. Көз бұршағының қалыңдығын өзгерту қасиеті –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q9" value="A"> A) Аккомодация</label></li>
-                <li><label><input type="radio" name="q9" value="B"> B) Модификация</label></li>
-                <li><label><input type="radio" name="q9" value="C"> C) Оптимизация</label></li>
-                <li><label><input type="radio" name="q9" value="D"> D) Шоғырландыру</label></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <!-- 2-нұсқа -->
-          <div class="test-block">
-            <div class="variant-title">2-нұсқа</div>
-
-            <div class="q">
-              <div class="question-label">1. Бойымен жарық таралатын сызық –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q10" value="A"> A) Сәуле</label></li>
-                <li><label><input type="radio" name="q10" value="B"> B) Траектория</label></li>
-                <li><label><input type="radio" name="q10" value="C"> C) Орын ауыстыру</label></li>
-                <li><label><input type="radio" name="q10" value="D"> D) Түзу</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">2. Сәуленің түсу нүктесіне тұрғызылған перпендикуляр мен түскен сәуле арасындағы бұрыш –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q11" value="A"> A) Шағылу бұрышы</label></li>
-                <li><label><input type="radio" name="q11" value="B"> B) Түсу бұрышы</label></li>
-                <li><label><input type="radio" name="q11" value="C"> C) Сыну бұрышы</label></li>
-                <li><label><input type="radio" name="q11" value="D"> D) Шағылудың шектік бұрышы</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">3. Сыну бұрышы 90° болған кездегі түсу бұрышы –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q12" value="A"> A) Толық сынудың шектік бұрышы</label></li>
-                <li><label><input type="radio" name="q12" value="B"> B) Толқын шағылудың шектік бұрышы</label></li>
-                <li><label><input type="radio" name="q12" value="C"> C) Максимал түсу бұрышы</label></li>
-                <li><label><input type="radio" name="q12" value="D"> D) Минимал түсу бұрышы</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">4. Линзаның оптикалық күшінің өлшем бірлігі –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q13" value="A"> A) метр</label></li>
-                <li><label><input type="radio" name="q13" value="B"> B) диоптрия</label></li>
-                <li><label><input type="radio" name="q13" value="C"> C) ампер</label></li>
-                <li><label><input type="radio" name="q13" value="D"> D) ньютон</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">5. Затты жалған, тура және оның өлшеміне тең кескінін беретін оптикалық аспап –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q14" value="A"> A) Ойыс айна</label></li>
-                <li><label><input type="radio" name="q14" value="B"> B) Дөңес айна</label></li>
-                <li><label><input type="radio" name="q14" value="C"> C) Оң (жинағыш) линза</label></li>
-                <li><label><input type="radio" name="q14" value="D"> D) Жазық айна</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">6. Айнаның сфералық бетінің қисықтық радиусы 20 см. Айнаның фокустық қашықтығы –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q15" value="A"> A) 40 см</label></li>
-                <li><label><input type="radio" name="q15" value="B"> B) 20 см</label></li>
-                <li><label><input type="radio" name="q15" value="C"> C) 10 см</label></li>
-                <li><label><input type="radio" name="q15" value="D"> D) 5 см</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">7. Айнадан көретін кескініміз жалған, тура және кішірейтілген. Мұндай кескінді беретін айна –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q16" value="A"> A) Жазық</label></li>
-                <li><label><input type="radio" name="q16" value="B"> B) Дөңес</label></li>
-                <li><label><input type="radio" name="q16" value="C"> C) Ойыс</label></li>
-                <li><label><input type="radio" name="q16" value="D"> D) Ешқайсысы</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">8. Линзаның оптикалық күші 2 дптр. Фокустық қашықтық және линза түрі –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q17" value="A"> A) 50 см, жинағыш</label></li>
-                <li><label><input type="radio" name="q17" value="B"> B) 50 см, шашыратқыш</label></li>
-                <li><label><input type="radio" name="q17" value="C"> C) 20 см, жинағыш</label></li>
-                <li><label><input type="radio" name="q17" value="D"> D) 20 см, шашыратқыш</label></li>
-              </ul>
-            </div>
-
-            <div class="q">
-              <div class="question-label">9. Заттың кескіні көз тор қабығының артқы жағында алынады. Жүйе түрі және түзететін линза –</div>
-              <ul class="options">
-                <li><label><input type="radio" name="q18" value="A"> A) Алыстан көргіштік, жинағыш линза</label></li>
-                <li><label><input type="radio" name="q18" value="B"> B) Алыстан көргіштік, шашыратқыш линза</label></li>
-                <li><label><input type="radio" name="q18" value="C"> C) Жақыннан көргіштік, жинағыш линза</label></li>
-                <li><label><input type="radio" name="q18" value="D"> D) Жақыннан көргіштік, шашыратқыш линза</label></li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        <div style="text-align:center; margin-top:20px;">
-          <button type="button" class="btn" id="checkBtn">Нәтижені көру</button>
-        </div>
-
-      </form>
-
-      <div id="resultArea" style="display:none; margin-top:18px;">
-        <div class="result-wrap">
-          <div class="result-summary">
-            <h3>Нәтиже</h3>
-            <p id="scoreText" class="muted">—</p>
-            <div style="margin-top:8px">
-              <button id="retryBtn" class="small">Қайта бастау</button>
-            </div>
-          </div>
-
-          <div class="result-table card" id="resultTableWrap" style="flex:1;">
-            <!-- таблица вставится сюда -->
-          </div>
-        </div>
+      <div class="actions">
+        <button type="button" class="btn" id="checkBtn">Нәтижені көру</button>
       </div>
+    </form>
 
+    <!-- RESULT -->
+    <div id="resultArea" style="display:none;">
+      <div class="result-wrap">
+        <div class="result-summary">
+          <h3>Нәтиже</h3>
+          <p id="scoreText" class="muted">—</p>
+          <div style="margin-top:8px"><button id="retryBtn" class="small">Қайта бастау</button></div>
+        </div>
+        <div class="result-table" id="resultTableWrap"></div>
+      </div>
     </div>
-  </main>
+
+  </div>
+</main>
 
 <script>
-  // правильные ответы (1..18)
-  const ANSWERS = [
-    'D','A','A','C','C','D','C','D','A',
-    'A','B','A','B','D','C','B','A','A'
-  ];
+/* ====== NAV (burger) ====== */
+const burger = document.querySelector('.burger');
+const navList = document.querySelector('.nav ul');
+burger?.addEventListener('click', ()=> navList.classList.toggle('open'));
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.nav') && !e.target.closest('.burger')) navList.classList.remove('open');
+});
 
-  const startBtn = document.getElementById('startBtn');
-  const quizForm = document.getElementById('quizForm');
-  const startScreen = document.getElementById('startScreen');
-  const checkBtn = document.getElementById('checkBtn');
-  const resultArea = document.getElementById('resultArea');
-  const scoreText = document.getElementById('scoreText');
-  const resultTableWrap = document.getElementById('resultTableWrap');
-  const retryBtn = document.getElementById('retryBtn');
+/* ====== REVEAL ====== */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target) }})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  startBtn && startBtn.addEventListener('click', () => {
-    startScreen.style.display = 'none';
-    quizForm.style.display = 'block';
-    // плавный скролл к форме на мобильных
-    setTimeout(()=>{ document.querySelector('.quiz-form').scrollIntoView({behavior:'smooth'}); }, 80);
-  });
-
-  // вспомог: получить все input элементы одного вопроса
-  function getInputsByQ(i){ return Array.from(document.querySelectorAll('input[name="q'+i+'"]')); }
-
-  // очистить классы подсветки
-  function clearHighlights(){
-    for(let i=1;i<=18;i++){
-      getInputsByQ(i).forEach(inp=>{
-        const lab = inp.closest('label');
-        if(lab){ lab.classList.remove('label-correct','label-wrong'); lab.style.opacity = ''; }
-      });
-    }
+/* ====== STARS CANVAS ====== */
+(function stars(){
+  const c=document.getElementById('stars'), ctx=c.getContext('2d');
+  let w,h,stars=[]; const DPR=Math.min(2,window.devicePixelRatio||1);
+  function resize(){
+    w=c.width=Math.floor(innerWidth*DPR); h=c.height=Math.floor(innerHeight*DPR);
+    c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
+    const count=Math.floor((w*h)/22000);
+    stars=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2+.3,a:Math.random()*1}));
   }
-
-  function checkTest(){
-    let correctCount = 0;
-    const total = ANSWERS.length;
-    clearHighlights();
-
-    // результатная строка для таблицы
-    let header = '<table><thead><tr>';
-    for(let i=1;i<=total;i++){ header += `<th>${i}</th>`; }
-    header += '</tr></thead><tbody><tr>';
-
-    for(let i=1;i<=total;i++){
-      const name = 'q'+i;
-      const selected = document.querySelector(`input[name="${name}"]:checked`);
-      const chosen = selected ? selected.value : '-';
-      const right = ANSWERS[i-1];
-
-      // подсветка в карточках: пометим правильный и ошибочный выбор
-      const inputs = getInputsByQ(i);
-      inputs.forEach(inp=>{
-        const lab = inp.closest('label');
-        if(!lab) return;
-        if(inp.value === right){
-          lab.classList.add('label-correct');
-        } else {
-          lab.classList.remove('label-correct');
-        }
-        // если выбран и неправилен — пометим как wrong
-        if(inp.checked && inp.value !== right){
-          lab.classList.add('label-wrong');
-        }
-      });
-
-      // подсчёт
-      if(chosen === right) { correctCount++; header += `<td class="cell-correct">${chosen}</td>`; }
-      else if (chosen === '-') { header += `<td>${chosen}</td>`; }
-      else { header += `<td class="cell-wrong">${chosen}</td>`; }
+  resize(); addEventListener('resize',resize);
+  let t0=performance.now();
+  (function loop(now){
+    ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='screen';
+    for(const s of stars){
+      s.a+=(Math.random()-.5)*0.04;
+      const a=.25+Math.abs(Math.sin(s.a))*0.45;
+      ctx.beginPath(); ctx.fillStyle=`rgba(220,235,255,${a})`;
+      ctx.arc(s.x,s.y,s.r*DPR,0,Math.PI*2); ctx.fill();
     }
+    requestAnimationFrame(loop);
+  })(t0);
+})();
 
-    header += '</tr></tbody></table>';
-    // Показ результата
-    const percent = Math.round((correctCount/total)*100);
-    scoreText.innerHTML = `<strong>${correctCount}/${total}</strong> — ${percent}% дұрыc жауап`;
-    resultTableWrap.innerHTML = header;
-    resultArea.style.display = 'block';
-    // запретить менять ответы после проверки (по желанию можно убрать)
-    // document.querySelectorAll('input[type="radio"]').forEach(i=> i.disabled = true);
-  }
+/* ====== QUIZ LOGIC ====== */
+const ANSWERS = ['D','A','A','C','C','D','C','D','A','A','B','A','B','D','C','B','A','A'];
+const total = ANSWERS.length;
+document.getElementById('total').textContent = total;
 
-  checkBtn && checkBtn.addEventListener('click', () => {
-    checkTest();
-    // прокрутка к результату
-    setTimeout(()=>{ resultArea.scrollIntoView({behavior:'smooth'}); }, 80);
-  });
+const quizForm = document.getElementById('quizForm');
+const startScreen = document.getElementById('startScreen');
+const startBtn = document.getElementById('startBtn');
+const checkBtn = document.getElementById('checkBtn');
+const resultArea = document.getElementById('resultArea');
+const scoreText = document.getElementById('scoreText');
+const resultTableWrap = document.getElementById('resultTableWrap');
 
-  retryBtn && retryBtn.addEventListener('click', ()=>{
-    // сброс
-    document.querySelectorAll('input[type="radio"]').forEach(i=> { i.checked = false; i.disabled = false; });
-    clearHighlights();
-    resultArea.style.display = 'none';
-    scoreText.textContent = '—';
-    // вернуться наверх формы
-    setTimeout(()=>{ document.querySelector('.quiz-form').scrollIntoView({behavior:'smooth'}); }, 80);
-  });
+const bar = document.getElementById('bar');
+const barText = document.getElementById('barText');
+const answeredEl = document.getElementById('answered');
+const clockEl = document.getElementById('clock');
 
-  // Необязательное: при выборе варианта — подсветка выбранной строки (визуально)
-  document.querySelectorAll('.options').forEach(list=>{
-    list.addEventListener('change', (e)=>{
-      const name = e.target.name;
-      // сброс opacity у всех в этом вопросе
-      getInputsByQ(name.replace('q','')).forEach(inp=>{
-        const lab = inp.closest('label');
-        if(lab){ lab.style.opacity = '0.9'; }
-      });
-      // выделим выбранную ярче
-      const sel = document.querySelector(`input[name="${name}"]:checked`);
-      if(sel){ sel.closest('label').style.opacity = '1'; }
+let timerId=null, seconds=0;
+function formatTime(s){ const m=Math.floor(s/60).toString().padStart(2,'0'); const ss=(s%60).toString().padStart(2,'0'); return `${m}:${ss}`; }
+function startTimer(){ if(timerId) return; timerId=setInterval(()=>{ seconds++; clockEl.textContent=formatTime(seconds); },1000); }
+function stopTimer(){ clearInterval(timerId); timerId=null; }
+
+function getAnsweredCount(){
+  let c=0;
+  for(let i=1;i<=total;i++) if(document.querySelector(`input[name="q${i}"]:checked`)) c++;
+  return c;
+}
+function updateProgress(){
+  const a=getAnsweredCount();
+  answeredEl.textContent=a;
+  const p = Math.round(100*a/total);
+  bar.style.width=p+'%'; barText.textContent=p+'%';
+}
+
+function getInputsByQ(i){ return Array.from(document.querySelectorAll(`input[name="q${i}"]`)); }
+function clearHighlights(){
+  for(let i=1;i<=total;i++){
+    getInputsByQ(i).forEach(inp=>{
+      const lab=inp.closest('label'); if(!lab) return;
+      lab.classList.remove('label-correct','label-wrong'); lab.style.opacity='';
     });
+  }
+}
+
+startBtn?.addEventListener('click', ()=>{
+  startScreen.style.display='none';
+  quizForm.style.display='block';
+  updateProgress(); startTimer();
+  setTimeout(()=>quizForm.scrollIntoView({behavior:'smooth'}),80);
+});
+
+/* change events to update progress + visual emphasis */
+document.querySelectorAll('.options').forEach(list=>{
+  list.addEventListener('change', (e)=>{
+    updateProgress();
+    const name=e.target.name;
+    const idx=parseInt(name.replace('q',''),10);
+    getInputsByQ(idx).forEach(inp=>{
+      const lab=inp.closest('label'); if(lab) lab.style.opacity='0.9';
+    });
+    const sel=document.querySelector(`input[name="${name}"]:checked`);
+    sel && (sel.closest('label').style.opacity='1');
   });
+});
 
+function checkTest(){
+  let correctCount=0;
+  clearHighlights();
+
+  let html='<table><thead><tr>';
+  for(let i=1;i<=total;i++) html+=`<th>${i}</th>`;
+  html+='</tr></thead><tbody><tr>';
+
+  for(let i=1;i<=total;i++){
+    const name='q'+i;
+    const selected=document.querySelector(`input[name="${name}"]:checked`);
+    const chosen=selected?selected.value:'-';
+    const right=ANSWERS[i-1];
+
+    const inputs=getInputsByQ(i);
+    inputs.forEach(inp=>{
+      const lab=inp.closest('label'); if(!lab) return;
+      if(inp.value===right) lab.classList.add('label-correct'); else lab.classList.remove('label-correct');
+      if(inp.checked && inp.value!==right) lab.classList.add('label-wrong');
+    });
+
+    if(chosen===right){ correctCount++; html+=`<td class="cell-correct">${chosen}</td>`; }
+    else if(chosen==='-'){ html+=`<td>–</td>`; }
+    else { html+=`<td class="cell-wrong">${chosen}</td>`; }
+  }
+  html+='</tr></tbody></table>';
+
+  const percent=Math.round(100*correctCount/total);
+  scoreText.innerHTML=`<strong>${correctCount}/${total}</strong> — ${percent}% дұрыс жауап`;
+  resultTableWrap.innerHTML=html;
+  resultArea.style.display='block';
+
+  stopTimer();
+  if(percent>=70) fireConfetti();
+}
+checkBtn?.addEventListener('click', ()=>{
+  checkTest();
+  setTimeout(()=>resultArea.scrollIntoView({behavior:'smooth'}),80);
+});
+
+document.getElementById('retryBtn')?.addEventListener('click', ()=>{
+  document.querySelectorAll('input[type="radio"]').forEach(i=>{ i.checked=false; i.disabled=false; });
+  clearHighlights(); resultArea.style.display='none';
+  seconds=0; clockEl.textContent='00:00'; startTimer();
+  updateProgress();
+  setTimeout(()=>quizForm.scrollIntoView({behavior:'smooth'}),80);
+});
+
+/* ====== CONFETTI ====== */
+function fireConfetti(){
+  const canvas=document.getElementById('confetti'), ctx=canvas.getContext('2d');
+  let w,h; const DPR=Math.min(2,window.devicePixelRatio||1);
+  function resize(){ w=canvas.width=Math.floor(innerWidth*DPR); h=canvas.height=Math.floor(innerHeight*DPR); canvas.style.width=innerWidth+'px'; canvas.style.height=innerHeight+'px'; }
+  resize();
+  const N=140; const parts=[];
+  for(let i=0;i<N;i++){
+    parts.push({
+      x: Math.random()*w, y: -Math.random()*h*0.2,
+      vx: (Math.random()-.5)*180, vy: 200+Math.random()*220,
+      s: 6+Math.random()*10, r: Math.random()*Math.PI, vr:(Math.random()-.5)*6,
+      col: Math.random()<.33? '#4ea4ff' : (Math.random()<.66? '#19ffd2' : '#8a6bff'),
+      life: 1200+Math.random()*800
+    });
+  }
+  let start=null;
+  function tick(ts){
+    if(!start) start=ts; const dt=(ts-start); start=ts;
+    ctx.clearRect(0,0,w,h);
+    parts.forEach(p=>{
+      p.vy+= 300*(dt/1000); // gravity
+      p.x += p.vx*(dt/1000); p.y += p.vy*(dt/1000);
+      p.r += p.vr*(dt/1000); p.life -= dt;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      ctx.fillStyle=p.col;
+      ctx.fillRect(-p.s/2, -p.s/2, p.s, p.s*0.6);
+      ctx.restore();
+    });
+    for(let i=parts.length-1;i>=0;i--) if(parts[i].life<=0 || parts[i].y>h+40) parts.splice(i,1);
+    if(parts.length){ requestAnimationFrame(tick); } else { ctx.clearRect(0,0,w,h); }
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ====== PROGRESS LIVE ON LOAD ====== */
+updateProgress();
+
+/* ====== REDUCED MOTION ====== */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.aurora, .stars').forEach(el=> el.style.display='none');
+}
 </script>
-
 </body>
 </html>
