@@ -1,117 +1,202 @@
-﻿<!DOCTYPE html>
-<html lang="zxx">
-
+<!DOCTYPE html>
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Activitar Template">
-    <meta name="keywords" content="Activitar, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Жарық құбылыстары</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Теориялар</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Google Font -->
-    <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    body {
+      font-family: "Nunito Sans", sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #3a0ca3);
+      color: white;
+    }
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="cssi/style.css" type="text/css">
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a40;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: #ff6f00;
+    }
+
+    .burger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* Main */
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .card .icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff6f00;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff9100;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #1a1a40;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .nav.active {
+        display: flex;
+      }
+
+      .burger {
+        display: block;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Жарық құбылыстары</div>
+    <nav class="nav" id="navMenu">
+      <ul>
+        <li><a href="index.html">Басты бет</a></li>
+        <li><a href="theory.html" class="active">Теориялар</a></li>
+        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>
+        <li><a href="test.html">Тесттер</a></li>
+        <li><a href="esepter.html">Есептер</a></li>
+      </ul>
+    </nav>
+    <div class="burger" id="burger">&#9776;</div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <h1 class="page-title">Теориялар</h1>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">➡️ ⬅️</div>
+        <h3>Жарықтың шағылуы</h3>
+        <a href="theory1.html" class="btn">Толығырақ</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔺</div>
+        <h3>Жарықтың сынуы</h3>
+        <a href="theory2.html" class="btn">Толығырақ</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>Линзалар</h3>
+        <a href="theory3.html" class="btn">Толығырақ</a>
+      </div>
+      <div class="card">
+        <div class="icon">〰️〰️</div>
+        <h3>Интерференция</h3>
+        <a href="theory4.html" class="btn">Толығырақ</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌊</div>
+        <h3>Дифракция</h3>
+        <a href="theory5.html" class="btn">Толығырақ</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔲</div>
+        <h3>Поляризация</h3>
+        <a href="theory6.html" class="btn">Толығырақ</a>
+      </div>
     </div>
+  </main>
 
-    <!-- Header Section Begin -->
-    <header class="header-section">
-  <div class="container">
-    <div class="logo">
-      <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-    </div>
-    <div class="nav-menu">
-      <nav class="mainmenu mobile-menu">
-        <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
+  <script>
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('navMenu');
 
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    <</ul>
-      </nav>
-    </div>
-    <!-- мобильный wrap -->
-    <div id="mobile-menu-wrap"></div>
-  </div>
-</header>
-    <!-- Header End -->
-
-<!-- Hero Section Begin -->
-<body style="background-image: url('img/PH/88.jpg'); background-size: cover; background-repeat: repeat-y; background-attachment: fixed;">
-    <div style="text-align: center; margin-top: 150px;">
-        <div style="display: inline-block; padding: 10px 25px; background-color: #e45400; border: 2px solid white; border-radius: 30px; color: white; font-size: 24px; font-weight: 600; margin-bottom: 40px;">
-            Жарықтың шағылуы
-        </div>
-        <h2 style="font-size: 28px; color: white; margin-bottom: 40px;"></h2>
-        <img src="img/zhkub/1.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
-    <div style="text-align: center;">
-        <img src="img/zhkub/2.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
-    <div style="text-align: center;">
-        <img src="img/zhkub/3.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
-
-    <div style="text-align: center;">
-        <img src="img/zhkub/4.png" style="width: 960px; max-width: 100%; margin-bottom: 80px; margin-left:auto; margin-right:auto;">
-    </div>
-    
-
-
-
-    
-
-
-
-    
-
-    
-
-   
-
-
-
-
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <script src="js/main.js"></script>
+    burger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 </body>
-
-</body></html>
+</html>
