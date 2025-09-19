@@ -1,193 +1,444 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Жарық құбылыстары</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Зертханалық жұмыстар — Жарық құбылыстары</title>
+<meta name="color-scheme" content="dark light">
 
-  <!-- Fonts (как у тебя в проекте) -->
-  <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-  <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
-  <link href="css2?family=Roboto&display=swap" rel="stylesheet">
+<style>
+/* ====== RESET & TOKENS ====== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#060a1b;
+  --bg1:#0a1030;
+  --txt:#e9eefc;
+  --muted:#b7c2e8;
+  --brand1:#4ea4ff;
+  --brand2:#8a6bff;
+  --brand3:#19ffd2;
+  --glass: rgba(255,255,255,.06);
+  --glass-stroke: rgba(180,210,255,.18);
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
 
-  <!-- Vendor CSS -->
-  <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
-  <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
-  <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
-  <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
+/* ====== PAGE BACKGROUND WITH WOW EFFECT ====== */
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Nunito Sans", "Oswald", Arial, sans-serif;
+  background:
+    radial-gradient(60vw 60vh at 100% -10%, rgba(78,164,255,.15), transparent 55%),
+    radial-gradient(50vw 50vh at -10% 100%, rgba(26,255,226,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, #0a0f2d 100%);
+  color:var(--txt);
+  min-height:100svh;
+  overflow-x:hidden;
+}
 
-  <!-- Your theme -->
-  <link rel="stylesheet" href="cssi/style.css" type="text/css">
+/* animated aurora layers */
+.aurora{
+  position:fixed; inset:-20vmax;
+  pointer-events:none;
+  z-index:-1;
+  filter: blur(42px) saturate(120%);
+  opacity:.85;
+}
+.aurora div{
+  position:absolute; inset:auto;
+  width:55vmax; height:55vmax; border-radius:50%;
+  background: radial-gradient(closest-side, rgba(78,164,255,.35), transparent 70%);
+  animation: drift 26s linear infinite;
+  mix-blend-mode:screen;
+}
+.aurora .b{ background: radial-gradient(closest-side, rgba(138,107,255,.35), transparent 70%); animation-duration:34s}
+.aurora .c{ background: radial-gradient(closest-side, rgba(25,255,210,.35), transparent 70%); animation-duration:30s}
+.aurora .d{ background: radial-gradient(closest-side, rgba(255,120,120,.25), transparent 70%); animation-duration:38s}
 
-  <style>
-    /* лёгкие правки для этого экрана */
-    body{
-      background-image: url('img/PH/88.jpg');
-      background-size: cover;
-      background-repeat: repeat-y;
-      background-attachment: fixed;
-      color: #fff;
-      padding-top: 120px; /* место под фикс-хедер */
-    }
-    .video-block{
-      text-align: center;
-      margin: 80px 16px;
-    }
-    .video-block h2{
-      font-size: 44px;
-      margin: 20px 0 16px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,.6);
-      font-family: "Oswald", sans-serif;
-      letter-spacing: .3px;
-    }
-    .video-block p{
-      max-width: 900px;
-      margin: 16px auto 30px;
-      font-size: 20px;
-      line-height: 1.7;
-      text-shadow: 1px 1px 2px rgba(0,0,0,.6);
-      color: white;
-    }
-    .video-frame{
-      width: min(960px, 100%);
-      aspect-ratio: 16 / 9;
-      display: block;
-      margin: 0 auto 10px;
-      background: rgba(0,0,0,.25);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,.35);
-    }
-    .video-frame video{ width: 100%; height: 100%; display: block; }
-  </style>
+@keyframes drift{
+  0%   { transform: translate(-20vw,-10vh) rotate(0deg)}
+  25%  { transform: translate(40vw,-5vh)  rotate(90deg)}
+  50%  { transform: translate(20vw,30vh)  rotate(180deg)}
+  75%  { transform: translate(-30vw,10vh) rotate(270deg)}
+  100% { transform: translate(-20vw,-10vh) rotate(360deg)}
+}
+
+/* faint stars */
+.stars{ position:fixed; inset:0; pointer-events:none; z-index:-2; opacity:.6 }
+.stars canvas{ width:100%; height:100%; display:block }
+
+/* ====== HEADER ====== */
+.header{
+  position: sticky; top:0;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,15,40,.7), rgba(10,15,40,.35));
+  border-bottom:1px solid var(--glass-stroke);
+  z-index:10;
+}
+.wrap{ width:min(1200px, 92vw); margin:auto; }
+
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--txt);
+}
+.brand .dot{
+  width:26px; height:26px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--brand1) 55%, transparent 62%);
+  box-shadow: 0 0 22px rgba(78,164,255,.85), inset 0 0 10px rgba(255,255,255,.4);
+}
+.brand span{
+  font-family: "Oswald", system-ui, sans-serif;
+  font-weight:700; letter-spacing:.5px; font-size:18px;
+}
+
+.nav a.link{ color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600 }
+.nav a.link:hover{ color:#fff }
+
+/* ====== HERO ====== */
+.hero{ padding: clamp(40px, 6vw, 80px) 0 10px }
+.hgrid{
+  display:grid; grid-template-columns: 1.2fr .8fr; gap: clamp(18px,3.5vw,40px);
+  align-items:center;
+}
+@media (max-width: 920px){ .hgrid{ grid-template-columns: 1fr } }
+
+.title{
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height:1.05;
+  letter-spacing:.4px;
+  margin-bottom:12px;
+  background: linear-gradient(90deg, #e9efff, #9ec6ff 40%, #9e8bff 80%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.subtitle{
+  color:var(--muted); font-size: clamp(16px, 1.7vw, 20px);
+  max-width: 42ch; line-height:1.6;
+}
+
+/* prism-ish accent */
+.accent{
+  position: relative; aspect-ratio: 4 / 3; width:100%; min-height:260px;
+  border-radius: var(--radius);
+  overflow:hidden; border:1px solid var(--glass-stroke);
+  background: radial-gradient(60% 50% at 40% 45%, rgba(255,255,255,.06), transparent 70%),
+              linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  box-shadow: var(--shadow);
+}
+.accent .beam{
+  position:absolute; left:-30%; top:45%;
+  width:60%; height:2px; transform: rotate(6deg);
+  background: linear-gradient(90deg, transparent 0, rgba(160,210,255,.7) 30%, #fff 80%);
+  box-shadow: 0 0 12px rgba(120,170,255,.9), 0 0 28px rgba(120,170,255,.5);
+}
+.accent .tri{
+  position:absolute; left:45%; top:42%; width:180px; height:160px; transform: translate(-50%,-50%);
+  clip-path: polygon(50% 6%, 96% 92%, 4% 92%);
+  background: linear-gradient(130deg, rgba(255,255,255,.22), rgba(255,255,255,.06) 60%, rgba(255,255,255,.18));
+  border:2px solid rgba(160,200,255,.6);
+  filter: drop-shadow(0 0 16px rgba(120,170,255,.28));
+}
+.accent .tri::before{
+  content:""; position:absolute; inset:0; clip-path:inherit;
+  background:
+    radial-gradient(100px 70px at 35% 60%, rgba(96,150,255,.35), transparent 60%),
+    radial-gradient(90px 60px  at 65% 45%, rgba(96,150,255,.25), transparent 60%);
+  filter: blur(12px);
+}
+.accent .spectrum{
+  position:absolute; left:60%; top:50%; width:70%; height:60%;
+  transform: translateY(-60%) rotate(12deg);
+  mix-blend-mode:screen; pointer-events:none;
+}
+.accent .spectrum::before{
+  content:""; position:absolute; inset:0;
+  background: conic-gradient(from 200deg at 0% 50%, #ff0030, #ff7a00, #ffee00, #3aff00, #00ffe9, #2e5bff, #a855ff);
+  clip-path: polygon(0 48%, 100% 18%, 100% 82%, 0 60%);
+  filter: blur(10px) saturate(120%); opacity:.95;
+}
+.accent .spectrum::after{
+  content:""; position:absolute; inset:0;
+  background: conic-gradient(from 200deg at 0% 50%, rgba(255,0,48,.25), rgba(255,122,0,.25), rgba(255,238,0,.2), rgba(58,255,0,.18), rgba(0,255,233,.18), rgba(46,91,255,.2), rgba(168,85,255,.22));
+  clip-path: polygon(0 50%, 100% 20%, 100% 80%, 0 62%);
+  filter: blur(22px); opacity:.7;
+}
+
+/* ====== LAB CARDS ====== */
+.section{ padding: clamp(24px, 5vw, 56px) 0 80px }
+.section h2{
+  font-family:"Oswald", system-ui, sans-serif;
+  font-size: clamp(26px, 3.4vw, 40px); margin-bottom:8px;
+}
+.section p.lead{ color:var(--muted); max-width:60ch; margin-bottom:26px }
+
+.grid{
+  display:grid; gap:clamp(16px, 2.4vw, 26px);
+  grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+}
+
+.card{
+  position:relative; padding:20px 20px 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+  border:1px solid var(--glass-stroke); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden; isolation:isolate;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.card:hover{ transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,.55) }
+
+.card .glow{
+  position:absolute; inset:-40%;
+  background: radial-gradient(closest-side, rgba(78,164,255,.22), transparent 70%),
+              radial-gradient(closest-side, rgba(138,107,255,.22), transparent 70%);
+  transform: translate(var(--mx,0),var(--my,0));
+  mix-blend-mode:screen; filter: blur(30px); opacity:.65; z-index:-1;
+}
+
+.card h3{
+  font-size: clamp(18px,2.2vw,22px); line-height:1.25; margin-bottom:10px
+}
+.card p{ color:var(--muted); font-size:15px; line-height:1.6; margin-bottom:16px }
+
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:700; letter-spacing:.4px;
+  padding:6px 10px; border-radius:999px; color:#061024;
+  background: linear-gradient(90deg, var(--brand3), var(--brand1));
+  box-shadow: 0 0 12px rgba(78,164,255,.55);
+  margin-bottom:12px
+}
+.badge::before{
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:#fff; box-shadow: 0 0 10px #fff
+}
+
+.btn{
+  --h:48px;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  height:var(--h); padding:0 20px; border-radius:calc(var(--h)/2);
+  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+  color:#061024; font-weight:800; text-decoration:none; letter-spacing:.3px;
+  box-shadow: 0 10px 30px rgba(78,164,255,.35), inset 0 0 0 1px rgba(255,255,255,.25);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.btn:hover{ transform: translateY(-2px); filter: saturate(120%); box-shadow: 0 16px 40px rgba(78,164,255,.5) }
+.btn:active{ transform: translateY(0) scale(.98) }
+
+/* small, secondary link */
+.card .more{
+  display:inline-block; margin-left:12px; color:#a7b8ff; text-decoration:none; font-weight:700
+}
+.card .more:hover{ color:#d7e0ff }
+
+/* ====== FOOTER ====== */
+.footer{ border-top:1px solid var(--glass-stroke); color:#93a3d9; padding:26px 0 40px; text-align:center }
+
+/* ====== ANIMATIONS & ACCESSIBILITY ====== */
+.reveal{ opacity:0; transform: translateY(16px); transition: .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{ opacity:1; transform:none }
+
+@media (prefers-reduced-motion: reduce){
+  .aurora, .accent .spectrum, .accent .beam{ animation:none; }
+  .accent .spectrum, .accent .beam{ transform:none }
+}
+
+@media (max-width:820px){
+  .burger{ display:block }
+  .nav ul{ position:fixed; right:18px; top:66px; flex-direction:column; gap:12px;
+           background:rgba(10,15,40,.92); border:1px solid var(--glass-stroke); border-radius:12px;
+           padding:14px; width: min(85vw, 320px); transform-origin: top right; transform: scale(.96); opacity:0; pointer-events:none; transition:.25s }
+  .nav ul.open{ transform: scale(1); opacity:1; pointer-events:auto }
+}
+.nav ul{ list-style:none; display:flex; gap:22px; align-items:center }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:700 }
+.nav a:hover,.nav a[aria-current="page"]{ color:#fff }
+.burger{ display:none; font-size:26px; cursor:pointer; user-select:none }
+
+
+
+/* small utility */
+.mb-4{ margin-bottom: 22px }
+</style>
 </head>
-
 <body>
-  <!-- Page Preloader -->
-  <div id="preloder"><div class="loader"></div></div>
 
-  <!-- Header -->
-  <header class="header-section">
-  <div class="container">
-    <div class="logo">
-      <a href="index.htm"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-    </div>
-    <div class="nav-menu">
-      <nav class="mainmenu mobile-menu">
-        <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
+<!-- moving lights -->
+<div class="aurora">
+  <div class="a"></div>
+  <div class="b"></div>
+  <div class="c"></div>
+  <div class="d"></div>
+</div>
+<div class="stars"><canvas id="stars"></canvas></div>
 
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    <</ul>
-      </nav>
-    </div>
-    <!-- мобильный wrap -->
-    <div id="mobile-menu-wrap"></div>
+<header class="header">
+  <div class="wrap nav">
+    <a href="index.htm" class="brand"><span class="dot"></span><span>Жарық құбылыстары</span></a>
+    <nav>
+      <a class="link" href="index.htm">Басты бет</a>
+      <a class="link" href="theory-1.html">Теориялар</a>
+      <a class="link" href="laboratory.html" aria-current="page" style="color:#fff">Лаборатория</a>
+      <a class="link" href="test.html">Тесттер</a>
+      <a class="link" href="esepter.html">Есептер</a>
+    </nav>
+    <div class="burger" aria-label="Мәзір">☰</div>
   </div>
 </header>
 
-  <!-- CONTENT -->
-  <main>
-
-    <!-- 1 -->
-    <section class="video-block" id="v1">
-      <h2>1. Шынының сыну көрсеткішін анықтау</h2>
-      <p>
-        Сәуленің сыну құбылысы дененің бір бетінен кері бетіне өту кезінде байқалады. Өйткені әр ортаның өзінің оптикалық тығыздығына сай жылдамдығы өзгереді. 
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero hgrid">
+    <div>
+      <h1 class="title reveal">Зертханалық жұмыстар</h1>
+      <p class="subtitle reveal" style="transition-delay:.08s">
+        Оптика әлемін тәжірибе арқылы зертте. Төменнен жұмысты таңда да, неонды призмадан өткен жарықтай алға жылжы! ✨
       </p>
-      <a href="https://efizika.ru/html5/117/index.html">Сілтеме арқылы өту</a>
-    </section>
+    </div>
 
-    <!-- 2 -->
-    <section class="video-block" id="v2">
-      <h2>2. Жұқа линзаның фокустық қашықтығын анықтау</h2>
-      <p>
-        Линза деп екі сфералық бетпен шектелген мөлдір денені атайды. Егер линзаның
-қалыңдығы оның сфералық беттерінің қисықтық радиустарынан анағұрлым аз болса онда
-ол жұқа линза деп аталады. 
-      </p>
-      <a href="https://efizika.ru/html5/150/index.html">Сілтеме арқылы өту</a>
-    </section>
+    <div class="accent reveal" style="transition-delay:.12s" aria-hidden="true">
+      <div class="beam"></div>
+      <div class="tri"></div>
+      <div class="spectrum"></div>
+    </div>
+  </section>
 
-    <!-- 3 -->
-    
+  <!-- CARDS -->
+  <section class="section">
+    <h2 class="reveal">Жұмыстар тізімі</h2>
+    <p class="lead reveal" style="transition-delay:.06s">Әр карточка — шағын түсініктеме және тікелей сілтеме.</p>
 
-  </main>
+    <div class="grid">
+      <!-- 1 -->
+      <article class="card reveal" data-url="https://efizika.ru/html5/117/index.html">
+        <div class="glow"></div>
+        <span class="badge">LAB • 01</span>
+        <h3>Шынының сыну көрсеткішін анықтау</h3>
+        <p>Сәуленің түрлі орталар арасындағы жылдамдығы мен бағытының өзгерісін бақылап, сыну заңын тексеру.</p>
+        <a class="btn" href="https://efizika.ru/html5/117/index.html" target="_blank" rel="noopener">Лабораториялық жұмысқа өту</a>
+        <a class="more" href="https://efizika.ru/html5/117/index.html" target="_blank" rel="noopener">толығырақ →</a>
+      </article>
 
-  <!-- One-at-a-time playback + dropdown init -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // только одно видео играет одновременно
-      const vids = document.querySelectorAll('video');
-      vids.forEach(v => v.addEventListener('play', () => {
-        vids.forEach(o => { if (o !== v) o.pause(); });
-      }));
+      <!-- 2 -->
+      <article class="card reveal" data-url="https://efizika.ru/html5/150/index.html">
+        <div class="glow"></div>
+        <span class="badge">LAB • 02</span>
+        <h3>Жұқа линзаның фокустық қашықтығы</h3>
+        <p>Жұқа линзаның теңдеуін қолдану арқылы фокустық қашықтықты тәжірибелік жолмен табу.</p>
+        <a class="btn" href="https://efizika.ru/html5/150/index.html" target="_blank" rel="noopener">Лабораториялық жұмысқа өту</a>
+        <a class="more" href="https://efizika.ru/html5/150/index.html" target="_blank" rel="noopener">толығырақ →</a>
+      </article>
 
-      // dropdown для тач-устройств
-      const items = document.querySelectorAll('.mainmenu > ul > li.dropdown');
-      items.forEach(li => {
-        const a = li.querySelector(':scope > a');
-        if (!a) return;
-        a.setAttribute('aria-haspopup', 'true');
-        a.setAttribute('aria-expanded', 'false');
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const willOpen = !li.classList.contains('open');
-          items.forEach(x => {
-            if (x !== li) {
-              x.classList.remove('open');
-              const ax = x.querySelector(':scope > a');
-              if (ax) ax.setAttribute('aria-expanded', 'false');
-            }
-          });
-          li.classList.toggle('open', willOpen);
-          a.setAttribute('aria-expanded', String(willOpen));
-        });
-      });
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.mainmenu')) {
-          items.forEach(li => li.classList.remove('open'));
-          document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
-            .forEach(a => a.setAttribute('aria-expanded','false'));
-        }
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          items.forEach(li => li.classList.remove('open'));
-          document.querySelectorAll('.mainmenu > ul > li.dropdown > a')
-            .forEach(a => a.setAttribute('aria-expanded','false'));
-        }
-      });
-    });
-  </script>
+      <!-- 3 (пример для будущей работы) -->
+      <article class="card reveal" data-url="#">
+        <div class="glow"></div>
+        <span class="badge">LAB • 03</span>
+        <h3>Интерференция және дифракция</h3>
+        <p>Жарық толқындарының қабаттасуы нәтижесінде пайда болатын суретті зерттеу. (жақында)</p>
+        <a class="btn" href="#" onclick="event.preventDefault()">Жақында</a>
+      </article>
+    </div>
+  </section>
+</main>
 
-  <!-- Vendor JS -->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/mixitup.min.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/masonry.pkgd.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/jquery.slicknav.js"></script>
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<footer class="footer">
+  © 2025 Жарық құбылыстары • Барлық құқықтар қорғалған
+</footer>
+
+<script>
+/* ====== ENTRANCE OBSERVER ====== */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target) }
+  })
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ====== STARS CANVAS ====== */
+(function stars(){
+  const c = document.getElementById('stars');
+  const ctx = c.getContext('2d');
+  let w,h,stars=[];
+  const DPR = Math.min(2, window.devicePixelRatio || 1);
+  function resize(){
+    w = c.width  = Math.floor(innerWidth * DPR);
+    h = c.height = Math.floor(innerHeight* DPR);
+    c.style.width = innerWidth + 'px';
+    c.style.height= innerHeight+ 'px';
+    stars = Array.from({length: Math.floor((w*h)/20000)}, ()=>({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*1.2 + .3,
+      a: Math.random()*1
+    }));
+  }
+  resize(); addEventListener('resize', resize);
+  let t0 = performance.now();
+  function loop(now){
+    const dt = (now - t0)/1000; t0 = now;
+    ctx.clearRect(0,0,w,h);
+    ctx.globalCompositeOperation = 'screen';
+    for(const s of stars){
+      s.a += (Math.random()-.5)*0.04;
+      const alpha = 0.25 + Math.abs(Math.sin(s.a))*0.45;
+      ctx.beginPath(); ctx.fillStyle = `rgba(220,235,255,${alpha})`;
+      ctx.arc(s.x, s.y, s.r*DPR, 0, Math.PI*2); ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ====== CARD HOVER GLOW FOLLOWS CURSOR ====== */
+document.querySelectorAll('.card').forEach(card=>{
+  const glow = card.querySelector('.glow');
+  function move(e){
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left)/r.width - .5)*40; // -20..20
+    const y = ((e.clientY - r.top )/r.height- .5)*40;
+    glow.style.setProperty('--mx', x+'px');
+    glow.style.setProperty('--my', y+'px');
+  }
+  card.addEventListener('mousemove', move);
+  card.addEventListener('mouseleave', ()=>{ glow.style.setProperty('--mx','0'); glow.style.setProperty('--my','0') });
+  // open on entire card click
+  card.addEventListener('click', (e)=>{
+    const url = card.dataset.url;
+    if(url && url !== '#'){
+      const a = card.querySelector('.btn'); a && a.click();
+    }
+  });
+});
+
+/* ====== PRISM MICRO-ANIMATION ====== */
+(function prism(){
+  const spectrum = document.querySelector('.accent .spectrum');
+  const beam = document.querySelector('.accent .beam');
+  const tri = document.querySelector('.accent .tri');
+  if(!spectrum || !beam || !tri) return;
+  let t0 = performance.now();
+  function loop(now){
+    const t = (now - t0)/1000;
+    const rot = 12 + Math.sin(t*.7)*1.1;
+    const lift= -60 + Math.cos(t*.9)*1.2;
+    spectrum.style.transform = `translateY(${lift}%) rotate(${rot}deg)`;
+    tri.style.borderColor = `rgba(160,200,255,${0.58 + Math.sin(t*1.4)*.08})`;
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ====== REDUCED MOTION ====== */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.aurora, .stars').forEach(el=> el.style.display='none');
+}
+const burger = document.querySelector('.burger');
+const navList = document.querySelector('.nav ul');
+burger?.addEventListener('click', ()=> navList.classList.toggle('open'));
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.nav') && !e.target.closest('.burger')) navList.classList.remove('open');
+});
+</script>
 </body>
 </html>
