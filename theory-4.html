@@ -1,84 +1,156 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theory 3</title>
+  <title>Theory 1 — Жарықтың шағылуы</title>
+  <meta name="color-scheme" content="dark light">
   <style>
+    :root{
+      --bg:#3765a2;
+      --txt:#e9eefc;
+      --muted:#cfe0ff;
+      --brand1:#4ea4ff; --brand2:#8a6bff; --brand3:#19ffd2;
+      --glass: rgba(255,255,255,.10);
+      --glass-stroke: rgba(200,220,255,.25);
+      --radius:14px;
+      --shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #3765a2;
-      color: #333;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(70vw 70vh at 110% -10%, rgba(78,164,255,.22), transparent 55%),
+                  radial-gradient(60vw 60vh at -10% 110%, rgba(25,255,210,.18), transparent 55%),
+                  var(--bg);
+      color: var(--txt);
     }
+
+    /* ===== HEADER ===== */
     header {
-      background: #0077cc;
+      background: linear-gradient(180deg, rgba(0,119,204,.9), rgba(0,119,204,.6));
+      border-bottom:1px solid rgba(255,255,255,.15);
       color: white;
-      padding: 15px 20px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(8px);
     }
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .burger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background: white;
-      margin: 4px 0;
-    }
+    header h1 { margin:0; font-size:20px; letter-spacing:.3px }
+    nav { display:flex; gap: 16px; }
+    nav a { color: white; text-decoration: none; font-weight: 800; opacity:.9 }
+    nav a:hover { opacity:1 }
+    .burger { display:none; flex-direction:column; cursor:pointer }
+    .burger div { width:25px; height:3px; background:white; margin:4px 0 }
+
+    /* ===== LAYOUT ===== */
     .content {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #3765a2;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .content h2 {
-      color: #0077cc;
+      max-width: 980px;
+      margin: 22px auto 80px;
+      background: transparent;
+      padding: 0 14px;
     }
 
-    /* Mobile */
+    /* ===== TITLE BADGE ===== */
+    .badge {
+      display:inline-block;
+      padding:10px 24px;
+      background: linear-gradient(90deg, #e45400, #ff8a3d);
+      border:2px solid rgba(255,255,255,.9);
+      border-radius: 999px;
+      color: white; font-size: 22px; font-weight: 800;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25), 0 0 18px rgba(255,200,160,.35) inset;
+    }
+
+    /* ===== TABS (WOW) ===== */
+    .tabs {
+      margin-top: 18px;
+      background: var(--glass);
+      border: 1px solid var(--glass-stroke);
+      border-radius: var(--radius);
+      padding: 10px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .tablist {
+      display:flex; gap:8px; position:relative; flex-wrap:wrap;
+    }
+    .tab {
+      position:relative; z-index:1;
+      appearance:none; border:none; cursor:pointer;
+      padding:10px 16px; border-radius:10px; font-weight:900;
+      color: var(--muted); background: transparent;
+      transition: transform .2s, filter .2s;
+    }
+    .tab:hover{ transform: translateY(-1px); filter:saturate(115%) }
+    .tab[aria-selected="true"]{ color:#061024 }
+    .ink{
+      position:absolute; inset:0; border-radius:10px; z-index:-1; opacity:0;
+      background: linear-gradient(90deg, var(--brand3), var(--brand1));
+      box-shadow: 0 12px 26px rgba(78,164,255,.45), inset 0 0 0 1px rgba(255,255,255,.25);
+      transform: translateY(6px) scale(.98); transition: .28s cubic-bezier(.2,.8,.2,1);
+    }
+    .tab[aria-selected="true"] .ink{ opacity:1; transform: translateY(0) scale(1) }
+
+    .slider{
+      position:absolute; height:3px; border-radius:3px;
+      background: linear-gradient(90deg, var(--brand1), var(--brand2));
+      box-shadow: 0 0 18px rgba(78,164,255,.6);
+      bottom:-1px; left:10px; width:120px; transform: translateX(0);
+      transition:.28s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .panels{ margin-top:12px }
+    .panel{
+      opacity:0; transform: translateY(10px) scale(.98);
+      transition: .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .panel.active{ opacity:1; transform:none }
+    .panel-inner{
+      background: rgba(255,255,255,.08);
+      border:1px solid var(--glass-stroke);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ===== VIDEO GRID ===== */
+    .vgrid{
+      display:grid; gap: clamp(12px,2vw,18px);
+      grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    }
+    .vcard{
+      position:relative; border-radius:12px; overflow:hidden;
+      border:1px solid var(--glass-stroke); background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow); transition:.3s transform, box-shadow .3s;
+    }
+    .vcard:hover{ transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.45) }
+    .vcard iframe, .vcard video{ width:100%; aspect-ratio:16/9; display:block; }
+    .vmeta{ padding:10px 12px; color:#eaf2ff; font-weight:800 }
+
+    /* ===== THEORY IMAGES (твои) ===== */
+    .imgwrap{ text-align:center }
+    .imgwrap img{
+      width: 960px; max-width: 100%;
+      margin: 0 auto 40px; display:block;
+      border-radius:12px;
+      border:1px solid var(--glass-stroke);
+      box-shadow: var(--shadow);
+      background:#0b2b55;
+    }
+
+    /* ===== MOBILE NAV ===== */
     @media (max-width: 768px) {
       nav {
-        display: none;
-        flex-direction: column;
-        background: #0077cc;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        padding: 15px;
+        display: none; flex-direction: column; background: #0077cc;
+        position: absolute; top: 60px; left: 0; right: 0; padding: 15px;
+        border-bottom:1px solid rgba(255,255,255,.2)
       }
-      nav a {
-        padding: 10px 0;
-      }
-      nav.active {
-        display: flex;
-      }
-      .burger {
-        display: flex;
-      }
+      nav a { padding: 10px 0 }
+      nav.active { display: flex }
+      .burger { display: flex }
     }
   </style>
 </head>
@@ -87,43 +159,122 @@
     <h1>Линзалар</h1>
     <nav id="nav">
       <a href="theory-1.html">Басты бет</a>
-      <a href="theory-2.html">Жарықтың шағылуы</a>
+      <a href="theory-2.html" aria-current="page">Жарықтың шағылуы</a>
       <a href="theory-3.html">Жарықтың сынуы</a>
       <a href="theory-4.html">Линзалар</a>
       <a href="theory-5.html">Интерференция</a>
       <a href="theory-6.html">Дифракция</a>
     </nav>
-    <div class="burger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
+    <div class="burger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
   </header>
 
   <main class="content">
-    <div style="text-align: center; margin-top: 10px;">
-        <div style="display: inline-block; padding: 10px 25px; background-color: #e45400; border: 2px solid white; border-radius: 30px; color: white; font-size: 24px; font-weight: 600; margin-bottom: 40px;">
-            Линзалар
+    <div style="text-align:center; margin: 8px 0 16px;">
+      <span class="badge">Линзалар</span>
+    </div>
+
+    <!-- TABS -->
+    <section class="tabs" role="tablist" aria-label="Контент түрі">
+      <div class="tablist">
+        <button class="tab" id="tab-video" role="tab" aria-selected="true" aria-controls="panel-video">
+          Видео
+          <span class="ink" aria-hidden="true"></span>
+        </button>
+        <button class="tab" id="tab-theory" role="tab" aria-selected="false" aria-controls="panel-theory">
+          Теория
+          <span class="ink" aria-hidden="true"></span>
+        </button>
+        <div class="slider" aria-hidden="true"></div>
+      </div>
+
+      <div class="panels">
+        <!-- VIDEO PANEL -->
+        <div id="panel-video" class="panel active" role="tabpanel" aria-labelledby="tab-video" tabindex="0">
+          <div class="panel-inner">
+            <div class="vgrid">
+              <!-- ЗАМЕНИ на свои видео -->
+              <article class="vcard">
+                <iframe src="img/zhsyn/sphera.MP4"
+                        title="Шағылу — қысқаша" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="vmeta">Линзалар</div>
+              </article>
+            </div>
+          </div>
         </div>
-        <h2 style="font-size: 28px; color: white; margin-bottom: 40px;"></h2>
-        <img src="img/lynz/1.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
-    <div style="text-align: center;">
-        <img src="img/lynz/2.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;"> 
-       </div>
-    <div style="text-align: center;">
-        <img src="img/lynz/3.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">    
-    </div>
-    <div style="text-align: center;">
-        <img src="img/lynz/4.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
-    <div style="text-align: center;">
-        <img src="img/lynz/5.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
+
+        <!-- THEORY PANEL -->
+        <div id="panel-theory" class="panel" role="tabpanel" aria-labelledby="tab-theory" tabindex="0" hidden>
+          <div class="panel-inner">
+            <!-- твои исходные изображения без изменений -->
+            <div class="imgwrap"><img src="img/zhsyn/1.png" alt="Жарықтың шағылуы — 1"></div>
+            <div class="imgwrap"><img src="img/zhsyn/2.png" alt="Жарықтың шағылуы — 2"></div>
+            <div class="imgwrap"><img src="img/zhsyn/3.png" alt="Жарықтың шағылуы — 3"></div>
+            <div class="imgwrap"><img src="img/zhsyn/4.png" alt="Жарықтың шағылуы — 4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /TABS -->
   </main>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("nav").classList.toggle("active");
+    /* ===== Mobile burger ===== */
+    function toggleMenu(){ document.getElementById("nav").classList.toggle("active"); }
+
+    /* ===== Tabs ===== */
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = {
+      video: document.getElementById('panel-video'),
+      theory: document.getElementById('panel-theory')
+    };
+    const slider = document.querySelector('.slider');
+
+    function moveSliderTo(tabEl){
+      const r = tabEl.getBoundingClientRect();
+      const pr = tabEl.parentElement.getBoundingClientRect();
+      slider.style.width = r.width+'px';
+      slider.style.transform = `translateX(${r.left - pr.left}px)`;
     }
+
+    function setActive(id, pushHash=true){
+      tabs.forEach(t=>{
+        const on = t.id === 'tab-'+id;
+        t.setAttribute('aria-selected', on);
+      });
+      for(const key in panels){
+        const el = panels[key];
+        const active = key===id;
+        el.classList.toggle('active', active);
+        el.hidden = !active;
+      }
+      moveSliderTo(document.getElementById('tab-'+id));
+      if(pushHash) history.replaceState(null,'','#'+id);
+
+      // Пауза/остановка плееров при уходе с видео
+      if(id !== 'video'){
+        panels.video.querySelectorAll('video').forEach(v=> v.pause());
+        panels.video.querySelectorAll('iframe[src*="youtube.com"]').forEach(f=>{
+          const src=f.getAttribute('src'); f.setAttribute('src', src); // перезагрузка iframe
+        });
+      }
+    }
+
+    tabs.forEach(t=>{
+      t.addEventListener('click', ()=> setActive(t.id.replace('tab-','')));
+      t.addEventListener('keydown', (e)=>{
+        const i = tabs.indexOf(t);
+        if(e.key==='ArrowRight') tabs[(i+1)%tabs.length].focus();
+        if(e.key==='ArrowLeft')  tabs[(i-1+tabs.length)%tabs.length].focus();
+        if(e.key==='Enter' || e.key===' ') setActive(t.id.replace('tab-',''));
+      });
+    });
+
+    // init by hash
+    const initial = (location.hash.replace('#','') || 'video');
+    setActive(initial,false);
+    // keep slider correct on resize
+    addEventListener('resize', ()=> moveSliderTo(document.querySelector('.tab[aria-selected="true"]')) );
   </script>
 </body>
 </html>

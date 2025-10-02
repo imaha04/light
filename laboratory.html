@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="kk">
 <head>
 <meta charset="UTF-8" />
@@ -256,10 +256,77 @@ body{
 .nav a:hover,.nav a[aria-current="page"]{ color:#fff }
 .burger{ display:none; font-size:26px; cursor:pointer; user-select:none }
 
-
-
 /* small utility */
 .mb-4{ margin-bottom: 22px }
+
+/* ====== EMBEDDED LAB EXTRA STYLES ====== */
+.lab-wrap{
+  display:grid; gap:22px;
+  grid-template-columns: .9fr 1.1fr;
+}
+@media (max-width: 980px){ .lab-wrap{ grid-template-columns:1fr } }
+
+.lab-player{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+  border:1px solid var(--glass-stroke);
+  border-radius: var(--radius); padding:16px; box-shadow: var(--shadow);
+}
+.lab-controls{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:12px }
+
+.timebar{ display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center }
+.timebar input[type="range"]{ width:100% }
+.timebar .tc{ color:var(--muted); font-variant-numeric: tabular-nums }
+
+.lab-frame{
+  position:relative; aspect-ratio: 16 / 10;
+  border-radius: var(--radius); overflow:hidden;
+  border:1px solid var(--glass-stroke);
+  box-shadow: var(--shadow); background:rgba(255,255,255,.03);
+}
+.lab-frame iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+  background:#000;
+}
+
+/* overlay until start */
+.lab-mask{
+  position:absolute; inset:0; display:grid; place-items:center;
+  background: linear-gradient(180deg, rgba(10,15,40,.6), rgba(10,15,40,.35));
+  border:0; pointer-events:none; color:#dbe6ff; font-weight:700; letter-spacing:.3px;
+}
+
+/* ====== MOBILE TUNING ====== */
+@media (max-width: 980px){
+  .lab-wrap{ grid-template-columns:1fr }
+}
+
+/* На телефонах делаем фрейм выше и удобные тапы */
+@media (max-width: 640px){
+  .lab-player{ padding:14px }
+  .lab-controls .btn{ --h:52px; padding:0 18px; font-size:16px }
+  .lab-controls .more{ font-size:14px }
+
+  /* по умолчанию у тебя aspect-ratio:16/10; на мобиле лучше почти портрет */
+  .lab-frame{
+    aspect-ratio: auto;          /* отключаем фикс. соотношение */
+    min-height: 68svh;           /* занимаем большую часть экрана */
+    height: auto;                /* высоту возьмём из содержимого/JS */
+  }
+  .lab-frame iframe{
+    width:100%; height:100%;     /* фрейм заполняет контейнер */
+  }
+
+  /* чуть крупнее бегунок времени и цифры */
+  .timebar input[type="range"]{ height:34px }
+  .timebar .tc{ font-size:14px }
+}
+
+/* На сверхмалых экранах кнопки в колонку */
+@media (max-width: 400px){
+  .lab-controls{ flex-direction:column; align-items:stretch }
+  .lab-controls .more{ margin-left:0; text-align:center }
+}
+
 </style>
 </head>
 <body>
@@ -340,6 +407,101 @@ body{
       </article>
     </div>
   </section>
+
+  <!-- EMBEDDED LAB + AUDIO -->
+  <section class="section" id="lab-embed">
+    <h2 class="reveal">Лаборатория • Шынының сыну көрсеткіші</h2>
+    <p class="lead reveal" style="transition-delay:.06s">
+      Төмендегі батырманы басыңыз: лаборатория ашылады, ал аудио-нұсқаулық қатар жүреді.
+    </p>
+
+    <div class="lab-wrap reveal" style="transition-delay:.08s">
+      <div class="lab-player">
+        <!-- Кнопки управления -->
+        <div class="lab-controls">
+          <button class="btn" id="labStartBtn" type="button">▶ Бастау (лаборатория + аудио)</button>
+          <button class="btn" id="labPauseBtn" type="button" style="background:linear-gradient(90deg,#8a6bff,#4ea4ff)">⏸ Пауза</button>
+          <a class="more" href="https://efizika.ru/html5/117/index.html" target="_blank" rel="noopener">ашу жаңа бетте →</a>
+        </div>
+
+        <!-- Аудио-плеер (замените src на свой файл) -->
+        <audio id="labAudio" preload="metadata">
+          <source src="img/zhsyn/1.mp3" type="audio/mpeg">
+          <source src="img/zhsyn/1.mp3" type="audio/ogg">
+          Сіздің браузеріңіз аудио элементін қолдамайды.
+        </audio>
+
+        <!-- Ползунок и тайм-код -->
+        <div class="timebar">
+          <input id="labSeek" type="range" min="0" max="100" value="0" step="0.1" />
+          <div class="tc"><span id="curTime">00:00</span> / <span id="durTime">--:--</span></div>
+        </div>
+      </div>
+
+      <!-- Встраиваемая лаборатория -->
+      <div class="lab-frame">
+        <iframe
+          id="labFrame"
+          title="Шынының сыну көрсеткішін анықтау — лаборатория"
+          src="about:blank"
+          loading="lazy"
+          allow="fullscreen; clipboard-read; clipboard-write"
+          sandbox="allow-scripts allow-forms allow-same-origin allow-pointer-lock allow-popups"
+        ></iframe>
+        <div class="lab-mask" id="labMask">
+          <p>Бастау батырмасын басыңыз</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMBEDDED LAB #2 + AUDIO -->
+<section class="section" id="lab-embed-2">
+  <h2 class="reveal">Лаборатория • Жұқа линзаның фокустық қашықтығы</h2>
+  <p class="lead reveal" style="transition-delay:.06s">
+    «Бастау» — лаборатория ашылады, ал аудио-нұсқаулық қатар жүреді.
+  </p>
+
+  <div class="lab-wrap reveal" style="transition-delay:.08s">
+    <div class="lab-player">
+      <!-- Кнопки управления -->
+      <div class="lab-controls">
+        <button class="btn" id="lab2StartBtn" type="button">▶ Бастау (лаборатория + аудио)</button>
+        <button class="btn" id="lab2PauseBtn" type="button" style="background:linear-gradient(90deg,#8a6bff,#4ea4ff)">⏸ Пауза</button>
+        <a class="more" href="https://efizika.ru/html5/150/index.html" target="_blank" rel="noopener">ашу жаңа бетте →</a>
+      </div>
+
+      <!-- Аудио-плеер (замените src на свои файлы) -->
+      <audio id="lab2Audio" preload="metadata">
+        <source src="img/zhsyn/2.mp3" type="audio/mpeg">
+        <source src="img/zhsyn/2.mp3" type="audio/ogg">
+        Сіздің браузеріңіз аудио элементін қолдамайды.
+      </audio>
+
+      <!-- Ползунок и тайм-код -->
+      <div class="timebar">
+        <input id="lab2Seek" type="range" min="0" max="100" value="0" step="0.1" />
+        <div class="tc"><span id="lab2CurTime">00:00</span> / <span id="lab2DurTime">--:--</span></div>
+      </div>
+    </div>
+
+    <!-- Встраиваемая лаборатория -->
+    <div class="lab-frame">
+      <iframe
+        id="lab2Frame"
+        title="Жұқа линзаның фокустық қашықтығы — лаборатория"
+        src="about:blank"
+        loading="lazy"
+        allow="fullscreen; clipboard-read; clipboard-write"
+        sandbox="allow-scripts allow-forms allow-same-origin allow-pointer-lock allow-popups"
+      ></iframe>
+      <div class="lab-mask" id="lab2Mask">
+        <p>Бастау батырмасын басыңыз</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
@@ -439,6 +601,182 @@ burger?.addEventListener('click', ()=> navList.classList.toggle('open'));
 document.addEventListener('click', e=>{
   if(!e.target.closest('.nav') && !e.target.closest('.burger')) navList.classList.remove('open');
 });
+
+/* ====== EMBEDDED LAB SCRIPT ====== */
+(function(){
+  const labURL = "https://efizika.ru/html5/117/index.html"; // адрес лаборатории
+  const frame = document.getElementById('labFrame');
+  const mask  = document.getElementById('labMask');
+  const a     = document.getElementById('labAudio');
+  const start = document.getElementById('labStartBtn');
+  const pause = document.getElementById('labPauseBtn');
+  const seek  = document.getElementById('labSeek');
+  const curT  = document.getElementById('curTime');
+  const durT  = document.getElementById('durTime');
+
+  // форматирование времени
+  const fmt = s => {
+    s = Math.max(0, s|0);
+    const m = String((s/60)|0).padStart(2,'0');
+    const ss= String(s%60).padStart(2,'0');
+    return `${m}:${ss}`;
+  };
+
+  // восстановление позиции аудио
+  try{
+    const saved = +localStorage.getItem('lab01_t');
+    if(Number.isFinite(saved) && saved>0) a.currentTime = saved;
+  }catch(e){}
+
+  // инициализация длительности
+  a.addEventListener('loadedmetadata', ()=>{
+    durT.textContent = fmt(a.duration||0);
+  });
+
+  // ползунок <-> аудио
+  a.addEventListener('timeupdate', ()=>{
+    if(a.duration){
+      seek.value = (a.currentTime / a.duration) * 100;
+      curT.textContent = fmt(a.currentTime);
+      // сохраняем точку
+      try{ localStorage.setItem('lab01_t', a.currentTime.toFixed(0)); }catch(e){}
+    }
+  });
+  seek.addEventListener('input', ()=>{
+    if(a.duration){
+      a.currentTime = (seek.value/100) * a.duration;
+    }
+  });
+
+  // старт: подгружаем iframe и запускаем аудио одним жестом пользователя
+  start.addEventListener('click', async ()=>{
+    if(frame.src === "about:blank") frame.src = labURL;
+    mask.style.display = 'none';
+    try{
+      await a.play(); // может отклониться, если браузер решит, что это не явный жест
+      start.disabled = true;
+    }catch(err){
+      a.setAttribute('controls','controls'); // покажем стандартные контролы, если автоплей заблокирован
+      alert('Браузер блокирует автозапуск аудио. Нажмите Play в плеере.');
+    }
+  });
+
+  // пауза/продолжить
+  pause.addEventListener('click', ()=>{
+    if(a.paused){ a.play(); pause.textContent='⏸ Пауза'; }
+    else{ a.pause(); pause.textContent='▶ Жалғастыру'; }
+  });
+
+  // ставим на паузу при сворачивании вкладки
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && !a.paused) a.pause();
+  });
+})();
+
+/* ====== EMBEDDED LAB #2 SCRIPT ====== */
+(function(){
+  const labURL = "https://efizika.ru/html5/150/index.html"; // адрес 2-й лаборатории
+  const frame = document.getElementById('lab2Frame');
+  const mask  = document.getElementById('lab2Mask');
+  const a     = document.getElementById('lab2Audio');
+  const start = document.getElementById('lab2StartBtn');
+  const pause = document.getElementById('lab2PauseBtn');
+  const seek  = document.getElementById('lab2Seek');
+  const curT  = document.getElementById('lab2CurTime');
+  const durT  = document.getElementById('lab2DurTime');
+
+  // форматирование времени
+  const fmt = s => {
+    s = Math.max(0, s|0);
+    const m = String((s/60)|0).padStart(2,'0');
+    const ss= String(s%60).padStart(2,'0');
+    return `${m}:${ss}`;
+  };
+
+  // восстановление позиции аудио (отдельный ключ для 2-й лаборатории)
+  try{
+    const saved = +localStorage.getItem('lab02_t');
+    if(Number.isFinite(saved) && saved>0) a.currentTime = saved;
+  }catch(e){}
+
+  a.addEventListener('loadedmetadata', ()=>{
+    durT.textContent = fmt(a.duration||0);
+  });
+
+  // ползунок <-> аудио
+  a.addEventListener('timeupdate', ()=>{
+    if(a.duration){
+      seek.value = (a.currentTime / a.duration) * 100;
+      curT.textContent = fmt(a.currentTime);
+      try{ localStorage.setItem('lab02_t', a.currentTime.toFixed(0)); }catch(e){}
+    }
+  });
+  seek.addEventListener('input', ()=>{
+    if(a.duration){
+      a.currentTime = (seek.value/100) * a.duration;
+    }
+  });
+
+  // старт
+  start.addEventListener('click', async ()=>{
+    if(frame.src === "about:blank") frame.src = labURL;
+    mask.style.display = 'none';
+    try{
+      await a.play();
+      start.disabled = true;
+    }catch(err){
+      a.setAttribute('controls','controls');
+      alert('Браузер блокирует автозапуск аудио. Нажмите Play в плеере.');
+    }
+  });
+
+  // пауза/продолжить
+  pause.addEventListener('click', ()=>{
+    if(a.paused){ a.play(); pause.textContent='⏸ Пауза'; }
+    else{ a.pause(); pause.textContent='▶ Жалғастыру'; }
+  });
+
+  // авто-пауза при сворачивании вкладки
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && !a.paused) a.pause();
+  });
+})();
+
 </script>
+
+<script>
+/* ====== MOBILE AUTO-RESIZE FOR IFRAMES ======
+   На узких экранах делаем высоту фреймов ≈ 72% окна, 
+   чтобы была видна лаборатория и не прыгал экран при смене ориентации.
+*/
+(function(){
+  const isNarrow = () => window.matchMedia('(max-width: 640px)').matches;
+
+  function setHeights(){
+    const h = Math.round(window.innerHeight * 0.72); // 72% от фактич. высоты окна
+    document.querySelectorAll('.lab-frame').forEach(box=>{
+      if(isNarrow()){
+        box.style.minHeight = h + 'px';
+        box.style.height = h + 'px';
+      }else{
+        // на десктопе вернём управление CSS (aspect-ratio)
+        box.style.height = '';
+        box.style.minHeight = '';
+      }
+    });
+  }
+
+  // начальная установка
+  setHeights();
+
+  // пересчёт при ресайзе и смене ориентации
+  let rafId=null;
+  addEventListener('resize', ()=>{ cancelAnimationFrame(rafId); rafId=requestAnimationFrame(setHeights); });
+  addEventListener('orientationchange', ()=>{ setTimeout(setHeights, 150); });
+
+  // если у тебя несколько секций, это затронет все .lab-frame сразу
+})();
+</script>
+
 </body>
 </html>

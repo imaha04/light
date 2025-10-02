@@ -1,116 +1,123 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Activitar Template">
-    <meta name="keywords" content="Activitar, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Жарық құбылыстары</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theory 3</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #3765a2;
+      color: #333;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #3765a2;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .content h2 {
+      color: #0077cc;
+    }
 
-    <!-- Google Font -->
-    <link href="css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="css-1?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css%20%281%29/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css%20%281%29/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="cssi/style.css" type="text/css">
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #0077cc;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 15px;
+      }
+      nav a {
+        padding: 10px 0;
+      }
+      nav.active {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+  <header>
+    <h1>Интерференция</h1>
+    <nav id="nav">
+      <a href="theory-1.html">Басты бет</a>
+      <a href="theory-2.html">Жарықтың шағылуы</a>
+      <a href="theory-3.html">Жарықтың сынуы</a>
+      <a href="theory-4.html">Линзалар</a>
+      <a href="theory-5.html">Интерференция</a>
+      <a href="theory-6.html">Дифракция</a>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
     </div>
+  </header>
 
-    <!-- Header Section Begin -->
-    <header class="header-section">
-    <div class="container-fluid">
-        <div class="logo">
-            <a href="index.html"><h2 style="color:white;">Жарық құбылыстары</h2></a>
-        </div>
-        <div class="container">
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="index.htm">Басты бет</a></li>
-                        
-                        <!-- Теориялық бөлім с выпадающим списком -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);">Теориялық бөлім</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="theory-1.html">Жарықтың шағылуы</a></li>
-                                <li><a href="theory-2.html">Жарықтың сынуы</a></li>
-                                <li><a href="theory-3.html">Линзалар</a></li>
-                                <li><a href="theory-4.html">Интерференция</a></li>
-                                <li><a href="theory-5.html">Дифракция</a></li>
-                                <li><a href="theory-6.html">Поляризация</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="laboratory.html">Зертханалық жұмыстар</a></li>                         
-                        <li><a href="test.html">Тесттер</a></li>                          
-                        <li><a href="esepter.html">Есептер</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-    </div>
-</header>
-    <!-- Header End -->
-
-<!-- Hero Section Begin -->
-<body style="background-image: url('img/PH/88.jpg'); background-size: cover; background-repeat: repeat-y; background-attachment: fixed;">
-    <div style="text-align: center; margin-top: 150px;">
+  <main class="content">
+    <div style="text-align: center; margin-top: 10px;">
         <div style="display: inline-block; padding: 10px 25px; background-color: #e45400; border: 2px solid white; border-radius: 30px; color: white; font-size: 24px; font-weight: 600; margin-bottom: 40px;">
-            Дифракция
+            Интерференция
         </div>
         <h2 style="font-size: 28px; color: white; margin-bottom: 40px;"></h2>
-        <img src="img/dif/1.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
+        <img src="img/inter/1.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
     </div>
     <div style="text-align: center;">
-        <img src="img/dif/2.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;"> 
+        <img src="img/inter/2.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;"> 
        </div>
     <div style="text-align: center;">
-        <img src="img/dif/3.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">    
+        <img src="img/inter/3.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">    
     </div>
-    <div style="text-align: center;">
-        <img src="img/dif/4.png" style="width: 960px; max-width: 100%; margin-bottom: 80px;margin-left:auto; margin-right:auto;">
-    </div>
+  </main>
 
-
-
-    
-
-
-
-    
-
-    
-
-   
-
-
-
-
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav").classList.toggle("active");
+    }
+  </script>
 </body>
-
-</body></html>
+</html>
