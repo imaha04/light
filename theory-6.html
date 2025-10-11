@@ -225,12 +225,14 @@
         const on = t.id === 'tab-'+id;
         t.setAttribute('aria-selected', on);
       });
-      for(const key in panels){
-        const el = panels[key];
-        const active = key===id;
-        el.classList.toggle('active', active);
-        el.hidden = !active;
-      }
+      for (const key in panels) {
+  const el = panels[key];
+  if (!el) continue; // <-- добавляем эту строку
+  const active = key === id;
+  el.classList.toggle('active', active);
+  el.hidden = !active;
+}
+
       moveSliderTo(document.getElementById('tab-'+id));
       if(pushHash) history.replaceState(null,'','#'+id);
 
