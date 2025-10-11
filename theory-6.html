@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theory 1 — Жарықтың шағылуы</title>
+  <title>Theory 6 — Жарықтың түзу сызықты таралу заңы</title>
   <meta name="color-scheme" content="dark light">
   <style>
     :root{
@@ -26,7 +26,6 @@
       color: var(--txt);
     }
 
-    /* ===== HEADER ===== */
     header {
       background: linear-gradient(180deg, rgba(0,119,204,.9), rgba(0,119,204,.6));
       border-bottom:1px solid rgba(255,255,255,.15);
@@ -45,7 +44,6 @@
     .burger { display:none; flex-direction:column; cursor:pointer }
     .burger div { width:25px; height:3px; background:white; margin:4px 0 }
 
-    /* ===== LAYOUT ===== */
     .content {
       max-width: 980px;
       margin: 22px auto 80px;
@@ -53,7 +51,6 @@
       padding: 0 14px;
     }
 
-    /* ===== TITLE BADGE ===== */
     .badge {
       display:inline-block;
       padding:10px 24px;
@@ -64,7 +61,6 @@
       box-shadow: 0 10px 26px rgba(0,0,0,.25), 0 0 18px rgba(255,200,160,.35) inset;
     }
 
-    /* ===== TABS (WOW) ===== */
     .tabs {
       margin-top: 18px;
       background: var(--glass);
@@ -102,11 +98,7 @@
       transition:.28s cubic-bezier(.2,.8,.2,1);
     }
 
-    .panels{ margin-top:12px }
-    .panel{
-      opacity:0; transform: translateY(10px) scale(.98);
-      transition: .35s cubic-bezier(.2,.8,.2,1);
-    }
+    .panel{ opacity:0; transform: translateY(10px) scale(.98); transition: .35s cubic-bezier(.2,.8,.2,1); }
     .panel.active{ opacity:1; transform:none }
     .panel-inner{
       background: rgba(255,255,255,.08);
@@ -116,7 +108,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* ===== VIDEO GRID ===== */
     .vgrid{
       display:grid; gap: clamp(12px,2vw,18px);
       grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
@@ -130,7 +121,6 @@
     .vcard iframe, .vcard video{ width:100%; aspect-ratio:16/9; display:block; }
     .vmeta{ padding:10px 12px; color:#eaf2ff; font-weight:800 }
 
-    /* ===== THEORY IMAGES (твои) ===== */
     .imgwrap{ text-align:center }
     .imgwrap img{
       width: 960px; max-width: 100%;
@@ -141,7 +131,6 @@
       background:#0b2b55;
     }
 
-    /* ===== MOBILE NAV ===== */
     @media (max-width: 768px) {
       nav {
         display: none; flex-direction: column; background: #0077cc;
@@ -175,37 +164,46 @@
       <span class="badge">Жарықтың түзу сызықты таралу заңы</span>
     </div>
 
-    <!-- TABS -->
     <section class="tabs" role="tablist" aria-label="Контент түрі">
       <div class="tablist">
+        <button class="tab" id="tab-video" role="tab" aria-selected="true" aria-controls="panel-video">
+          Видео
+          <span class="ink" aria-hidden="true"></span>
+        </button>
         <button class="tab" id="tab-theory" role="tab" aria-selected="false" aria-controls="panel-theory">
           Теория
           <span class="ink" aria-hidden="true"></span>
         </button>
         <div class="slider" aria-hidden="true"></div>
       </div>
-        <!-- VIDEO PANEL -->
 
-        <!-- THEORY PANEL -->
-        <div id="panel-theory" class="panel" role="tabpanel" aria-labelledby="tab-theory" tabindex="0" hidden>
-          <div class="panel-inner">
-            <!-- твои исходные изображения без изменений -->
-            <div class="imgwrap"><img src="img/tuz/1.png" alt="Линза — 1"></div>
-            <div class="imgwrap"><img src="img/tuz/2.png" alt="Линза — 2"></div>
-            <div class="imgwrap"><img src="img/tuz/3.png" alt="Линза — 3"></div>
-            <div class="imgwrap"><img src="img/tuz/4.png" alt="Линза — 4"></div>
+      <!-- VIDEO PANEL -->
+      <div id="panel-video" class="panel active" role="tabpanel" aria-labelledby="tab-video" tabindex="0">
+        <div class="panel-inner">
+          <div class="vgrid">
+            <div class="vcard">
+              <iframe src="img/zhsyn/tuz.mp4" title="Жарықтың таралуы" frameborder="0" allowfullscreen></iframe>
+              <div class="vmeta">Жарықтың түзу сызықты таралуы — видео сабақ</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- THEORY PANEL -->
+      <div id="panel-theory" class="panel" role="tabpanel" aria-labelledby="tab-theory" tabindex="0" hidden>
+        <div class="panel-inner">
+          <div class="imgwrap"><img src="img/tuz/1.png" alt="Линза — 1"></div>
+          <div class="imgwrap"><img src="img/tuz/2.png" alt="Линза — 2"></div>
+          <div class="imgwrap"><img src="img/tuz/3.png" alt="Линза — 3"></div>
+          <div class="imgwrap"><img src="img/tuz/4.png" alt="Линза — 4"></div>
+        </div>
+      </div>
     </section>
-    <!-- /TABS -->
   </main>
 
   <script>
-    /* ===== Mobile burger ===== */
     function toggleMenu(){ document.getElementById("nav").classList.toggle("active"); }
 
-    /* ===== Tabs ===== */
     const tabs = [...document.querySelectorAll('.tab')];
     const panels = {
       video: document.getElementById('panel-video'),
@@ -226,21 +224,20 @@
         t.setAttribute('aria-selected', on);
       });
       for (const key in panels) {
-  const el = panels[key];
-  if (!el) continue; // <-- добавляем эту строку
-  const active = key === id;
-  el.classList.toggle('active', active);
-  el.hidden = !active;
-}
+        const el = panels[key];
+        if (!el) continue;
+        const active = key === id;
+        el.classList.toggle('active', active);
+        el.hidden = !active;
+      }
 
       moveSliderTo(document.getElementById('tab-'+id));
       if(pushHash) history.replaceState(null,'','#'+id);
 
-      // Пауза/остановка плееров при уходе с видео
-      if(id !== 'video'){
+      if(id !== 'video' && panels.video){
         panels.video.querySelectorAll('video').forEach(v=> v.pause());
         panels.video.querySelectorAll('iframe[src*="youtube.com"]').forEach(f=>{
-          const src=f.getAttribute('src'); f.setAttribute('src', src); // перезагрузка iframe
+          const src=f.getAttribute('src'); f.setAttribute('src', src);
         });
       }
     }
@@ -255,10 +252,8 @@
       });
     });
 
-    // init by hash
     const initial = (location.hash.replace('#','') || 'video');
     setActive(initial,false);
-    // keep slider correct on resize
     addEventListener('resize', ()=> moveSliderTo(document.querySelector('.tab[aria-selected="true"]')) );
   </script>
 </body>
