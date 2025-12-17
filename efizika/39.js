@@ -16907,7 +16907,7 @@
 				
 				
             return O = O > 1 ? Math.PI / 2 : O < -1 ? -Math.PI / 2 : Math.asin(O), 
-			s.default.createElement(s.default.Fragment, null, s.default.createElement("h1", null, "Изучение закона отражения света"), 
+			s.default.createElement(s.default.Fragment, null, s.default.createElement("h1", null, "Жарықтың шағылу заңын зерттеу"), 
 			s.default.createElement(c.default, {
                 id: "section-discharge-39"
             }, s.default.createElement(u.default, {
@@ -16918,9 +16918,9 @@
                         y: 100
                     })
                 }
-            }, "Сброс")), s.default.createElement(c.default, {
+            }, "Жою")), s.default.createElement(c.default, {
                 id: "section-params-39"
-            }, s.default.createElement("h2", null, "Параметры установки"), s.default.createElement(a.default, {
+            }, s.default.createElement("h2", null, "Құрылғы параметрлері"), s.default.createElement(a.default, {
                 firstLabel: s.default.createElement(s.default.Fragment, null, "α = "),
                 secondLabel: s.default.createElement(s.default.Fragment, null, " ", s.default.createElement("sup", null, "°")),
                 inputProps: {
