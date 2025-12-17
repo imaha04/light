@@ -8,7 +8,7 @@
 }
 
 .react-app-1280-720 {
-  background-image: url('../images/fon1280.png');
+  background-image: url('images/fon1280.png');
   height: 720px;
   width: 1280px;
   box-sizing: border-box;
