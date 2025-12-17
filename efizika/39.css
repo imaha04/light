@@ -1,0 +1,82 @@
+#stativ-39 {
+  position: absolute;
+  left: 302px;
+  top: 285px;
+  height: 400px;
+  z-index: 0;
+}
+
+
+#beam-top-39 {
+  position: absolute;
+  width: 4px;
+  height: 218px;
+  background-color: red;
+  left: 399px;
+  top: 181.5px;
+  transform-origin: bottom;
+   z-index: 5;
+}
+
+#beam-bottom-39 {
+  position: absolute;
+  width: 4px;
+  height: 5512px;
+  background-color: red;
+  left: 399px;
+  top: 399.5px;
+  transform-origin: top;
+   z-index: 5;
+}
+
+#section-discharge-39 {
+  position: absolute;
+  width: 50px !important;
+  right: 120px;
+  top: 500px;
+  left: 975px;
+   z-index: 15;
+}
+
+#section-params-39 {
+  position: absolute;
+  top: 135px;
+  right: 120px;
+  width: 250px !important;
+  z-index: 15;
+}
+
+#protractor-39 {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  width: 400px;
+  z-index: 1;
+}
+
+
+
+#glass-bottom-39 {
+  position: absolute;
+  top: 400px;
+  left: 275px;
+  width: 250px !important;
+  z-index: 1;
+}
+
+
+
+
+
+.jss1,
+.PrivateSwitchBase-root-1 {
+  padding: 1px !important;
+}
+
+.MuiFormControlLabel-root {
+  margin-left: -5px !important;
+}
+
+input:not([type='radio']):not([type='checkbox']) {
+  width: 55px !important;
+}
