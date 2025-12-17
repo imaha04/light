@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Жарық құбылыстары — Есептер</title>
 <meta name="color-scheme" content="dark light">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
 /* ====== RESET & TOKENS ====== */
@@ -366,6 +367,14 @@ body{
 </footer>
 
 <script>
+  
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]']]
+    }
+  };
+  
 /* ====== REVEAL ON VIEW ====== */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target) }})
