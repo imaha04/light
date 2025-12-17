@@ -16947,9 +16947,9 @@
 				
 				
             return o.default.createElement(o.default.Fragment, null, 
-			o.default.createElement("h1", null, "Определение показателя преломления вещества"), 
+			o.default.createElement("h1", null, "Заттың сыну көрсеткішін анықтау"), 
 			o.default.createElement("div", null), 
-			o.default.createElement(c.default, null, o.default.createElement("h2", null, "Выберите вещество"), 
+			o.default.createElement(c.default, null, o.default.createElement("h2", null, "Затты таңдаңыз"), 
 			o.default.createElement(i.FormControl, {
                 component: "fieldset"
             }, o.default.createElement(i.RadioGroup, {
@@ -16961,7 +16961,7 @@
             }, o.default.createElement(i.FormControlLabel, {
                 value: 1.5,
                 control: o.default.createElement(i.Radio, null),
-                label: "Стекло"
+                label: "Айна"
             }), o.default.createElement(i.FormControlLabel, {
                 value: 2.42,
                 control: o.default.createElement(i.Radio, null),
@@ -16969,7 +16969,7 @@
             }), o.default.createElement(i.FormControlLabel, {
                 value: 1.33,
                 control: o.default.createElement(i.Radio, null),
-                label: "Вода"
+                label: "Су"
             }), o.default.createElement(i.FormControlLabel, {
                 value: 1.6,
                 control: o.default.createElement(i.Radio, null),
@@ -16981,7 +16981,7 @@
             })))), 
 			
 			
-				o.default.createElement(c.default, null, o.default.createElement("h2", null, "Угол падения"), o.default.createElement(l.default, {
+				o.default.createElement(c.default, null, o.default.createElement("h2", null, "Түсу бұрышы"), o.default.createElement(l.default, {
                 firstLabel: "α = ",
                 secondLabel: " °",
                 inputProps: {
@@ -17004,7 +17004,7 @@
                 onClick: function() {
                     M(!1), E(0), R(0)
                 }
-            }, "Сброс")), o.default.createElement("div", null, o.default.createElement(a.default, {
+            }, "Жою")), o.default.createElement("div", null, o.default.createElement(a.default, {
                 onDrag: function(e, t) {
                     f({
                         x: t.x,
