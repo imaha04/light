@@ -22,7 +22,15 @@ border:1px solid rgba(180,210,255,.18);box-shadow:0 10px 30px rgba(0,0,0,.45);tr
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,.55)}
 .card .glow{position:absolute;inset:-40%;background:radial-gradient(closest-side,rgba(78,164,255,.22),transparent 70%),radial-gradient(closest-side,rgba(138,107,255,.22),transparent 70%);
 mix-blend-mode:screen;filter:blur(24px);opacity:.65;z-index:-1}
-.card img{width:70%;border-radius:10px;margin-bottom:12px;box-shadow:0 0 18px rgba(120,170,255,.35)}
+.card img{
+  width:100%;
+  height:180px;              
+  object-fit:cover;          
+  border-radius:10px;
+  margin-bottom:14px;
+  box-shadow:0 0 18px rgba(120,170,255,.35);
+  display:block;
+}
 .card h3{font-size:20px;margin-bottom:6px}
 .card p{color:#b7c2e8;font-size:15px;line-height:1.6}
 .card a{color:#9ec6ff;font-weight:700;text-decoration:none}
